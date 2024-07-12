@@ -10,7 +10,7 @@ public class Solution {
         }
 
         
-        System.out.print(x + " " + y);
+       // System.out.print(x + " " + y);
     }
 
 }
