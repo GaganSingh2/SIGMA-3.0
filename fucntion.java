@@ -5,6 +5,7 @@ public class fucntion {
      *                   body
      *                   return statement; 
      *           }
+     * It is also called Method in java
      */
 
 
