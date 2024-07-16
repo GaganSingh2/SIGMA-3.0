@@ -6,6 +6,7 @@ public class fucntion {
      *                   return statement; 
      *           }
      * It is also called Method in java
+     * hum ak class ke andar bahut sare function ko create v kar skte hai aur call v kar skte hai
      */
 
 
