@@ -20,6 +20,7 @@ public class fucntion {
         return 3;  //humne yaha retrun ke sath 3 likha hai kyuki humne apne function me returntype int liya hai jo kuch na kuch value return karayega
     }
     public static void main(String[] args) {
+        System.out.println("Radhe Radhe");
         printHello();  //function call
     }
 }
