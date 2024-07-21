@@ -19,7 +19,6 @@ public class pattern_2 {
         }
     }
 
-
     public static void inverted_rotated_half_pyramid(int num) {
         // for row or line
         for (int i = 1; i <= num; i++) {
@@ -37,16 +36,15 @@ public class pattern_2 {
 
     }
 
-
-    public static void inverted_half_pyramid_withNumber(int num){
+    public static void inverted_half_pyramid_withNumber(int num) {
         // for line or rows
-        for(int i=1; i<=num; i++){
+        for (int i = 1; i <= num; i++) {
 
             // for print numbers
-            for(int j=1; j<=num-i+1; j++){
-                System.out.print(j+" ");
+            for (int j = 1; j <= num - i + 1; j++) {
+                System.out.print(j + " ");
             }
-            for(int j=1; j<=i-1; j++){
+            for (int j = 1; j <= i - 1; j++) {
                 System.out.print(" ");
             }
             System.out.println();
@@ -54,39 +52,122 @@ public class pattern_2 {
         return;
     }
 
-
-    public static void floyd_triangle(int num){
-        int count=1;
+    public static void floyd_triangle(int num) {
+        int count = 1;
         // for line or rows
-        for(int i=1; i<=num; i++){
-            
+        for (int i = 1; i <= num; i++) {
+
             // for print numbers
-            for(int j=1; j<=i; j++){
-               
-                System.out.print(count+" ");
+            for (int j = 1; j <= i; j++) {
+
+                System.out.print(count + " ");
                 count++;
-               
+
             }
             System.out.println();
-          
+
         }
         return;
     }
 
-
-    public static void triangle_of_zero_one(int num){
+    public static void triangle_of_zero_one(int num) {
         // for line and rows
-        for(int i=1; i<=num; i++){
+        for (int i = 1; i <= num; i++) {
 
-            //for print 0 and 1
-            for(int j=1; j<=i; j++){
-                if ((i+j)%2==0) {
+            // for print 0 and 1
+            for (int j = 1; j <= i; j++) {
+                if ((i + j) % 2 == 0) {
                     System.out.print("1 ");
-                }
-                else{
+                } else {
                     System.out.print("0 ");
                 }
-                
+
+            }
+            System.out.println();
+        }
+        return;
+    }
+
+    public static void butterfly_pattern(int num) {
+        // 1st half
+
+        // for line and rows
+        for (int i = 1; i <= num; i++) {
+
+            // Star - i
+            for (int j = 1; j <= i; j++) {
+                System.out.print("x");
+            }
+
+            // Space - 2*(num-i)
+            for (int j = 1; j <= 2 * (num - i); j++) {
+                System.out.print(" ");
+            }
+
+            // Star - i
+            for (int j = 1; j <= i; j++) {
+                System.out.print("x");
+            }
+            System.out.println();
+        }
+
+        // 2nd half
+
+        // for line and rows
+        for (int i = num; i >= 1; i--) {
+
+            // Star - i
+            for (int j = 1; j <= i; j++) {
+                System.out.print("x");
+            }
+
+            // Space - 2*(num-i)
+            for (int j = 1; j <= 2 * (num - i); j++) {
+                System.out.print(" ");
+            }
+
+            // Star - i
+            for (int j = 1; j <= i; j++) {
+                System.out.print("x");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void solid_rhombus(int num) {
+        // for line or rows
+        for (int i = 1; i <= num; i++) {
+
+            // for space num-i
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print(" ");
+            }
+
+            // for star 5
+            for (int j = 1; j <= num; j++) {
+                System.out.print("x");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void hollow_rhombus(int num) {
+        // for line or rows
+        for (int i = 1; i <= num; i++) {
+
+            // for spaces n-i
+            for (int j = 1; j <= num - i; j++) {
+                System.out.print(" ");
+            }
+
+            // for star
+            for (int j = 1; j <= num; j++) {
+                if (i == 1 || i == num || j == 1 || j == num) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
@@ -94,51 +175,40 @@ public class pattern_2 {
     }
 
 
-    public static void butterfly_pattern(int num){
+    public static void diamond(int num){
+        
         //1st half
-
-        //for line and rows
+        // for line and rows
         for(int i=1; i<=num; i++){
-
-            //Star - i
-            for(int j=1; j<=i; j++){
-                System.out.print("x");
-            }
-
-            //Space - 2*(num-i)
-            for(int j=1; j<=2*(num-i); j++){
+            
+            //for space n-i
+            for(int j=1; j<=num-i; j++){
                 System.out.print(" ");
             }
 
-            //Star - i
-            for(int j=1; j<=i; j++){
-                System.out.print("x");
-            }
-            System.out.println();
-        }
-
-        //2nd half
-
-        //for line and rows
-        for(int i=num; i>=1; i--){
-
-             //Star - i
-             for(int j=1; j<=i; j++){
-                System.out.print("x");
-            }
-
-            //Space - 2*(num-i)
-            for(int j=1; j<=2*(num-i); j++){
-                System.out.print(" ");
-            }
-
-            //Star - i
-            for(int j=1; j<=i; j++){
+            //for star
+            for(int j=1; j<=(2*i)-1; j++){
                 System.out.print("x");
             }
             System.out.println();
         }
         
+        //2nd half
+        // for line and row
+        for(int i=num; i>=1; i--){
+
+            //for space n-i
+            for(int j=1; j<=num-i; j++){
+                System.out.print(" ");
+            }
+
+            //for star
+            for(int j=1; j<=(2*i)-1; j++){
+                System.out.print("x");
+            }
+            System.out.println();
+        }
+        return;
     }
 
     public static void main(String[] args) {
@@ -152,35 +222,46 @@ public class pattern_2 {
         // int totcols = sc.nextInt();
         // hollow_rectangle(totrows, totcols);
 
-
         // Q2)print the inverted and rotated half pyramid
         // System.out.println("Enter the line num: ");
         // int num = sc.nextInt();
         // inverted_rotated_half_pyramid(num);
 
-
-        //Q3) print the inverted half pyramid with numbers
+        // Q3) print the inverted half pyramid with numbers
         // System.out.println("Enter the number of line: ");
         // int num = sc.nextInt();
         // inverted_half_pyramid_withNumber(num);
 
-
-        //Q4) print the Floyd triangle with numbers
+        // Q4) print the Floyd triangle with numbers
         // System.out.println("ENter the number: ");
         // int num = sc.nextInt();
         // floyd_triangle(num);
 
-       
-        //Q5) print the the 0-1 triangle
+        // Q5) print the the 0-1 triangle
         // System.out.println("ENter the number of line: ");
         // int num = sc.nextInt();
         // triangle_of_zero_one(num);
 
+        // Q6) print the butterfly pattern
+        // System.out.println("ENter the number of line: ");
+        // int num = sc.nextInt();
+        // butterfly_pattern(num);
 
-        //Q6) print the butterfly pattern
-        System.out.println("ENter the number of line: ");
+        // Q7) print the solid rhombus
+        // System.out.println("Enter the number of line: ");
+        // int num = sc.nextInt();
+        // solid_rhombus(num);
+
+        // Q8) Print the Hollow Rhombus
+        // System.out.println("ENter the number of line: ");
+        // int num = sc.nextInt();
+        // hollow_rhombus(num);
+
+
+        //Q9) print diamond pattern
+        System.out.println("Enter the number of line: ");
         int num = sc.nextInt();
-        butterfly_pattern(num);
+        diamond(num);
 
     }
 }
