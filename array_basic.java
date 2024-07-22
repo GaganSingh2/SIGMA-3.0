@@ -40,5 +40,20 @@ public class array_basic {
 
         //length of array
         System.out.println("Length of Array is "+marks.length);
+
+        //Scanner sc = new Scanner(System.in);
+        
+        // input from the user in define array
+        System.out.println("Entr the length of array: ");
+        int len = sc.nextInt();
+        int abs[] = new int[len];
+        System.out.println("Enter the value in array: ");
+        for(int i=0; i<len; i++){
+            abs[i] = sc.nextInt();
+        }
+        System.out.println("Print the value in array");
+        for(int i=0; i<len; i++){
+            System.out.println(abs[i]);
+        }
     }
 }
