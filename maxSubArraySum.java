@@ -59,6 +59,24 @@ public class maxSubArraySum {
         System.out.println("Max Sum is "+maxSum);
     }
 
+
+    public static void kadane_Algo_to_maxSum(int arr[]){
+        /*Kadane Algorithm: Kadane Algorithm works when the sum of two value can be create a negative number then the with the help of kadane algo the current sum is automatically update the 0. */
+
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+        for(int i=0; i<arr.length; i++){
+            currSum = currSum + arr[i];
+            if (currSum < 0) {
+                currSum = 0;
+            }
+
+            maxSum = Math.max(currSum, maxSum);
+        }
+        System.out.println("Maximum Sum is "+maxSum);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -78,18 +96,32 @@ public class maxSubArraySum {
 
 
         //Find the Maximum sum of sub-array in given array with 2nd-way
+        // System.out.println("ENter the length of Array: ");
+        // int len =  sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+
+        // maxSubarraySumPrefix(arr);
+        
+        //Time COmplexity = O(n^2). it is lower than 1st way
+
+
+        //Q) Find the Maximum Sum with the help of Kadane Algorithm.
+
         System.out.println("ENter the length of Array: ");
-        int len =  sc.nextInt();
+        int len = sc.nextInt();
 
         int arr[] = new int[len];
 
-        System.out.println("Enter the value in Array: ");
+        System.out.println("Enter the value in Array:  ");
         for(int i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
-
-        maxSubarraySumPrefix(arr);
-        
-        //Time COmplexity = O(n^2). it is lower than 1st way
+        kadane_Algo_to_maxSum(arr);
     }
 }
