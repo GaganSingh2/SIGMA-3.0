@@ -52,6 +52,18 @@ public class dsa_sheet_Array {
         }
         return maxSum;
     }
+
+
+    public static boolean containDuplicate(int nums[]){
+        for(int i=0; i<nums.length-1; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if (nums[i]==nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -92,17 +104,31 @@ public class dsa_sheet_Array {
 
         //Q3) Given an integer array nums find the sub-array with the largest sum, and returns its sum.
 
-        System.out.println("ENter the lenght of Array: ");
+        // System.out.println("ENter the lenght of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("ENter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+
+        // int result = maxSubArraySum(arr);
+        // System.out.println("Maximum sum of Sub-Array is "+result);
+
+
+        //Q4)[217]Contain Duplicate:- Given an integer array nums, return true if any value appears at least twice in the array, and return fase if every element is distinct.
+        System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
 
-        int arr[] = new int[len];
+        int nums[] = new int[len];
 
         System.out.println("ENter the value in Array: ");
         for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
+            nums[i] = sc.nextInt();
         }
-
-        int result = maxSubArraySum(arr);
-        System.out.println("Maximum sum of Sub-Array is "+result);
+        boolean ans = containDuplicate(nums);
+        System.out.println(ans);
     }
 }
