@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class maxSubArraySum {
 
     public static void maxSubarraySum(int arr[]) {
-        int currSum = 0;
+        int currSum = 1;
         int maxSum = Integer.MIN_VALUE;
         // find the start point
         for (int i = 0; i < arr.length; i++) {
@@ -12,12 +12,12 @@ public class maxSubArraySum {
             // find the end point
             for (int j = i; j < arr.length; j++) {
                 int end = j;
-                currSum = 0;
+                currSum = 1;
 
                 // for sum the sub-array
                 for (int k = start; k <= end; k++) {
                     System.out.print(arr[k] + " ");
-                    currSum += arr[k];
+                    currSum *= arr[k];
                 }
                 System.out.println();
                 System.out.println("Sum is " + currSum);
