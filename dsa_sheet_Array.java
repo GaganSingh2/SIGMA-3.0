@@ -37,6 +37,21 @@ public class dsa_sheet_Array {
         }
         
     }
+
+
+    public static int maxSubArraySum(int arr[]){
+        //Using of Kadane's Algorithm
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
+            currSum +=  arr[i];
+            maxSum = Math.max(currSum, maxSum);
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        }
+        return maxSum;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -58,7 +73,26 @@ public class dsa_sheet_Array {
 
 
         //Q2) Find the revrse of array
-        System.out.println("Enter the length of Array: ");
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("ENter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+
+        // reverse_Array(arr);
+        // System.out.println("After the Reverse of Array:");
+        // for(int i=0; i<len; i++){
+        //     System.out.println(arr[i]+" ");
+        //}
+
+
+        //Q3) Given an integer array nums find the sub-array with the largest sum, and returns its sum.
+
+        System.out.println("ENter the lenght of Array: ");
         int len = sc.nextInt();
 
         int arr[] = new int[len];
@@ -68,10 +102,7 @@ public class dsa_sheet_Array {
             arr[i] = sc.nextInt();
         }
 
-        reverse_Array(arr);
-        System.out.println("After the Reverse of Array:");
-        for(int i=0; i<len; i++){
-            System.out.println(arr[i]+" ");
-        }
+        int result = maxSubArraySum(arr);
+        System.out.println("Maximum sum of Sub-Array is "+result);
     }
 }
