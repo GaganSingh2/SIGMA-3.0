@@ -64,6 +64,36 @@ public class dsa_sheet_Array {
         }
         return false;
     }
+
+
+    public static int trapped_RainWater(int height[]){
+        int n = height.length;
+        //Calculate the left max boundary-Array
+        int leftMax[] = new int[n];
+        leftMax[0] = height[0];
+        for(int i=1; i<n; i++){
+            leftMax[i] = Math.max(height[i], leftMax[i-1]);
+        }
+
+        //Calculate the right max boundary-Array
+        int rightMax[] = new int[n];
+        rightMax[n-1] = height[n-1];
+        for(int i=n-2; i>=0; i--){
+            rightMax[i] = Math.max(height[i], rightMax[i+1]);
+        }
+
+        //Loop for find the WaterLevel and trappedWater
+        int trappedWater = 0;
+        for(int i=0; i<n; i++){
+            // Calculate the WaterLevel
+            int waterLevel = Math.min(leftMax[i], rightMax[i]);
+
+            //Calculate the trappedWater
+            trappedWater += waterLevel - height[i]; 
+        }
+        
+     return trappedWater;   
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -119,16 +149,31 @@ public class dsa_sheet_Array {
 
 
         //Q4)[217]Contain Duplicate:- Given an integer array nums, return true if any value appears at least twice in the array, and return fase if every element is distinct.
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int nums[] = new int[len];
+
+        // System.out.println("ENter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     nums[i] = sc.nextInt();
+        // }
+        // boolean ans = containDuplicate(nums);
+        // System.out.println(ans);
+
+
+        //Q5)[42] Trapping Rain Water: Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
         System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
 
-        int nums[] = new int[len];
+        int height[] = new int[len];
 
-        System.out.println("ENter the value in Array: ");
+        System.out.println("Enter the heigth of Array: ");
         for(int i=0; i<len; i++){
-            nums[i] = sc.nextInt();
+            height[i] = sc.nextInt();
         }
-        boolean ans = containDuplicate(nums);
-        System.out.println(ans);
+
+        int trapped_water = trapped_RainWater(height);
+        System.out.println("Total Trapped Water is "+trapped_water);
     }
 }
