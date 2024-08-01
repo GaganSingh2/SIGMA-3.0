@@ -175,5 +175,7 @@ public class dsa_sheet_Array {
 
         int trapped_water = trapped_RainWater(height);
         System.out.println("Total Trapped Water is "+trapped_water);
+
+        //Time complexity :- O(n).
     }
 }
