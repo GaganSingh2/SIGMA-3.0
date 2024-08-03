@@ -177,5 +177,6 @@ public class dsa_sheet_Array {
         System.out.println("Total Trapped Water is "+trapped_water);
 
         //Time complexity :- O(n).
+        //Space Complexity
     }
 }
