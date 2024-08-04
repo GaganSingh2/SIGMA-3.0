@@ -94,6 +94,16 @@ public class dsa_sheet_Array {
         
      return trappedWater;   
     }
+
+
+    public static int numWaterBottles(int numBottles, int numExchange){
+        int drink = numBottles;
+        while (numBottles>=numExchange) {
+            drink += numBottles/numExchange;
+            numBottles = numBottles/numExchange + numBottles%numExchange;
+        }
+        return drink;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -163,20 +173,36 @@ public class dsa_sheet_Array {
 
 
         //Q5)[42] Trapping Rain Water: Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
 
-        int height[] = new int[len];
+        // int height[] = new int[len];
 
-        System.out.println("Enter the heigth of Array: ");
-        for(int i=0; i<len; i++){
-            height[i] = sc.nextInt();
-        }
+        // System.out.println("Enter the heigth of Array: ");
+        // for(int i=0; i<len; i++){
+        //     height[i] = sc.nextInt();
+        // }
 
-        int trapped_water = trapped_RainWater(height);
-        System.out.println("Total Trapped Water is "+trapped_water);
+        // int trapped_water = trapped_RainWater(height);
+        // System.out.println("Total Trapped Water is "+trapped_water);
 
         //Time complexity :- O(n).
-        //Space Complexity
+        
+        
+        //Q6)[1518]There are numBottles water bottles that are initially full of water. You can exchange numExchange empty water bottles from the market with one full water bottle.The operation of drinking a full water bottle turns it into an empty bottle.Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
+        
+        System.out.println("ENter the value of numBottles: ");
+        int numBottles = sc.nextInt();
+
+        System.out.println("ENter the value of numExchange: ");
+        int numExchange = sc.nextInt();
+
+        int result = numWaterBottles(numBottles, numExchange);
+        System.out.println("Number of WaterBottle you can drink is "+result);
+
+
+
+
+
     }
 }
