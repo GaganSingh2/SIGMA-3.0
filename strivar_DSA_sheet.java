@@ -31,6 +31,30 @@ public class strivar_DSA_sheet {
         return secondLargest;
     }
 
+
+    public static boolean sortedAndRotated(int nums[]){
+        int spike = 0;
+        int n = nums.length;
+        for(int i=0; i<n-1; i++){
+            if (nums[i]<=nums[i+1]) {
+                continue;
+            }
+            else{
+                spike++;
+            }
+        }
+        if (nums[n-1]<=nums[0]) {
+            
+        }
+        else{
+            spike++;
+        }
+        if (spike>1) {
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -50,16 +74,31 @@ public class strivar_DSA_sheet {
 
 
         //Q2) Find the second largeest number in given array
-        System.out.println("Enter the length of Array: ");
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // int num = secondLargestNum(arr);
+        // System.out.println("Second Largest is "+num);
+
+
+        //Q3) Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false
+        System.out.println("ENter the length in array: ");
         int len = sc.nextInt();
 
-        int arr[] = new int[len];
+        int nums[] = new int[len];
 
         System.out.println("Enter the value in Array: ");
         for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
+            nums[i] = sc.nextInt();
         }
-        int num = secondLargestNum(arr);
-        System.out.println("Second Largest is "+num);
+
+        boolean res = sortedAndRotated(nums);
+        System.out.println(res);
     }
 }
