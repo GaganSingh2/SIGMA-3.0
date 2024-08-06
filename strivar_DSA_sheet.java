@@ -100,5 +100,7 @@ public class strivar_DSA_sheet {
 
         boolean res = sortedAndRotated(nums);
         System.out.println(res);
+
+        //Time Complexity:- O(n)
     }
 }
