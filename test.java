@@ -27,5 +27,7 @@ public class test {
                 System.out.println(num+" is not a prime number");
             }
         }
+
+        //Q2) CHeck the given integer is palindrome or not
     }
 }
