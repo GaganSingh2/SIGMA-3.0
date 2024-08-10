@@ -38,7 +38,21 @@ public class sorting {
             arr[minPos] = arr[turn];
             arr[turn] = temp;
         }
+    }
 
+
+    public static void insertionSort(int arr[]){
+        for(int i=1; i<arr.length; i++){
+            int curr = arr[i];
+            int prev = i-1;
+            //Finding out the correct position to insert
+            while (prev >= 0 && arr[prev] > curr) {
+                arr[prev+1] = arr[prev];
+                prev--;
+            }
+            //for insertion
+            arr[prev+1] = curr;
+        }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -60,17 +74,31 @@ public class sorting {
 
 
         //---------SELECTION SORT---------
-        System.out.println("Enter the length of Array: ");
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("ENter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+
+        // selectionSort(arr);
+        // printArr(arr);
+
+
+        //----------INSERTION SORT----------
+        System.out.println("Enter the length in Array: ");
         int len = sc.nextInt();
 
         int arr[] = new int[len];
 
-        System.out.println("ENter the value in Array: ");
+        System.out.println("Enter the value in Array: ");
         for(int i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
-
-        selectionSort(arr);
+        insertionSort(arr);
         printArr(arr);
     }
 }
