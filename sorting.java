@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Collections;
 
 public class sorting {
 
@@ -58,6 +60,8 @@ public class sorting {
         Scanner sc = new Scanner(System.in);
 
         //---------BUBBLE SORT---------
+        /*In the Bubble sort we compare the first two element and swap them when the first element is greater than the second element theis steps going until when the array is sorted. */
+
         // System.out.println("Enter the length of Array: ");
         // int len = sc.nextInt();
 
@@ -74,6 +78,7 @@ public class sorting {
 
 
         //---------SELECTION SORT---------
+        /*Pick the smallest integer and put the beginning. find the minimum element and swap with the first element. */
         // System.out.println("Enter the length of Array: ");
         // int len = sc.nextInt();
 
@@ -89,16 +94,60 @@ public class sorting {
 
 
         //----------INSERTION SORT----------
-        System.out.println("Enter the length in Array: ");
+        /*Insertion sort is a simple sorting algorithm that build the sorted array one item at a time. we assume the 0th index is already sorted */
+
+        // System.out.println("Enter the length in Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // insertionSort(arr);
+        // printArr(arr);
+        //Time Complexity:- O(n^2)
+
+
+        //---------Inbuilt sorting method---------
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+
+        // Arrays.sort(arr); //Arrays.sort() is a inbuilt function to sort the array
+        // printArr(arr);
+
+       // Arrays.sort(arr,0,3); //Arrays.sort(arr[],starting index,last index) iss inbuilt function ke help se hum apne array ke jisss index tak sort karana chahe kara sakte hai. last index jo hum likhte hai o count nhi hota hai usse ak kam index tak array sort hota hai
+        //printArr(arr);
+        //Time Complexity:- O(n logn). it is a less than of O(n^2)
+
+        
+        //-----Inbuilt sorting method for reverse order------
+        System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
 
-        int arr[] = new int[len];
+        Integer arr[] = new Integer[len]; //yaha humne int ke jagah pe Integer iss liye likha hai kyuki yaha jo reverseOrder function hai oh sirf objects pe kaam karta hai
 
         System.out.println("Enter the value in Array: ");
-        for(int i=0; i<len; i++){
+        for(Integer i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
-        insertionSort(arr);
-        printArr(arr);
+
+        // Arrays.sort(arr,Collections.reverseOrder()); //ye jo function hai iske help se hum apne array ko decending order me sort karke print karwa skate hai
+
+        Arrays.sort(arr, 0, 4, Collections.reverseOrder()); // yaha humne 
+
+        System.out.println("After Sorting in reverse order: ");
+        for(Integer i=0; i<len; i++){
+            System.out.println(arr[i]+" ");
+        }
+
     }
 }
