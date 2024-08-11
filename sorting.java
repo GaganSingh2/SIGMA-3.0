@@ -56,6 +56,30 @@ public class sorting {
             arr[prev+1] = curr;
         }
     }
+
+
+    public static void countingSort(int arr[]){
+        int largest = Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
+            largest = Math.max(largest, arr[i]);
+        }
+
+        // for count the frequence 
+        int count[] = new int[largest+1];
+        for(int i=0; i<arr.length; i++){
+            count[arr[i]]++;
+        }
+
+        //for Sorting
+        int j=0; 
+        for(int i=0; i<count.length; i++){
+            while (count[i] > 0) {
+                arr[j] = i;
+                j++;
+                count[i]--;
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -111,6 +135,7 @@ public class sorting {
 
 
         //---------Inbuilt sorting method---------
+
         // System.out.println("Enter the length of Array: ");
         // int len = sc.nextInt();
 
@@ -130,24 +155,39 @@ public class sorting {
 
         
         //-----Inbuilt sorting method for reverse order------
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
 
-        Integer arr[] = new Integer[len]; //yaha humne int ke jagah pe Integer iss liye likha hai kyuki yaha jo reverseOrder function hai oh sirf objects pe kaam karta hai
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
 
-        System.out.println("Enter the value in Array: ");
-        for(Integer i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
+        // Integer arr[] = new Integer[len]; //yaha humne int ke jagah pe Integer iss liye likha hai kyuki yaha jo reverseOrder function hai oh sirf objects pe kaam karta hai
+
+        // System.out.println("Enter the value in Array: ");
+        // for(Integer i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
 
         // Arrays.sort(arr,Collections.reverseOrder()); //ye jo function hai iske help se hum apne array ko decending order me sort karke print karwa skate hai
 
-        Arrays.sort(arr, 0, 4, Collections.reverseOrder()); // yaha humne 
+        // Arrays.sort(arr, 0, 4, Collections.reverseOrder()); // yaha humne 
 
-        System.out.println("After Sorting in reverse order: ");
-        for(Integer i=0; i<len; i++){
-            System.out.println(arr[i]+" ");
+        // System.out.println("After Sorting in reverse order: ");
+        // for(Integer i=0; i<len; i++){
+        //     System.out.println(arr[i]+" ");
+        // }
+
+
+        //---------COUNTING SORT----------
+
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
+
+        int arr[] = new int[len];
+
+        System.out.println("Enter the value in Array: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
         }
-
+        countingSort(arr);
+        printArr(arr);
     }
 }
