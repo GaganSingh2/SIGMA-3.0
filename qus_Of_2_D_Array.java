@@ -81,6 +81,7 @@ public class qus_Of_2_D_Array {
 
         int res = smallestIn_2_D_Array(arr);
         System.out.println("Smallest integer is "+res);
-
+           
+        //Time Complexity
     }
 }
