@@ -75,6 +75,56 @@ public class qus_Of_2_D_Array {
         }
         System.out.println();
     }
+
+
+    public static int diagonalSum(int arr[][]){
+        int sum = 0;
+        //1st Way
+        // for(int i=0; i<arr.length; i++){
+        //     for(int j=0; j<arr[0].length; j++){
+        //         if (i==j) {
+        //             sum += arr[i][j];
+        //         }
+        //         else if (i+j==arr.length-1) {
+        //             sum += arr[i][j];
+        //         }
+        //     }
+        // }
+        // return sum;
+        //Time Complexity = O(n^2)
+
+        //2nd Way
+        for(int i=0; i<arr.length; i++){
+            //Primary Diagonal 
+            sum += arr[i][i];
+
+            //Secondary Diagonal
+            if (i != arr.length-1-i) {
+                sum += arr[i][arr.length-i-1];
+            }
+        }
+        return sum;
+        //Time Complexity = O(n).
+    }
+
+
+    public static boolean stairCaseSearch(int matrix[][], int key){
+        int row = 0, col = matrix[0].length-1;
+        while (row < matrix.length && col >= 0) {
+            if (matrix[row][col]==key) {
+                System.out.println("Key found at (" + row + "," + col+ ")");
+                return true;
+            }
+            else if (key < matrix[row][col]) {
+                col--;
+            }
+            else{
+                row++;
+            }
+        }
+        System.out.println("Key not found!");
+        return false;
+    }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -125,26 +175,76 @@ public class qus_Of_2_D_Array {
            
         //Time Complexity
 
-        //Print the each element in present in spiral matrix
-        System.out.println("Enter the length of row: ");
-        int row = sc.nextInt();
+        //Q3) Print the each element in present in spiral matrix
 
-        System.out.println("Enter the length of column: ");
+        // System.out.println("Enter the length of row: ");
+        // int row = sc.nextInt();
+
+        // System.out.println("Enter the length of column: ");
+        // int col = sc.nextInt();
+
+        // int matrix[][] = new int[row][col];
+
+        // System.out.println("ENter the value in Matrix Array: ");
+        // for(int i=0; i<row; i++){
+        //     for(int j=0; j<col; j++){
+        //         matrix[i][j] = sc.nextInt();
+        //     }
+        // }
+
+        // printArr(matrix);
+        // printSpiral(matrix);
+        
+        //this question is the asking in the google, oracle,amazon etc. DSA interviews.
+
+        
+        //Q4) Find the sum of Diagonal.
+        // System.out.println("Enter the length of Row: ");
+        // int row = sc.nextInt();
+
+        // System.out.println("Enter the length of Column: ");
+        // int col = sc.nextInt();
+
+        // int arr[][] = new int[row][col];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<row; i++){
+        //     for(int j=0; j<col; j++){
+        //         arr[i][j] = sc.nextInt();
+        //     }
+        // }
+
+        // System.out.println("Matrix: ");
+        // printArr(arr);
+        // int res = diagonalSum(arr);
+        // System.out.println("Sum is "+res);
+
+
+        //Q5) Find the key in Sorted Matrix
+        System.out.println("Enter the length of Row: ");
+        int row = sc.nextInt();
+        
+        System.out.println("Enter the length of Column: ");
         int col = sc.nextInt();
 
         int matrix[][] = new int[row][col];
 
-        System.out.println("ENter the value in Matrix Array: ");
+        System.out.println("Enter the value in Matrix: ");
         for(int i=0; i<row; i++){
             for(int j=0; j<col; j++){
                 matrix[i][j] = sc.nextInt();
             }
         }
-
+        System.out.println("Matrix: ");
         printArr(matrix);
-        printSpiral(matrix);
-        
-        //this question is the asking in the google, oracle,amazon etc. DSA interviews.
+
+        System.out.print("ENter the key: ");
+        int key = sc.nextInt();
+        stairCaseSearch(matrix, key);
+        //Time Com
+
+
+
 
     }
 }
