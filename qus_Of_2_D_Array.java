@@ -282,22 +282,52 @@ public class qus_Of_2_D_Array {
         // numberOfpresenc(arr, key);
 
         // Q7)Print thr sum of number in the second row of the "nums" array.
-        System.out.println("ENter the lenght of row: ");
+
+        // System.out.println("ENter the lenght of row: ");
+        // int row = sc.nextInt();
+        // System.out.println("ENter the lenght of Column: ");
+        // int col = sc.nextInt();
+
+        // int nums[][] = new int[row][col];
+
+        // System.out.println("Enter the value in Array: ");
+        // for (int i = 0; i < row; i++) {
+        //     for (int j = 0; j < col; j++) {
+        //         nums[i][j] = sc.nextInt();
+        //     }
+        // }
+        // System.out.println("Matrix: ");
+        // printArr(nums);
+        // int res = sumOf2ndRow(nums);
+        // System.out.println(res);
+
+
+        //Q8) Write a program to find the Transpose of a matrix.Transpose means swaping of the row to column.
+        System.out.println("Enter the length of Row: ");
         int row = sc.nextInt();
-        System.out.println("ENter the lenght of Column: ");
+
+        System.out.println("Enter the length of Column: ");
         int col = sc.nextInt();
 
-        int nums[][] = new int[row][col];
+        int matrix[][] = new int[row][col];
 
         System.out.println("Enter the value in Array: ");
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                nums[i][j] = sc.nextInt();
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                matrix[i][j] = sc.nextInt();
             }
         }
-        System.out.println("Matrix: ");
-        printArr(nums);
-        int res = sumOf2ndRow(nums);
-        System.out.println(res);
+        System.out.println("Original Matrix is: ");
+        printArr(matrix);
+
+        //Transpose the matrix
+        int transpose[][] = new int[col][row];
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+        System.out.println("Transpose Matrix is: ");
+        printArr(transpose);
     }
 }
