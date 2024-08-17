@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
 public class string {
+    public static void printLatters(String str){
+        //Yaha hum apne pure word ko loop aur .chatAt() function ke help se print karayenge
+        for(int i=0; i<str.length(); i++){
+            System.out.print(str.charAt(i)+" ");
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,6 +29,8 @@ public class string {
         System.out.println("String is: "+str2);
           
         //Strings are IMMUTABLE
+
+        //.length()Function: iska use hum length count karne ke liye karate hai
         System.out.print("Enter your name: ");
         String name = sc.nextLine();
         System.out.println("Name: "+name);
@@ -33,7 +42,11 @@ public class string {
         System.out.print("Enter the Last Name: "); 
         String lastName = sc.nextLine();
         String fullName = firstName+" "+lastName;
-        System.out.print("Full Name: "+fullName);
+        System.out.println("Full Name: "+fullName);
 
+        //.charAt() function:- iska use hum index pe present letter ko print karane ke liye karte hai
+        System.out.println("Letter is: "+fullName.charAt(0));
+
+        printLatters(fullName);
     }
 }
