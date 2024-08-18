@@ -101,13 +101,22 @@ public class string {
         
         //compareTo:-iska use hum apne string me ak ak letter ko compare kareke largest string find karte hai
         //compareTo function capital A aur small a ko alag alag manata hai isliye iss chij ko khtm karne ke liye hum compareToIgnoreCase use karte hai
-        String fruit[] = {"apple","mango","banana"};
-        String largest = fruit[0];
-        for(int i=1; i<fruit.length; i++){
-            if (largest.compareTo(fruit[i])<0) { 
-                largest = fruit[i];
-            }
-        }
-        System.out.println("Largest String is: "+largest);
+        // String fruit[] = {"apple","mango","banana"};
+        // String largest = fruit[0];
+        // for(int i=1; i<fruit.length; i++){
+        //     if (largest.compareTo(fruit[i])<0) { 
+        //         largest = fruit[i];
+        //     }
+        // }
+        // System.out.println("Largest String is: "+largest);
+
+        //String Builder: StringBuilder is a class in Java that represents a mutable sequence of characters.: You can change the contents of a StringBuilder object without creating a new object.
+        StringBuilder sb = new StringBuilder("");
+        for(char ch='a'; ch<='z'; ch++){
+            sb.append(ch);
+        } 
+        System.out.println(sb);
+        System.out.println(sb.length());
+        //Time Complexity = O(26)
     }
 }
