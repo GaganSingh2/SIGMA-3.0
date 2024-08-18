@@ -51,6 +51,24 @@ public class qus_of_String {
         System.out.println();
         return largest;
     }
+
+    public static String toupperCase(String letter){
+        StringBuilder sb = new StringBuilder("");
+        char ch = Character.toUpperCase(letter.charAt(0));
+        sb.append(ch);
+
+        for(int i=1; i<letter.length(); i++){
+            if (letter.charAt(i)==' ' && i<letter.length()-1) {
+              sb.append(letter.charAt(i));
+              i++;
+              sb.append(Character.toUpperCase(letter.charAt(i)));  
+            }
+            else{
+                sb.append(letter.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -76,20 +94,30 @@ public class qus_of_String {
 
 
         //Q3)For a given set of String. print the largest string.
-        System.out.println("Enter the length of Array: "); 
-        int len = sc.nextInt();
-        String fruit[] = new String[len];
+        // System.out.println("Enter the length of Array: "); 
+        // int len = sc.nextInt();
+        // String fruit[] = new String[len];
 
-        System.out.println("Enter the fruit name: ");
-        for(int i=0; i<len; i++){
-            fruit[i] = sc.nextLine();
-        }
-        System.out.print("Fruits is: ");
-        for(int i=0; i<len; i++){
-            System.out.print(fruit[i]+" ,");
-        }       
+        // System.out.println("Enter the fruit name: ");
+        // for(int i=0; i<len; i++){
+        //     fruit[i] = sc.nextLine();
+        // }
+        // System.out.print("Fruits is: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(fruit[i]+" ,");
+        // }       
        
-        String res = largestString(fruit);
-        System.out.println("Largest String is: "+res);
+        // String res = largestString(fruit);
+        // System.out.println("Largest String is: "+res);
+
+
+        //Q4) For a given String convert each the first letter of each word to uppercase
+
+        System.out.println("ENter the String: ");
+        String letter = sc.nextLine();
+        System.out.println("Before Converting: "+letter);
+
+        System.out.println("After Converting: ");
+        System.out.print(toupperCase(letter));
     }
 }
