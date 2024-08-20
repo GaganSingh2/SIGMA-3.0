@@ -141,9 +141,23 @@ public class qus_of_String {
 
         System.out.println("After removing all Non-numeric Character: " + cleanString);
         return true;
-
     }
 
+
+    public static String removeDuplicate(String str){
+        str = str.toLowerCase();
+        char str1[] = str.toCharArray();
+        for(int i=0;i<str1.length; i++){
+            for(int j=str1.length-1; j>=0; j--){
+                if (str1[i]!=str1[j]) {
+                    char temp = str1[i];
+                    str1[i] = str1[j];
+                    str1[j] = temp;
+                }
+            }
+        }
+        return str1.toString();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -222,20 +236,24 @@ public class qus_of_String {
         // System.out.println(str1 + " and " + str2 + " are not Anagram");
         // }
 
-        // Q8) A phrase is a palindrome if, after converting all uppercase letters into
-        // lowercase letters and removing all non-alphanumeric characters, it reads the
-        // same forward and backward. Alphanumeric characters include letters and
-        // numbers.Given a string s, return true if it is a palindrome, or false
-        // otherwise.
-        System.out.println("Enter the String: ");
+        // Q8) A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.Given a string s, return true if it is a palindrome, or false otherwise.
+    
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("String is: " + str);
+        // boolean res = isPalindrome(str);
+        // if (res == true) {
+        //     System.out.print("It is a palindrome");
+        // } else {
+        //     System.out.println("It is not a palindrome");
+        // }
+
+        //Q9) Remove the duplicate character in given string
+        System.out.println("ENter the String: ");
         String str = sc.nextLine();
-        System.out.println("String is: " + str);
-        boolean res = isPalindrome(str);
-        if (res == true) {
-            System.out.print("It is a palindrome");
-        } else {
-            System.out.println("It is not a palindrome");
-        }
+        System.out.println("String is: "+str);
+        String res = removeDuplicate(str);
+        System.out.println(res);
 
     }
 }
