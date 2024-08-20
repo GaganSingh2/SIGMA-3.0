@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class array_basic {
@@ -55,5 +56,7 @@ public class array_basic {
         for(int i=0; i<len; i++){
             System.out.println(abs[i]);
         }
+        int abc[] = new int[5];
+        //int abcd = Arrays.fill(abc, 1);
     }
 }
