@@ -103,8 +103,9 @@ public class qus_of_String {
     }
 
     public static boolean isAnagram(String str1, String str2) {
-        // Convert Strings to lowercase. Why? so thatwe don't have to check separately  for lower & uppercase.
-        
+        // Convert Strings to lowercase. Why? so thatwe don't have to check separately
+        // for lower & uppercase.
+
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
         boolean res = true;
@@ -125,21 +126,20 @@ public class qus_of_String {
         return res;
     }
 
-
-    public static boolean isPalindrome(String str){
+    public static boolean isPalindrome(String str) {
         // Convert the string to lowercase and remove non-alphanumeric characters
-        String cleanString = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
-        //Compare character from both ends of the string
-        int left = 0, right = cleanString.length()-1;
-        while (left<right) {
-            if (cleanString.charAt(left)!=cleanString.charAt(right)) {
+        String cleanString = str.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        // Compare character from both ends of the string
+        int left = 0, right = cleanString.length() - 1;
+        while (left < right) {
+            if (cleanString.charAt(left) != cleanString.charAt(right)) {
                 return false;
             }
             left++;
             right--;
         }
 
-        System.out.println("After removing all Non-numeric Character: "+cleanString);
+        System.out.println("After removing all Non-numeric Character: " + cleanString);
         return true;
 
     }
@@ -217,25 +217,25 @@ public class qus_of_String {
         // String str2 = sc.nextLine();
         // boolean result = isAnagram(str1, str2);
         // if (result == true) {
-        //     System.out.println(str1 + " and " + str2 + " are both Anagram.");
+        // System.out.println(str1 + " and " + str2 + " are both Anagram.");
         // } else {
-        //     System.out.println(str1 + " and " + str2 + " are not Anagram");
+        // System.out.println(str1 + " and " + str2 + " are not Anagram");
         // }
 
-
-        //Q8) A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.Given a string s, return true if it is a palindrome, or false otherwise.
+        // Q8) A phrase is a palindrome if, after converting all uppercase letters into
+        // lowercase letters and removing all non-alphanumeric characters, it reads the
+        // same forward and backward. Alphanumeric characters include letters and
+        // numbers.Given a string s, return true if it is a palindrome, or false
+        // otherwise.
         System.out.println("Enter the String: ");
         String str = sc.nextLine();
-        System.out.println("String is: "+str);
+        System.out.println("String is: " + str);
         boolean res = isPalindrome(str);
-        if (res==true) {
+        if (res == true) {
             System.out.print("It is a palindrome");
-        }
-        else{
+        } else {
             System.out.println("It is not a palindrome");
         }
-
-    
 
     }
 }
