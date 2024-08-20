@@ -103,8 +103,8 @@ public class qus_of_String {
     }
 
     public static boolean isAnagram(String str1, String str2) {
-        // Convert Strings to lowercase. Why? so thatwe don't have to checkseparately
-        // for lower & uppercase.
+        // Convert Strings to lowercase. Why? so thatwe don't have to check separately  for lower & uppercase.
+        
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
         boolean res = true;
@@ -116,13 +116,32 @@ public class qus_of_String {
             // Sort the char array
             Arrays.sort(str1charArray);
             Arrays.sort(str2charArray);
-            // if the sorted char arrays are sameor identical then the strings are anagram
+            // if the sorted char arrays are same or identical then the strings are anagram
             res = Arrays.equals(str1charArray, str2charArray);
         } else {
             // case when the length are not equal
             res = false;
         }
         return res;
+    }
+
+
+    public static boolean isPalindrome(String str){
+        // Convert the string to lowercase and remove non-alphanumeric characters
+        String cleanString = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
+        //Compare character from both ends of the string
+        int left = 0, right = cleanString.length()-1;
+        while (left<right) {
+            if (cleanString.charAt(left)!=cleanString.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        System.out.println("After removing all Non-numeric Character: "+cleanString);
+        return true;
+
     }
 
     public static void main(String[] args) {
@@ -191,15 +210,32 @@ public class qus_of_String {
 
         // Q7) Determine if 2 Strings areanagramsof each other.ex:- race and care
         // character is equal or not.
-        System.out.println("Enter the first String: ");
-        String str1 = sc.nextLine();
-        System.out.println("ENter the second String: ");
-        String str2 = sc.nextLine();
-        boolean result = isAnagram(str1, str2);
-        if (result == true) {
-            System.out.println(str1 + " and " + str2 + " are both Anagram.");
-        } else {
-            System.out.println(str1 + " and " + str2 + " are not Anagram");
+
+        // System.out.println("Enter the first String: ");
+        // String str1 = sc.nextLine();
+        // System.out.println("ENter the second String: ");
+        // String str2 = sc.nextLine();
+        // boolean result = isAnagram(str1, str2);
+        // if (result == true) {
+        //     System.out.println(str1 + " and " + str2 + " are both Anagram.");
+        // } else {
+        //     System.out.println(str1 + " and " + str2 + " are not Anagram");
+        // }
+
+
+        //Q8) A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.Given a string s, return true if it is a palindrome, or false otherwise.
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        System.out.println("String is: "+str);
+        boolean res = isPalindrome(str);
+        if (res==true) {
+            System.out.print("It is a palindrome");
         }
+        else{
+            System.out.println("It is not a palindrome");
+        }
+
+    
+
     }
 }
