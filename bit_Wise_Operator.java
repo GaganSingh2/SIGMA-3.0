@@ -20,12 +20,25 @@ public class bit_Wise_Operator {
  
         //------------BINARY OR(|)----------
         /*Each bit in the result is set to 1 if at least one of the corresponding bits in the input numbers is 1. */
+
+        // System.out.println("ENter the first number: ");
+        // int num1 = sc.nextInt();
+        // System.out.println("Enter the second number: ");
+        // int num2 = sc.nextInt();
+
+        // int result = (num1 | num2);
+        // System.out.println("Result is: "+result);
+
+
+        //-----------BINARY XOR(^)----------
+        /* Each bit in the result is set to 1 if the corresponding bits in the input numbers are different. */
+
         System.out.println("ENter the first number: ");
         int num1 = sc.nextInt();
         System.out.println("Enter the second number: ");
         int num2 = sc.nextInt();
 
-        int result = (num1 | num2);
+        int result = (num1^num2);
         System.out.println("Result is: "+result);
     }
 }
