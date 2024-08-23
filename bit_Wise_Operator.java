@@ -55,12 +55,24 @@ public class bit_Wise_Operator {
         //----------BINARY LEFT SHIFT(<<)---------
         /*Binary Left Shift is a bitwise operation that shifts all bits of a number to the left by a specified number of positions. The vacated positions on the right are filled with 0s. ex:- a<<b */
 
+        // System.out.println("Enter the value of A: ");
+        // int a = sc.nextInt();
+        // System.out.println("Enter the value of B: ");
+        // int b = sc.nextInt();
+
+        // int result = (a<<b);
+        // System.out.println("Result is: "+result);
+
+
+        //----------BINARY RIGHT SHIFT(>>)---------
+        /*Binary Right Shift is a bitwise operation that shifts all bits of a number to the right by a specified number of positions. Opposite of BINARY LEFT SHIFT EX:- a>>b */
+
         System.out.println("Enter the value of A: ");
         int a = sc.nextInt();
         System.out.println("Enter the value of B: ");
         int b = sc.nextInt();
 
-        int result = (a<<b);
+        int result = (a>>b);
         System.out.println("Result is: "+result);
     }
 }
