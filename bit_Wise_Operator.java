@@ -4,14 +4,20 @@ import java.util.Scanner;
 
 public class bit_Wise_Operator {
 
-    public static int get_ith_bit(int num, int i){
-        int bit_mask = (1<<i);
+    public static int get_ith_bit(int num, int pos){
+        int bit_mask = (1<<pos);
         if ((num & bit_mask)==0) {
             return 0;
         }
         else{
             return 1;
         }
+    }
+
+    public static int set_ith_bit(int num, int pos){
+        int bit_mask = (1<<pos);
+        int res = (num | bit_mask);
+        return res;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -88,11 +94,22 @@ public class bit_Wise_Operator {
 
         //-----------OPERATION ON BIT-MANIPULATION--------
         /*a) Get ith bit:- Getting the ith Bit refers to extracting the value of the ith bit from a binary number. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right. Approach:- n & (1<<i) */
-        System.out.println("Enter the Number: ");
+
+        // System.out.println("Enter the Number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the value of Position: ");
+        // int pos = sc.nextInt();
+        // int res = get_ith_bit(num, pos);
+        // System.out.println(res+" is Position on "+pos+"th");
+
+        
+        /*b) Set ith bit:- Setting the ith Bit refers to modifying a specific bit in a binary number to 1. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right.*/
+
+        System.out.println("Enter the number: ");
         int num = sc.nextInt();
         System.out.println("Enter the value of Position: ");
         int pos = sc.nextInt();
-        int res = get_ith_bit(num, pos);
-        System.out.println(res+" is Position on "+pos+"th");
+        int result = set_ith_bit(num, pos);
+        System.out.println("Result is: "+result);
     }
 }
