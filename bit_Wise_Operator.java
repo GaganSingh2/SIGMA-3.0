@@ -3,6 +3,16 @@ import java.util.Scanner;
 
 
 public class bit_Wise_Operator {
+
+    public static int get_ith_bit(int num, int i){
+        int bit_mask = (1<<i);
+        if ((num & bit_mask)==0) {
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -67,12 +77,22 @@ public class bit_Wise_Operator {
         //----------BINARY RIGHT SHIFT(>>)---------
         /*Binary Right Shift is a bitwise operation that shifts all bits of a number to the right by a specified number of positions. Opposite of BINARY LEFT SHIFT EX:- a>>b */
 
-        System.out.println("Enter the value of A: ");
-        int a = sc.nextInt();
-        System.out.println("Enter the value of B: ");
-        int b = sc.nextInt();
+        // System.out.println("Enter the value of A: ");
+        // int a = sc.nextInt();
+        // System.out.println("Enter the value of B: ");
+        // int b = sc.nextInt();
 
-        int result = (a>>b);
-        System.out.println("Result is: "+result);
+        // int result = (a>>b);
+        // System.out.println("Result is: "+result);
+
+
+        //-----------OPERATION ON BIT-MANIPULATION--------
+        /*a) Get ith bit:- Getting the ith Bit refers to extracting the value of the ith bit from a binary number. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right. Approach:- n & (1<<i) */
+        System.out.println("Enter the Number: ");
+        int num = sc.nextInt();
+        System.out.println("Enter the value of Position: ");
+        int pos = sc.nextInt();
+        int res = get_ith_bit(num, pos);
+        System.out.println(res+" is Position on "+pos+"th");
     }
 }
