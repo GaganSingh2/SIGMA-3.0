@@ -19,6 +19,27 @@ public class bit_Wise_Operator {
         int res = (num | bit_mask);
         return res;
     }
+
+    public static int clear_ith_bit(int num, int pos){
+        int bit_mask = ~(1<<pos);
+        int res = (num & bit_mask);
+        return res;
+    }
+     
+    public static int update_ith_bit(int num, int pos, int updateBit){
+        //1st Approach
+        // if (updateBit==0) {
+        //     return clear_ith_bit(num, pos);
+        // }
+        // else{
+        //     return set_ith_bit(num, pos);
+        // }
+
+        //2nd Approach
+        num = clear_ith_bit(num, pos);
+        int bit_mask = updateBit<<pos;
+        return num | bit_mask;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -105,11 +126,32 @@ public class bit_Wise_Operator {
         
         /*b) Set ith bit:- Setting the ith Bit refers to modifying a specific bit in a binary number to 1. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right.*/
 
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the value of Position: ");
+        // int pos = sc.nextInt();
+        // int result = set_ith_bit(num, pos);
+        // System.out.println("Result is: "+result);
+
+
+        /*c) Clear ith bit:- Clearing the ith Bit refers to setting a specific bit in a binary number to 0. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right. */
+
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the Position: ");
+        // int pos = sc.nextInt();
+        // int result = clear_ith_bit(num, pos);
+        // System.out.println("Result is: "+result);
+
+
+        /*d) Update ith Bit:- Updating the ith Bit refers to modifying a specific bit in a binary number to a desired value. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right.  */
         System.out.println("Enter the number: ");
         int num = sc.nextInt();
-        System.out.println("Enter the value of Position: ");
+        System.out.println("Enter the Position: ");
         int pos = sc.nextInt();
-        int result = set_ith_bit(num, pos);
-        System.out.println("Result is: "+result);
+        System.out.println("Enter the Updation Bit: ");
+        int UpdateBit = sc.nextInt();
+        int res = update_ith_bit(num, pos, UpdateBit);
+        System.out.println("Result is: "+res);
     }
 }
