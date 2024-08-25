@@ -46,6 +46,14 @@ public class bit_Wise_Operator {
         int res = num & bit_mask;
         return res;
     }
+
+    public static int clear_bits_of_range(int num, int i, int j){
+        int a = ((~0)<<(j+1));
+        int b = ((1<<i)-1);
+        int bit_mask = a | b;
+        int res = num & bit_mask;
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -164,11 +172,22 @@ public class bit_Wise_Operator {
 
         /*e) Clear last i bits:- To clear the last i bits of a number, you can perform a bitwise AND operation with a mask that has all bits except the last i bits set to 1. This will effectively clear the least significant i bits of the number to 0. */
 
-        System.out.println("Enter the Number: ");
+        // System.out.println("Enter the Number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the Position: ");
+        // int pos = sc.nextInt();
+        // int result = clear_last_i_bits(num, pos);
+        // System.out.println("Result is: "+result);
+
+
+        /*f) Clear Range Of Bits:-To clear a range of bits from a number, you can perform a bitwise AND operation with a mask that has all bits except the desired range set to 1. This effectively clears the bits within the specified range of given start and end to 0 while preserveing the other bits.*/
+        System.out.println("Enter the number: ");
         int num = sc.nextInt();
-        System.out.println("Enter the Position: ");
-        int pos = sc.nextInt();
-        int result = clear_last_i_bits(num, pos);
+        System.out.println("Enter the Start-Point: ");
+        int i = sc.nextInt();
+        System.out.println("Enter the End-Point: ");
+        int j = sc.nextInt();
+        int result = clear_bits_of_range(num, i, j);
         System.out.println("Result is: "+result);
     }
 }
