@@ -40,6 +40,12 @@ public class bit_Wise_Operator {
         int bit_mask = updateBit<<pos;
         return num | bit_mask;
     }
+
+    public static int clear_last_i_bits(int num, int pos){
+        int bit_mask = ((~0)<<pos); //yaha hum (~0) ya  -1 use kar sakte hai
+        int res = num & bit_mask;
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -145,13 +151,24 @@ public class bit_Wise_Operator {
 
 
         /*d) Update ith Bit:- Updating the ith Bit refers to modifying a specific bit in a binary number to a desired value. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right.  */
-        System.out.println("Enter the number: ");
+
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the Position: ");
+        // int pos = sc.nextInt();
+        // System.out.println("Enter the Updation Bit: ");
+        // int UpdateBit = sc.nextInt();
+        // int res = update_ith_bit(num, pos, UpdateBit);
+        // System.out.println("Result is: "+res);
+
+
+        /*e) Clear last i bits:- To clear the last i bits of a number, you can perform a bitwise AND operation with a mask that has all bits except the last i bits set to 1. This will effectively clear the least significant i bits of the number to 0. */
+
+        System.out.println("Enter the Number: ");
         int num = sc.nextInt();
         System.out.println("Enter the Position: ");
         int pos = sc.nextInt();
-        System.out.println("Enter the Updation Bit: ");
-        int UpdateBit = sc.nextInt();
-        int res = update_ith_bit(num, pos, UpdateBit);
-        System.out.println("Result is: "+res);
+        int result = clear_last_i_bits(num, pos);
+        System.out.println("Result is: "+result);
     }
 }
