@@ -122,5 +122,6 @@ public class qus_ofArray {
         } else {
             System.out.println("False");
         }
+        
     }
 }
