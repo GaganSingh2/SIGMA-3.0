@@ -57,12 +57,25 @@ public class bit_Wise_Operator {
 
     public static int fastExpo(int num, int pow){
         int ans = 1;
+    
         while (pow>0) {
             if((pow & 1) != 0) {
                 ans *= num;   
             }
             num = num * num;
             pow = pow>>1;
+        }
+        return ans;
+    }
+
+    public static int modularExponentiation(int num, int pow, int mod){
+        int ans = 1;
+        while (pow>0) {
+            if ((pow & 1)!=0) {
+                ans = (ans*num)%mod;
+            }
+            num = (num*num)%mod;
+            pow >>= 1;
         }
         return ans;
     }
@@ -205,11 +218,22 @@ public class bit_Wise_Operator {
 
 
         //-----Fast Exponantiation(means find the power of number in less time)----
-        System.out.println("Enter the number: ");
-        int num = sc.nextInt();
-        System.out.println("Enter the power: ");
-        int pow = sc.nextInt();
-        int result = fastExpo(num, pow);
-        System.out.println(result);
+        // System.out.println("ENter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the Power: ");
+        // int pow = sc.nextInt();
+        // int result = fastExpo(num, pow);
+        // System.out.println("Result is: "+result);
+
+
+        //----Modular Exponentiation-----
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("ENter the Power: ");
+        // int pow = sc.nextInt();
+        // System.out.println("Enter the Modular: ");
+        // int mod = sc.nextInt();
+        // int result = modularExponentiation(num, pow, mod);
+        // System.out.println("Result is: "+result);
     }
 }
