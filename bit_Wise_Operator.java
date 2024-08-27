@@ -54,6 +54,18 @@ public class bit_Wise_Operator {
         int res = num & bit_mask;
         return res;
     }
+
+    public static int fastExpo(int num, int pow){
+        int ans = 1;
+        while (pow>0) {
+            if((pow & 1) != 0) {
+                ans *= num;   
+            }
+            num = num * num;
+            pow = pow>>1;
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -181,13 +193,23 @@ public class bit_Wise_Operator {
 
 
         /*f) Clear Range Of Bits:-To clear a range of bits from a number, you can perform a bitwise AND operation with a mask that has all bits except the desired range set to 1. This effectively clears the bits within the specified range of given start and end to 0 while preserveing the other bits.*/
+
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the Start-Point: ");
+        // int i = sc.nextInt();
+        // System.out.println("Enter the End-Point: ");
+        // int j = sc.nextInt();
+        // int result = clear_bits_of_range(num, i, j);
+        // System.out.println("Result is: "+result);
+
+
+        //-----Fast Exponantiation(means find the power of number in less time)----
         System.out.println("Enter the number: ");
         int num = sc.nextInt();
-        System.out.println("Enter the Start-Point: ");
-        int i = sc.nextInt();
-        System.out.println("Enter the End-Point: ");
-        int j = sc.nextInt();
-        int result = clear_bits_of_range(num, i, j);
-        System.out.println("Result is: "+result);
+        System.out.println("Enter the power: ");
+        int pow = sc.nextInt();
+        int result = fastExpo(num, pow);
+        System.out.println(result);
     }
 }
