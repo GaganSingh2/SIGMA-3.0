@@ -51,6 +51,11 @@ public class qus_of_BitManipulation {
         System.out.println("After Swaping-----");
         System.out.println("Num1: "+num1+", Num2: "+num2);
     }
+
+    public static void add1ToInteger(int num){
+        int ans = (-~num);//i.e. num+1.
+        System.out.println("Result is: "+ans);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -89,15 +94,25 @@ public class qus_of_BitManipulation {
 
 
         //Q5) Swap two numbers without using any thirdvariable.
-        System.out.println("Enter the 1st number: ");
-        int num1 = sc.nextInt();
-        System.out.println("Enter the 2nd number: ");
-        int num2 = sc.nextInt();
-        System.out.println("Before Swaping-----");
-        System.out.println("Num1: "+num1+", Num2: "+num2);
-        swapTwoNumber(num1, num2);
+        // System.out.println("Enter the 1st number: ");
+        // int num1 = sc.nextInt();
+        // System.out.println("Enter the 2nd number: ");
+        // int num2 = sc.nextInt();
+        // System.out.println("Before Swaping-----");
+        // System.out.println("Num1: "+num1+", Num2: "+num2);
+        // swapTwoNumber(num1, num2);
 
         
+        //Q6)Add 1 to an integer using Bit Manipulation.(Hint: try using Bitwise NOT Operator).
+        // System.out.println("Enter a number: ");
+        // int num = sc.nextInt();
+        // add1ToInteger(num);
+
+
+        //Q7) Convert uppercase characters to lowercase using bits.
+        for(char ch='A'; ch<='Z'; ch++){
+            System.out.println((char)(ch | ' '));
+        }
 
     }
 }
