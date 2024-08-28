@@ -23,7 +23,15 @@ public class OOPS {
         //  System.out.println("New Color: "+p1.color);
 
 
-        
+        //------GETTERS AND SETTERS-------
+        //inka use hum private data ko apne main class ke andar update and print karane ke liye karte hai
+        Bank myAcc = new Bank(); //Created a bank object called myAcc
+        myAcc.setPinNo(1818);
+        System.out.println("Pin Number: "+myAcc.getPinNo());
+        myAcc.setName("Gagan");
+        System.out.println("Name: "+myAcc.getName());
+        myAcc.setName("Gagan Kumar");
+        System.out.println("Name: "+myAcc.getName());
 
     }
 }
@@ -42,4 +50,28 @@ class Pen{
         tip = newTip;
     }
 
+}
+
+class Bank{
+
+    //Attribute
+    private int pinNo;
+    private String name;
+
+    //Method(Behaviors)
+    //Setters for Modify the data
+    void setPinNo(int newNo){
+        this.pinNo = newNo; //this keyword ka use hum tab karte hai jab humne apne attribute aur parameter ka name same rakha ho. this keyword hume ye batata hai ke ye variable humara main attribute hai jisme hum apne parameter ko assign karenge.
+    }
+    void setName(String newName){
+        this.name = newName;
+    }
+
+    //Getters for return the data
+    int getPinNo(){
+        return this.pinNo;
+    }
+    String getName(){
+        return this.name;
+    }
 }
