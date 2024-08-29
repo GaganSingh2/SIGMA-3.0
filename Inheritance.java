@@ -11,6 +11,12 @@ public class Inheritance {
         neo.run();
         neo.space();
         neo.wheel();
+
+        //(3)Hierarchical Inheritance ex. ka object hai ye
+        Mukesh frd = new Mukesh();
+        frd.eat();
+        frd.legs();
+        //frd.study(); // ye hume error dega kyuki humne Gagan ko Mukesh class ke andar inherit nhi kiya hai kewal Boy ko kiya hai
     }
 }
 
@@ -59,5 +65,28 @@ class BMW extends Car{
 class Nano extends BMW{
     void size(){
         System.out.println("Small");
+    }
+}
+
+//(3)Hierarchical Inheritance:-Multiple subclasses inherit from the same superclass.
+//Base class
+class Boy{
+    void eat(){
+        System.out.println("Eats");
+    }
+    void legs(){
+        System.out.println("Two");
+    }
+}
+//Subclass1 inherits from Base class
+class Gagan extends Boy{
+    void study(){
+        System.out.println("Engineering");
+    }
+}
+//Subclass2 inherits from Base class
+class Mukesh extends Boy{
+    void learn(){
+        System.out.println("Mediciens");
     }
 }
