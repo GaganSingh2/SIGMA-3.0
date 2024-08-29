@@ -17,6 +17,12 @@ public class Inheritance {
         frd.eat();
         frd.legs();
         //frd.study(); // ye hume error dega kyuki humne Gagan ko Mukesh class ke andar inherit nhi kiya hai kewal Boy ko kiya hai
+
+        //(4)Hybrid Inheritance ex. ka object hai ye
+        Java ja = new Java();
+        ja.run();
+        ja.learn();
+        
     }
 }
 
@@ -88,5 +94,34 @@ class Gagan extends Boy{
 class Mukesh extends Boy{
     void learn(){
         System.out.println("Mediciens");
+    }
+}
+
+//(4)Hybrid Inheritance:- A combination of multiple and multilevel inheritance.Not directly supported in Java, but can be achieved using interface.
+//Base class
+class Language{
+    void run(){
+        System.out.println("Easy");
+    }
+    void write(){
+        System.out.println("Normal");
+    }
+}
+//Subclass1 inherits from base class
+class C extends Language{
+    void understand(){
+        System.out.println("Difficult");
+    }
+}
+//Subclass2 inherits from base class
+class Python extends Language{
+    void learn(){
+        System.out.println("Very easy");
+    }
+}
+//Subclass3 Inherits from subclass2
+class Java extends Python{
+    void security(){
+        System.out.println("Very High");
     }
 }
