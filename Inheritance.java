@@ -22,7 +22,7 @@ public class Inheritance {
         Java ja = new Java();
         ja.run();
         ja.learn();
-        
+        ja.run();
     }
 }
 
