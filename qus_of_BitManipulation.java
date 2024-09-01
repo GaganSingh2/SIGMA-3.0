@@ -68,15 +68,15 @@ public class qus_of_BitManipulation {
 
         //Q2) Check if a number is Power of 2 or not.
 
-        // System.out.println("Enter the number: ");
-        // int num = sc.nextInt();
-        // boolean result = isPower(num);
-        // if (result==true) {
-        //     System.out.println(num+" is Power of 2.");
-        // }
-        // else{
-        //     System.out.println(num+" is not Power of 2.");
-        // }
+        System.out.println("Enter the number: ");
+        int num = sc.nextInt();
+        boolean result = isPower(num);
+        if (result==true) {
+            System.out.println(num+" is Power of 2.");
+        }
+        else{
+            System.out.println(num+" is not Power of 2.");
+        }
 
       
         //Q3)Count the Set Bits in a given number(i.e.:- hume count karna hai ki humare given number ke bit me kiten 1 hai.)
@@ -110,9 +110,9 @@ public class qus_of_BitManipulation {
 
 
         //Q7) Convert uppercase characters to lowercase using bits.
-        for(char ch='A'; ch<='Z'; ch++){
-            System.out.println((char)(ch | ' '));
-        }
+        // for(char ch='A'; ch<='Z'; ch++){
+        //     System.out.println((char)(ch | ' '));
+        // }
 
     }
 }
