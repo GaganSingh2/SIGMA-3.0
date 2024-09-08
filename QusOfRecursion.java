@@ -37,6 +37,20 @@ public class QusOfRecursion {
         int sum = num + snm1;
         return sum;
     }
+
+    public static int fibonacci(int num){
+        if (num==0) {
+            return 0;
+        }
+        if (num==1) {
+            return 1;
+        }
+        int fnm1 = fibonacci(num-1);
+        int fnm2 = fibonacci(num-2);
+        int sum = fnm1 + fnm2;
+        return sum;
+
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -59,12 +73,21 @@ public class QusOfRecursion {
         //Space Complexity:- O(n).
 
         //Q4) print sum of first n natural numbers.
-        System.out.println("ENter a number: ");
-        int num = sc.nextInt();
-        int res = sumOfNnaturalnum(num);
-        System.out.println("Sum: "+res);
+        // System.out.println("ENter a number: ");
+        // int num = sc.nextInt();
+        // int res = sumOfNnaturalnum(num);
+        // System.out.println("Sum: "+res);
 
         //Time Complexity:- O(n).
+        //Space Complexity:- O(n).
+
+        //Q5)Print Nth fibonacci number.
+        System.out.println("Enter a Number: ");
+        int num = sc.nextInt();
+        int res = fibonacci(num);
+        System.out.println("Result: "+res);
+
+        //Time COmplexity:- O(2^n)
         //Space Complexity:- O(n).
     }
 }
