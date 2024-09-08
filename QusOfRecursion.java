@@ -18,6 +18,16 @@ public class QusOfRecursion {
         printInc(num-1);
         System.out.print(num+" ");
     }
+
+
+    public static int fact(int num){
+        if (num==0) {
+            return 1;
+        }
+        int fnm1 = fact(num-1);//fnm1 means ye ak variable hai 
+        int fn = num * fnm1;
+        return fn;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -25,9 +35,15 @@ public class QusOfRecursion {
         // int num = sc.nextInt();
         // printDec(num);
 
-        //Q2)Print numbers from n to 1(Increasing order)
-        System.out.println("Enter Number: ");
+        //Q2)Print numbers from 1 to n(Increasing order)
+        // System.out.println("Enter Number: ");
+        // int num = sc.nextInt();
+        // printInc(num);
+
+        //Q3)Print a factorial of a number.
+        System.out.println("Enter a number: ");
         int num = sc.nextInt();
-        printInc(num);
+        int res = fact(num);
+        System.out.println("Factorial: "+res);
     }
 }
