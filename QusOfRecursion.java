@@ -28,6 +28,15 @@ public class QusOfRecursion {
         int fn = num * fnm1;
         return fn;
     }
+
+    public static int sumOfNnaturalnum(int num){
+        if (num==1) {
+            return 1;
+        }
+        int snm1 = sumOfNnaturalnum(num-1);
+        int sum = num + snm1;
+        return sum;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -41,9 +50,21 @@ public class QusOfRecursion {
         // printInc(num);
 
         //Q3)Print a factorial of a number.
-        System.out.println("Enter a number: ");
+        // System.out.println("Enter a number: ");
+        // int num = sc.nextInt();
+        // int res = fact(num);
+        // System.out.println("Factorial: "+res);
+
+        //Time Complexity:- O(n).
+        //Space Complexity:- O(n).
+
+        //Q4) print sum of first n natural numbers.
+        System.out.println("ENter a number: ");
         int num = sc.nextInt();
-        int res = fact(num);
-        System.out.println("Factorial: "+res);
+        int res = sumOfNnaturalnum(num);
+        System.out.println("Sum: "+res);
+
+        //Time Complexity:- O(n).
+        //Space Complexity:- O(n).
     }
 }
