@@ -74,6 +74,28 @@ public class QusOfRecursion {
         }
         return firstOccurenceElement(arr, i+1, key);
     }
+
+    public static int lastOccurenceElement(int arr[], int i, int key){
+        //Base Case
+        if (i==arr.length) {
+            return -1;
+        }
+        int isFound = lastOccurenceElement(arr, i+1, key);
+        if (isFound == -1 && arr[i]==key) {
+            return i;
+        }
+        return isFound;
+    }
+
+    public static int power(int val, int pow){
+        //Base case
+        if (pow==0) {
+            return 1;
+        }
+        int pnm1 = power(val, pow-1);
+        int res = val * pnm1;
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -139,26 +161,56 @@ public class QusOfRecursion {
         //Space COmplexity:- O(n)
 
         //Q7)WAF to find the first occurence of an element in an array
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
 
-        System.out.println("Enter the value in Array: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
-        System.out.print("Array: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-        System.out.println("ENter the key: ");
-        int key = sc.nextInt();
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.print("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+        // System.out.println("ENter the key: ");
+        // int key = sc.nextInt();
 
-        int res = firstOccurenceElement(arr, 0, key);
-        System.out.println("Index: "+res);
+        // int res = firstOccurenceElement(arr, 0, key);
+        // System.out.println("Index: "+res);
 
         //Time Complexity:- O(n)
         //Space Complexity:- O(n)
+
+        //Q8)WAF to find the last occurence of an element in an array
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.print("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+        // System.out.println("ENter the key: ");
+        // int key = sc.nextInt();
+        
+        // int res = lastOccurenceElement(arr, 0, key);
+        // System.out.println("Index: "+res);
+
+
+        //Q9) Find the x to the power of n (x^n).
+        System.out.println("Enter the value: ");
+        int val = sc.nextInt();
+        System.out.println("Enter the times of Power: ");
+        int pow = sc.nextInt();
+        int result = power(val, pow);
+        System.out.println(val+" to the power of "+pow+": "+result);
     }
 }
+ 
