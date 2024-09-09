@@ -51,6 +51,17 @@ public class QusOfRecursion {
         return sum;
 
     }
+
+    public static boolean isSorted(int arr[], int i){
+        //Base case
+        if (i==arr.length-1) {
+            return true;
+        }
+        if (arr[i]>arr[i+1]) {
+            return false;
+        }
+        return isSorted(arr, i+1);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -82,12 +93,34 @@ public class QusOfRecursion {
         //Space Complexity:- O(n).
 
         //Q5)Print Nth fibonacci number.
-        System.out.println("Enter a Number: ");
-        int num = sc.nextInt();
-        int res = fibonacci(num);
-        System.out.println("Result: "+res);
+        // System.out.println("Enter a Number: ");
+        // int num = sc.nextInt();
+        // int res = fibonacci(num);
+        // System.out.println("Result: "+res);
 
         //Time COmplexity:- O(2^n)
         //Space Complexity:- O(n).
+
+        //Q6)Check if the given array is sorted or not.
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
+
+        int arr[] = new int[len];
+        System.out.println("Ennter the value in Array: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.print("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+        boolean res = isSorted(arr, 0);
+        if (res==true) {
+            System.out.println("Array is Sorted.");
+        }
+        else{
+            System.out.println("Array is not Sorted.");
+        }
     }
 }
