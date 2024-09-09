@@ -62,6 +62,18 @@ public class QusOfRecursion {
         }
         return isSorted(arr, i+1);
     }
+
+    public static int firstOccurenceElement(int arr[], int i,int key){
+        
+        //Base Case
+        if (i==arr.length) {
+            return -1;
+        }
+        if(arr[i]==key) {
+            return i;
+        }
+        return firstOccurenceElement(arr, i+1, key);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -102,11 +114,36 @@ public class QusOfRecursion {
         //Space Complexity:- O(n).
 
         //Q6)Check if the given array is sorted or not.
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+        // System.out.println("Ennter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.print("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+        // boolean res = isSorted(arr, 0);
+        // if (res==true) {
+        //     System.out.println("Array is Sorted.");
+        // }
+        // else{
+        //     System.out.println("Array is not Sorted.");
+        // }
+
+        //Time Complexity:- O(n)
+        //Space COmplexity:- O(n)
+
+        //Q7)WAF to find the first occurence of an element in an array
         System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
-
         int arr[] = new int[len];
-        System.out.println("Ennter the value in Array: ");
+
+        System.out.println("Enter the value in Array: ");
         for(int i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
@@ -115,12 +152,13 @@ public class QusOfRecursion {
             System.out.print(arr[i]+" ");
         }
         System.out.println();
-        boolean res = isSorted(arr, 0);
-        if (res==true) {
-            System.out.println("Array is Sorted.");
-        }
-        else{
-            System.out.println("Array is not Sorted.");
-        }
+        System.out.println("ENter the key: ");
+        int key = sc.nextInt();
+
+        int res = firstOccurenceElement(arr, 0, key);
+        System.out.println("Index: "+res);
+
+        //Time Complexity:- O(n)
+        //Space Complexity:- O(n)
     }
 }
