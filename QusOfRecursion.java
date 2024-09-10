@@ -87,7 +87,7 @@ public class QusOfRecursion {
         return isFound;
     }
 
-    public static int power(int val, int pow){
+    public static int power(int val, int pow){//Time Complexity:- O(n)
         //Base case
         if (pow==0) {
             return 1;
@@ -95,6 +95,23 @@ public class QusOfRecursion {
         int pnm1 = power(val, pow-1);
         int res = val * pnm1;
         return res;
+    }
+
+    public static int optimizedPower(int val, int pow){
+        //Base Case
+        if (pow==0) {
+            return 1;
+        }
+        // //int halfpowersq = optimizedPower(val, pow/2) * optimizedPower(val, pow/2); //is line ke wajah se av v program ka TC O(n) hi hai kyuki yaha function 2 bar call ho rha hai.
+        
+        int halfpower = optimizedPower(val, pow/2); //ab iske wajah se humara fuction ak baar call hoga or TC O(logn) lagega.
+        int halfpowersq = halfpower * halfpower;
+
+        //if power is odd
+        if (pow%2 != 0) {
+            halfpowersq = val * halfpowersq;
+        }
+        return halfpowersq;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -205,12 +222,22 @@ public class QusOfRecursion {
 
 
         //Q9) Find the x to the power of n (x^n).
-        System.out.println("Enter the value: ");
+        // System.out.println("Enter the value: ");
+        // int val = sc.nextInt();
+        // System.out.println("Enter the times of Power: ");
+        // int pow = sc.nextInt();
+        // int result = power(val, pow);
+        // System.out.println(val+" to the power of "+pow+": "+result);
+
+        //Time Complexity:- O(n)
+        
+        //Q10) Find the x to the power of n (x^n). with Optimized method
+        System.out.println("ENter the value: ");
         int val = sc.nextInt();
-        System.out.println("Enter the times of Power: ");
+        System.out.println("ENter the times of power: ");
         int pow = sc.nextInt();
-        int result = power(val, pow);
-        System.out.println(val+" to the power of "+pow+": "+result);
+        int res = optimizedPower(val, pow);
+        System.out.println(val+" to the power of "+pow+": "+res);
     }
 }
  
