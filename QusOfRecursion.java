@@ -103,7 +103,7 @@ public class QusOfRecursion {
             return 1;
         }
         // //int halfpowersq = optimizedPower(val, pow/2) * optimizedPower(val, pow/2); //is line ke wajah se av v program ka TC O(n) hi hai kyuki yaha function 2 bar call ho rha hai.
-        
+
         int halfpower = optimizedPower(val, pow/2); //ab iske wajah se humara fuction ak baar call hoga or TC O(logn) lagega.
         int halfpowersq = halfpower * halfpower;
 
@@ -112,6 +112,32 @@ public class QusOfRecursion {
             halfpowersq = val * halfpowersq;
         }
         return halfpowersq;
+    }
+
+    public static double pow(double val, int pow){
+        if (pow==0) {
+            return 1;
+        }
+        else if (pow==1) {
+            return val;
+        }
+        double ans = pow(val, pow/2);
+        //if power is Even
+        if (pow%2==0) {
+            return ans * ans;
+        }
+        //if power is Odd
+        else{
+            return val * ans * ans;
+        }     
+    }
+    public static double myPow(double val, int pow){
+        //if power is negative
+        if (pow<0) {
+            val = 1/val;
+            pow = -pow;
+        }
+        return pow(val, pow);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -232,11 +258,22 @@ public class QusOfRecursion {
         //Time Complexity:- O(n)
         
         //Q10) Find the x to the power of n (x^n). with Optimized method
-        System.out.println("ENter the value: ");
-        int val = sc.nextInt();
-        System.out.println("ENter the times of power: ");
+        // System.out.println("ENter the value: ");
+        // int val = sc.nextInt();
+        // System.out.println("ENter the times of power: ");
+        // int pow = sc.nextInt();
+        // int res = optimizedPower(val, pow);
+        // System.out.println(val+" to the power of "+pow+": "+res);
+   
+        //Time Complexity:- O(logn)
+
+        //Q11)[50Leet]Find the x to the power of n (x^n). with Optimized method (iss qus me added hai ki jab power minus me diya ho uper wale qus me without minus wala qus solve hoga)
+        System.out.println("Enter the Value: ");
+        double val = sc.nextInt();
+        System.out.println("ENter the Power: ");
         int pow = sc.nextInt();
-        int res = optimizedPower(val, pow);
+ 
+        double res = myPow(val, pow);
         System.out.println(val+" to the power of "+pow+": "+res);
     }
 }
