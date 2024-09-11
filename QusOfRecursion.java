@@ -153,6 +153,9 @@ public class QusOfRecursion {
 
         int totways = fnm1 + fnm2;
         return totways;
+
+        //one line solution 
+        //return tilingProblem(n-1) + tilingProblem(n-2);
     }
 
     public static void removeDuplicates(String str, int idx, StringBuilder newStr, boolean map[]){
@@ -162,6 +165,7 @@ public class QusOfRecursion {
             return;
         }
 
+        //find the index of current CHaracter
         char currChar = str.charAt(idx);
 
         //if currChar is already exist in newStr
@@ -172,6 +176,26 @@ public class QusOfRecursion {
             map[currChar-'a'] = true;
             removeDuplicates(str, idx+1, newStr.append(currChar), map);
         }
+    }
+
+    public static int pairingFriend(int num){
+        //Base Case
+        if (num==1 || num==2) {
+            return num;
+        }
+
+        //if friend is stay single
+        int fnm1 = pairingFriend(num-1);
+
+        //if friend is stay with other friend
+        int fnm2 = pairingFriend(num-2);
+        int pairways = (num-1) * fnm2;
+
+        int totways = fnm1 + pairways;
+        return totways;
+
+        //one line solution
+        //return pairingFriend(num-1) + (num-1) * pairingFriend(num-2);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -318,12 +342,19 @@ public class QusOfRecursion {
 
 
         //Q12)Remove duplicates in String with the help of Recursion.
-        System.out.println("Enter the String: ");
-        String str = sc.nextLine();
-        System.out.println("Before Removing the Duplicate Strings: "+str);
-        StringBuilder newStr = new StringBuilder("");
-        boolean map[] = new boolean[26];
-        removeDuplicates(str, 0, newStr, map);
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("Before Removing the Duplicate Strings: "+str);
+        // StringBuilder newStr = new StringBuilder("");
+        // boolean map[] = new boolean[26];
+        // removeDuplicates(str, 0, newStr, map);
+
+
+        //Q13)Given n friends, each one can remain single or can be paired up with some other friends. Each friend can be paired only once.Find out the total number of ways in which friends can remain single or can be paired up.
+        System.out.println("Enter the Number of Friends: ");
+        int num = sc.nextInt();
+        int ways = pairingFriend(num);
+        System.out.println("Total Ways: "+ways);
         
     }
 }
