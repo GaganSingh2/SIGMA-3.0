@@ -139,6 +139,40 @@ public class QusOfRecursion {
         }
         return pow(val, pow);
     }
+
+    public static int tilingProblem(int n){
+        //Base Case
+        if (n==0 || n==1) {
+            return 1;
+        }
+        //if tiles set as vertically
+        int fnm1 = tilingProblem(n-1);
+
+        //if tiles set as horizontally
+        int fnm2 = tilingProblem(n-2);
+
+        int totways = fnm1 + fnm2;
+        return totways;
+    }
+
+    public static void removeDuplicates(String str, int idx, StringBuilder newStr, boolean map[]){
+        //Base Case
+        if (idx == str.length()) {
+            System.out.println("After Removing Duplicate String: "+newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+
+        //if currChar is already exist in newStr
+        if (map[currChar-'a'] == true) {
+            removeDuplicates(str, idx+1, newStr, map);
+        }
+        else{//if currCHar is not exist in newStr
+            map[currChar-'a'] = true;
+            removeDuplicates(str, idx+1, newStr.append(currChar), map);
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -267,14 +301,30 @@ public class QusOfRecursion {
    
         //Time Complexity:- O(logn)
 
-        //Q11)[50Leet]Find the x to the power of n (x^n). with Optimized method (iss qus me added hai ki jab power minus me diya ho uper wale qus me without minus wala qus solve hoga)
-        System.out.println("Enter the Value: ");
-        double val = sc.nextInt();
-        System.out.println("ENter the Power: ");
-        int pow = sc.nextInt();
+        //[50Leet]Find the x to the power of n (x^n). with Optimized method (iss qus me added hai ki jab power minus me diya ho uper wale qus me without minus wala qus solve hoga)
+        // System.out.println("Enter the Value: ");
+        // double val = sc.nextInt();
+        // System.out.println("ENter the Power: ");
+        // int pow = sc.nextInt();
  
-        double res = myPow(val, pow);
-        System.out.println(val+" to the power of "+pow+": "+res);
+        // double res = myPow(val, pow);
+        // System.out.println(val+" to the power of "+pow+": "+res);
+
+        //Q11) [Tiling Problem]GIven a "2 X n" board and tiles of size "2 x 1", count the number of ways to tile the given board using the 2x1 tiles.(A tile can either be placed horizontaly or vertically).
+        // System.out.println("ENter the width: ");
+        // int n = sc.nextInt();
+        // int ways = tilingProblem(n);
+        // System.out.println("Total ways to set the tile on 2 x "+n+" borad: "+ways);
+
+
+        //Q12)Remove duplicates in String with the help of Recursion.
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        System.out.println("Before Removing the Duplicate Strings: "+str);
+        StringBuilder newStr = new StringBuilder("");
+        boolean map[] = new boolean[26];
+        removeDuplicates(str, 0, newStr, map);
+        
     }
 }
  
