@@ -197,6 +197,21 @@ public class QusOfRecursion {
         //one line solution
         //return pairingFriend(num-1) + (num-1) * pairingFriend(num-2);
     }
+
+    public static void printBinStrings(int num, int lastPlace, String str){
+        //Base Case
+        if (num==0) {
+            System.out.println("Binary Representation with no Consecutive Ones: "+str);
+            return;
+        }
+
+        //print 0 all times
+        printBinStrings(num-1, 0, str+"0");
+        //agr last place pe 0 hoga tabhi 1 store hoga str me 
+        if (lastPlace==0) {
+            printBinStrings(num-1, 1, str+"1");
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -351,11 +366,17 @@ public class QusOfRecursion {
 
 
         //Q13)Given n friends, each one can remain single or can be paired up with some other friends. Each friend can be paired only once.Find out the total number of ways in which friends can remain single or can be paired up.
-        System.out.println("Enter the Number of Friends: ");
-        int num = sc.nextInt();
-        int ways = pairingFriend(num);
-        System.out.println("Total Ways: "+ways);
+        // System.out.println("Enter the Number of Friends: ");
+        // int num = sc.nextInt();
+        // int ways = pairingFriend(num);
+        // System.out.println("Total Ways: "+ways);
         
+
+        //Q14)[Binary Strings Problem]Print all binary strings of size N without consecutive ones.(Consecutive ones means:- lagatar two times 1 nhi aa skta hai)
+        System.out.println("ENter the Number: ");
+        int num = sc.nextInt();
+        String str = "";
+        printBinStrings(num, 0, str);
     }
 }
  
