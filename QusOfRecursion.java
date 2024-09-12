@@ -212,6 +212,20 @@ public class QusOfRecursion {
             printBinStrings(num-1, 1, str+"1");
         }
     }
+
+    public static void indexOfKey(int arr[], int key,int idx){
+        
+        //Base Case
+        if (idx==arr.length) {
+            return;
+        }
+
+        
+        if (arr[idx]==key) {
+            System.out.println("Index: "+idx+" ");
+        }
+        indexOfKey(arr, key, idx+1);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -373,10 +387,30 @@ public class QusOfRecursion {
         
 
         //Q14)[Binary Strings Problem]Print all binary strings of size N without consecutive ones.(Consecutive ones means:- lagatar two times 1 nhi aa skta hai)
-        System.out.println("ENter the Number: ");
-        int num = sc.nextInt();
-        String str = "";
-        printBinStrings(num, 0, str);
+        // System.out.println("ENter the Number: ");
+        // int num = sc.nextInt();
+        // String str = "";
+        // printBinStrings(num, 0, str);
+
+
+        //-------PRACTICE QUESTION ON RECURSION----
+        //Q1)For a given integer array of size N. You have to find all the occurrences (indexs)of a given element(Key) and print them. Use a recursive function to solve this problem.
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("ENter the value in Array: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.print("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+        System.out.println("Enter the Key: ");
+        int key = sc.nextInt();
+        
+        indexOfKey(arr, key, 0);
     }
 }
  
