@@ -226,6 +226,18 @@ public class QusOfRecursion {
         }
         indexOfKey(arr, key, idx+1);
     }
+
+    static String digits[] = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    public static void printDigit(int num){
+        //Base Case
+        if (num==0) {
+            return;
+        }
+
+        int lastDigit = num % 10;
+        printDigit(num/10);
+        System.out.print(digits[lastDigit]+" ");
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -395,22 +407,27 @@ public class QusOfRecursion {
 
         //-------PRACTICE QUESTION ON RECURSION----
         //Q1)For a given integer array of size N. You have to find all the occurrences (indexs)of a given element(Key) and print them. Use a recursive function to solve this problem.
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
-        System.out.println("ENter the value in Array: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
-        System.out.print("Array: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-        System.out.println("Enter the Key: ");
-        int key = sc.nextInt();
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("ENter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.print("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+        // System.out.println("Enter the Key: ");
+        // int key = sc.nextInt();
         
-        indexOfKey(arr, key, 0);
+        // indexOfKey(arr, key, 0);
+
+        //Q2)You are given a number (eg -  2019), convert it into a String of english like“two zero one nine”.  Use a recursive function to solve this problem.NOTE-The digits of the number will only be in the range 0-9 and the last digit of a number can’t be 0
+        System.out.println("Enter the Numbers: ");
+        int num = sc.nextInt();
+        printDigit(num);
     }
 }
  
