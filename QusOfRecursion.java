@@ -428,6 +428,8 @@ public class QusOfRecursion {
         System.out.println("Enter the Numbers: ");
         int num = sc.nextInt();
         printDigit(num);
+
+        //Time Complexity
     }
 }
  
