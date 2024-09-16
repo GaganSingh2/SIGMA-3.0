@@ -35,7 +35,7 @@ public class reverseOfArray {
             System.out.println(arr[i]+" ");
         }
 
-        //Time Complexity:- O(n)
+        //Time Complexity:- O(n).
 
     }
 }
