@@ -40,5 +40,6 @@ public class solution1 {
 			System.out.println("NO");
 		}
 
+		//Time Complexity
 	}
 }
