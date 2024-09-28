@@ -345,6 +345,8 @@ public class QusOfRecursion {
         // int res = lastOccurenceElement(arr, 0, key);
         // System.out.println("Index: "+res);
 
+        //Time COmplexity: 
+
 
         //Q9) Find the x to the power of n (x^n).
         // System.out.println("Enter the value: ");
