@@ -247,6 +247,24 @@ public class QusOfRecursion {
 
         return strLength(str.substring(1))+1;
     }
+
+    public static int countSubstring(String str,int i, int j,int n){
+        //Base case
+        if (n==1) {
+            return 1;
+        }
+        if (n <= 0) {
+            return 0;
+        }
+        int res = countSubstring(str,i+1,j,n-1)+
+                   countSubstring(str, i, j-1, n-1)-
+                   countSubstring(str, i+1, j-1, n-2);
+
+        if (str.charAt(i)==str.charAt(j)) {
+            res++;
+        }
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -444,10 +462,15 @@ public class QusOfRecursion {
 
 
         //Q3)Write a program to find the Length of a String using Recursion.
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("Length of String: "+strLength(str));
+
+        //Q4)We are given a string S,we need to find the count of all contiguous substrings starting and ending with the same character.
         System.out.println("Enter the String: ");
         String str = sc.nextLine();
-        System.out.println("Length of String: "+strLength(str));
-
+        int n = str.length();
+        System.out.println("Contiguous SubStrings: "+countSubstring(str, 0, n-1, n));
     }
 }
  
