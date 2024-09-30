@@ -238,6 +238,15 @@ public class QusOfRecursion {
         printDigit(num/10);
         System.out.print(digits[lastDigit]+" ");
     }
+
+    public static int strLength(String str){
+        //Base Case
+        if (str.length()==0) {
+            return 0;
+        }
+
+        return strLength(str.substring(1))+1;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -426,12 +435,19 @@ public class QusOfRecursion {
         
         // indexOfKey(arr, key, 0);
 
-        //Q2)You are given a number (eg -  2019), convert it into a String of english like“two zero one nine”.  Use a recursive function to solve this problem.NOTE-The digits of the number will only be in the range 0-9 and the last digit of a number can’t be 0
-        System.out.println("Enter the Numbers: ");
-        int num = sc.nextInt();
-        printDigit(num);
+        //Q2)You are given a number (eg -  2019), convert it into a String of english like“two zero one nine”.  Use a recursive function to solve this problem.NOTE-The digits of the number will only be in the range 0-9 and the last digit of a number can’t be 0.
+        // System.out.println("Enter the Numbers: ");
+        // int num = sc.nextInt();
+        // printDigit(num);
 
         //Time Complexity
+
+
+        //Q3)Write a program to find the Length of a String using Recursion.
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        System.out.println("Length of String: "+strLength(str));
+
     }
 }
  
