@@ -265,6 +265,22 @@ public class QusOfRecursion {
         }
         return res;
     }
+
+    public static long towerOfHanoi(int disks, String src, String helper, String dest){
+        
+        //Base Case
+        if (disks==1) {
+            System.out.println("Transfer Disk "+disks+" from "+src+" to "+dest);
+            return 1;
+        }
+
+        towerOfHanoi(disks-1, src, dest, helper);
+        
+        System.out.println("Transfer Disk "+disks+" from "+src+" to "+dest);
+        towerOfHanoi(disks-1, helper, src, dest);
+        
+        return (long)pow(2,disks)-1;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -467,10 +483,17 @@ public class QusOfRecursion {
         // System.out.println("Length of String: "+strLength(str));
 
         //Q4)We are given a string S,we need to find the count of all contiguous substrings starting and ending with the same character.
-        System.out.println("Enter the String: ");
-        String str = sc.nextLine();
-        int n = str.length();
-        System.out.println("Contiguous SubStrings: "+countSubstring(str, 0, n-1, n));
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // int n = str.length();
+        // System.out.println("Contiguous SubStrings: "+countSubstring(str, 0, n-1, n));
+
+
+        //Q4)Tower Of Hanoi.
+        System.out.println("Enter the Number of Disks: ");
+        int disks = sc.nextInt();
+        long res = towerOfHanoi(disks, "S", "H", "D");
+        System.out.println(res);
     }
 }
  
