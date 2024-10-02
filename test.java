@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.swing.text.Style;
@@ -43,6 +46,23 @@ public class test {
         }
         return true;
     }
+
+    public static int[] arrayRankTransform(int[] arr) {
+        Map<Integer, Integer> valueToRank = new HashMap<>();  // Map to store value-to-rank mapping
+        int[] sortedUniqueNumbers = Arrays.stream(arr).distinct().sorted().toArray();  // Remove duplicates and sort
+        
+        // Assign ranks to sorted unique elements
+        for (int i = 0; i < sortedUniqueNumbers.length; i++) {
+            valueToRank.put(sortedUniqueNumbers[i], i + 1);
+        }
+
+        // Replace each element in the original array with its rank
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = valueToRank.get(arr[i]);
+        }
+
+        return arr;  // Return the updated array
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -51,11 +71,16 @@ public class test {
        
 
         //Q2)[1497]Check if array pairs are divisible by K.
-        int arr[]={1,2,3,4,5,10,6,7,8,9};
-        System.out.println("Enteer the value of K: ");
-        int k = sc.nextInt();
-        System.out.println(canArrange(arr, k)); 
+        // int arr[]={1,2,3,4,5,10,6,7,8,9};
+        // System.out.println("Enteer the value of K: ");
+        // int k = sc.nextInt();
+        // System.out.println(canArrange(arr, k)); 
             
-
+        //Q3)[1331]Given an array of integers arr, replace each element with its rank.
+        int arr[] = {23,43,54,12,4};
+        int res[] = arrayRankTransform(arr);
+        for(int i=0; i<res.length; i++){
+            System.out.print(res[i]+" ");
+        }
     }
 }
