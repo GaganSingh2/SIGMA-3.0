@@ -9,6 +9,7 @@ public class Divide_and_Conquer {
         System.out.println();
     }
 
+    //----MERGE SORRT----
     public static void mergeSort(int arr[], int si, int ei){
         //Base Case
         if (si>ei || si==ei) {
@@ -57,25 +58,78 @@ public class Divide_and_Conquer {
             arr[i] = temp[k];
         }
     }
+
+    //----QUICK SORT---
+    public static void quickSort(int arr[], int si, int ei){
+        //Base Case
+        if (si>=ei) {
+            return;
+        }
+
+        //pivot Element->last element
+        int pIdx = partition(arr,si,ei);
+
+        //Quick sort for left part
+        quickSort(arr, si, pIdx-1);
+        //Quick sort for right part
+        quickSort(arr, pIdx+1, ei);
+    }
+    public static int partition(int arr[],int si, int ei){
+        int pivot = arr[ei];
+        int i = si-1; //to make place for element smaller than pivot
+        for(int j=si; j<ei; j++){
+            if (arr[j]<= pivot) {
+                i++;
+                //swap
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        //adjust the pivot to right pos  
+        i++;
+        int temp = pivot;
+        arr[ei] = arr[i];
+        arr[i] = temp;
+        return i;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         //----MERGE SORT------
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Before Sorted Array: ");
+        // printArr(arr);
+        // mergeSort(arr, 0, arr.length-1);
+        // System.out.println("After Sorted Array: ");
+        // printArr(arr);
+
+        //Time Complexity: O(nlogn)
+        //Space Complexity: O(n)
+
+        //------QUICK SORT-----
         System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
 
         int arr[] = new int[len];
         System.out.println("Enter the value in Array: ");
         for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = sc.nextInt(); 
         }
-        System.out.println("Before Sorted Array: ");
+        System.out.println("Before Sorted the Array: ");
         printArr(arr);
-        mergeSort(arr, 0, arr.length-1);
-        System.out.println("After Sorted Array: ");
+        quickSort(arr, 0, arr.length-1);
+        System.out.println("After Sorted the Array: ");
         printArr(arr);
 
         //Time Complexity: O(nlogn)
-        //Space Complexity: O(n)
+        //Space COmplexity: O(1)
     }
 }
