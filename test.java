@@ -63,6 +63,57 @@ public class test {
 
         return arr;  // Return the updated array
     }
+
+    //Merge sorting
+    public static void mergeSort(int arr[],int si, int ei){
+        //Base Case
+        if (si>=ei) {
+            return;
+        }
+
+        //Divide
+        int mid = si+(ei-si)/2;
+
+        //Merge sort for left parrt
+        mergeSort(arr, si, mid);
+        //Merge Sort for right part
+        mergeSort(arr, mid+1, ei);
+
+        //for Merging
+        merge(arr, si, mid, ei);
+    }
+    public static void merge(int arr[], int si, int mid, int ei){
+        //Create Temparary Array
+        int temp[] = new int[ei-si+1];
+        int i = si; //iterator for left part
+        int j = mid+1; //iterator for right part
+        int k = 0; //iterator for temp arr
+
+        //compare the both part & copy the smaller part in temp arr
+        while (i<=mid && j<=ei) {
+            if (arr[i]<arr[j]) {
+                temp[k]=arr[i];
+                i++;
+            }
+            else{
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+        //remaning left parrt
+        while (i<=mid) {
+            temp[k++]=arr[i++];
+        }
+        //remaning right part
+        while (j<=ei) {
+            temp[k++]=arr[j++];
+        }
+        //copy the temp to original arr
+        for(k=0,i=si; k<temp.length; k++,i++){
+            arr[i]=temp[k];
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -77,10 +128,24 @@ public class test {
         // System.out.println(canArrange(arr, k)); 
             
         //Q3)[1331]Given an array of integers arr, replace each element with its rank.
-        int arr[] = {23,43,54,12,4};
-        int res[] = arrayRankTransform(arr);
-        for(int i=0; i<res.length; i++){
-            System.out.print(res[i]+" ");
+        // int arr[] = {23,43,54,12,4};
+        // int res[] = arrayRankTransform(arr);
+        // for(int i=0; i<res.length; i++){
+        //     System.out.print(res[i]+" ");
+        // }
+
+        //----MERGE SORT--
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("Enter the value in Array: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
         }
+        System.out.println("Before Sorted Array: ");
+        printArr(arr);
+        mergeSort(arr, 0, arr.length-1);
+        System.out.println("After Sorted Array: ");
+        printArr(arr);
     }
 }
