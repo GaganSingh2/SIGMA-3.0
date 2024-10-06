@@ -100,6 +100,43 @@ public class Qus_Divide_and_Conquer {
         }
         return arr3;
     }
+
+
+    private static int countInRange(int nums[],int num, int lo,int hi){
+        int count = 0;
+        for(int i=lo; i<=hi; i++){
+            if (nums[i]==num) {
+                count++;
+            }
+        }
+        return count;
+    }
+    private static int majorityELementRec(int nums[],int lo,int hi){
+        //Base case
+        if(lo==hi){
+            return nums[lo];
+        }
+
+        //Divide
+        int mid = lo+(hi-lo)/2;
+        int left = majorityELementRec(nums, lo, mid);//left part
+        int right = majorityELementRec(nums, mid+1, hi);//right part
+
+        //if the two halves agree on the mmajority element,return it
+        if(left==right){
+            return left;
+        }
+
+        //Otherwise, count each element and return the "winners"
+        int leftCount = countInRange(nums, left, lo, hi);//left parrt
+        int rightCount = countInRange(nums, right, lo, hi);
+
+        return leftCount>rightCount ? left:right;
+
+    }
+    public static int majorityElement(int nums[]){
+        return majorityELementRec(nums, 0, nums.length-1);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -123,27 +160,44 @@ public class Qus_Divide_and_Conquer {
 
 
         //Q2)Apply Merge sort to sort an array of Strings.(Assume that all the characters in all the Strings are in lowercase.
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // String arr[] = new String[len];
+ 
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextLine();
+        // }
+
+        // System.out.println("Array: ");
+        // for(int i=0; i<arr.length; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+
+        // String str[] = sortString(arr, 0, arr.length-1);
+
+        // System.out.println("Sorted String Array: ");
+        // for(int i=0; i<str.length; i++){
+        //     System.out.print(str[i]+" ");
+        // }
+
+
+        //Q3)Given an Array nums of size n, return the majority element. The majority element is the element that appears more than n/2 times. you may assume that the majority element always exists in the array.
         System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
 
-        String arr[] = new String[len];
- 
+        int nums[] = new int[len];
+
         System.out.println("Enter the value in Array: ");
         for(int i=0; i<len; i++){
-            arr[i] = sc.nextLine();
+            nums[i]=sc.nextInt();
         }
 
-        System.out.println("Array: ");
-        for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-
-        String str[] = sortString(arr, 0, arr.length-1);
-
-        System.out.println("Sorted String Array: ");
-        for(int i=0; i<str.length; i++){
-            System.out.print(str[i]+" ");
-        }
+        System.out.println("Arrays: ");
+        printArr(nums);
+        int res = majorityElement(nums);
+        System.out.println("Majority Element is: "+res);
     }
 }
