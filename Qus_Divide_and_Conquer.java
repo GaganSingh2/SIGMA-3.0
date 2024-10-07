@@ -102,6 +102,7 @@ public class Qus_Divide_and_Conquer {
     }
 
 
+   
     private static int countInRange(int nums[],int num, int lo,int hi){
         int count = 0;
         for(int i=lo; i<=hi; i++){
@@ -129,7 +130,7 @@ public class Qus_Divide_and_Conquer {
 
         //Otherwise, count each element and return the "winners"
         int leftCount = countInRange(nums, left, lo, hi);//left parrt
-        int rightCount = countInRange(nums, right, lo, hi);
+        int rightCount = countInRange(nums, right, lo, hi);//right part
 
         return leftCount>rightCount ? left:right;
 
@@ -199,5 +200,8 @@ public class Qus_Divide_and_Conquer {
         printArr(nums);
         int res = majorityElement(nums);
         System.out.println("Majority Element is: "+res);
+
+        //Time Complexity:
+        //Space Complexity:
     }
 }
