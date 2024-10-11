@@ -7,6 +7,7 @@ public class sorting {
     public static void bubble_Sort(int arr[]){
         for(int term=0; term<arr.length-1; term++){
             int swap=0;
+            boolean swapped = true;
             for(int j=0; j<arr.length-1-term; j++){
                 if (arr[j]>arr[j+1]) {
                     int temp = arr[j];
@@ -15,7 +16,10 @@ public class sorting {
                     swap++;
                 }
             }
-           System.out.println(swap); 
+           System.out.println("Work: "+swap);
+           if (swapped!=true) { //agr arr already sorted hai to loop pura tiime nhi chalega
+                break;
+           } 
         }
     }
       //Helper function to print the sorted array
@@ -86,17 +90,17 @@ public class sorting {
         //---------BUBBLE SORT---------
         /*In the Bubble sort we compare the first two element and swap them when the first element is greater than the second element theis steps going until when the array is sorted. */
 
-        // System.out.println("Enter the length of Array: ");
-        // int len = sc.nextInt();
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
 
-        // int arr[] = new int[len];
+        int arr[] = new int[len];
 
-        // System.out.println("ENter the value in Array: ");
-        // for(int i=0; i<len; i++){
-        //     arr[i] = sc.nextInt();
-        // }
-        // bubble_Sort(arr);
-        // printArr(arr);
+        System.out.println("ENter the value in Array: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        bubble_Sort(arr);
+        printArr(arr);
 
         //Time Complexity :- O(n^2)
 
@@ -178,16 +182,16 @@ public class sorting {
 
         //---------COUNTING SORT----------
 
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
 
-        int arr[] = new int[len];
+        // int arr[] = new int[len];
 
-        System.out.println("Enter the value in Array: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
-        countingSort(arr);
-        printArr(arr);
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // countingSort(arr);
+        // printArr(arr);
     }
 }
