@@ -7,17 +7,18 @@ public class sorting {
     public static void bubble_Sort(int arr[]){
         for(int term=0; term<arr.length-1; term++){
             int swap=0;
-            boolean swapped = true;
+            boolean swapped = false;
             for(int j=0; j<arr.length-1-term; j++){
                 if (arr[j]>arr[j+1]) {
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                     swap++;
+                    swapped=true;
                 }
             }
            System.out.println("Work: "+swap);
-           if (swapped!=true) { //agr arr already sorted hai to loop pura tiime nhi chalega
+           if (swapped==false) { //agr arr already sorted hai to loop pura tiime nhi chalega
                 break;
            } 
         }
@@ -102,7 +103,8 @@ public class sorting {
         bubble_Sort(arr);
         printArr(arr);
 
-        //Time Complexity :- O(n^2)
+        //Time Complexity:- O(n)//with boolean fun ke arr already sorted hai
+        //Time Complexity :- O(n^2) //without boolean fun ke arr already sorted nhi hai
 
 
         //---------SELECTION SORT---------
@@ -120,6 +122,7 @@ public class sorting {
         // selectionSort(arr);
         // printArr(arr);
 
+        //Time Complexity:- O(n^2)
 
         //----------INSERTION SORT----------
         /*Insertion sort is a simple sorting algorithm that build the sorted array one item at a time. we assume the 0th index is already sorted */
