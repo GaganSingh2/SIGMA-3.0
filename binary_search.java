@@ -51,5 +51,6 @@ public class binary_search {
             System.out.println("Index is "+index);
         }
 
+        //Time Complexity: O(log n).
     }
 }
