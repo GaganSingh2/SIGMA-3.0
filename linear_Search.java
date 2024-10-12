@@ -36,6 +36,9 @@ public class linear_Search {
         // else{
         //     System.out.println("Key is at index: "+index);
         // }
+
+        //Time Complexity: O(n).
+        //Space Complexity:
         
 
     String menu[] = {"Dosa","Samosa","Pasta","Burger","Sting"};
