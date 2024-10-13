@@ -123,6 +123,9 @@ public class dsa_sheet_Array {
         // int ans1 = minimumElement(arr, ans);
         // System.out.println("Minimum value is "+ans1);
 
+        //Time Complexity:
+        //Space Complexity:
+
 
         //Q2) Find the revrse of array
         // System.out.println("Enter the length of Array: ");
@@ -157,6 +160,9 @@ public class dsa_sheet_Array {
         // int result = maxSubArraySum(arr);
         // System.out.println("Maximum sum of Sub-Array is "+result);
 
+        //Time Complexity:
+        //Space Complexity:
+
 
         //Q4)[217]Contain Duplicate:- Given an integer array nums, return true if any value appears at least twice in the array, and return fase if every element is distinct.
         // System.out.println("Enter the length of Array: ");
@@ -170,6 +176,9 @@ public class dsa_sheet_Array {
         // }
         // boolean ans = containDuplicate(nums);
         // System.out.println(ans);
+
+        //Time Complexity:
+        //Space Complexity:
 
 
         //Q5)[42] Trapping Rain Water: Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
@@ -199,6 +208,9 @@ public class dsa_sheet_Array {
 
         int result = numWaterBottles(numBottles, numExchange);
         System.out.println("Number of WaterBottle you can drink is "+result);
+
+        //Time Complexity:
+        //Space Complexity: 
 
 
 
