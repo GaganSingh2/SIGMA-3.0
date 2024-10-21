@@ -25,13 +25,16 @@ public class OOPS {
 
         //------GETTERS AND SETTERS-------
         //inka use hum private data ko apne main class ke andar update and print karane ke liye karte hai
-        Bank myAcc = new Bank(); //Created a bank object called myAcc
-        myAcc.setPinNo(1818);
-        System.out.println("Pin Number: "+myAcc.getPinNo());
-        myAcc.setName("Gagan");
-        System.out.println("Name: "+myAcc.getName());
-        myAcc.setName("Gagan Kumar");
-        System.out.println("Name: "+myAcc.getName());
+
+        // Bank myAcc = new Bank(); //Created a bank object called myAcc
+        // myAcc.setPinNo(1818);
+        // System.out.println("Pin Number: "+myAcc.getPinNo());
+        // myAcc.setName("Gagan");
+        // System.out.println("Name: "+myAcc.getName());
+        // myAcc.setName("Gagan Kumar");
+        // System.out.println("Name: "+myAcc.getName());
+
+
 
     }
 }
@@ -52,7 +55,7 @@ class Pen{
 
 }
 
-class Bank{
+class Bank{ //yeh class getters and setters samjhne ke liye hai
 
     //Attribute
     private int pinNo;
@@ -74,4 +77,6 @@ class Bank{
     String getName(){
         return this.name;
     }
+
+   
 }
