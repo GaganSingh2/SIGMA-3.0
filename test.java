@@ -114,6 +114,56 @@ public class test {
             arr[i]=temp[k];
         }
     }
+
+    
+    
+    public static boolean isSafe(char board[][],int row, int col){
+        //Vertical Up
+         for(int i=row-1; i>=0; i--){
+            if (board[i][col]=='Q') {
+                return false;
+            }
+         }
+        //Diagonal Left Up
+        for(int i=row-1,j=col-1; i>=0 && j>=0; i--,j--){
+            if (board[i][j]=='Q') {
+                return false;
+            }
+        }
+        //Diagonal Right Up
+        for(int i=row-1,j=col+1; i>=0 && j<board.length; i--,j++){
+            if (board[i][j]=='Q') {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void  printBoard(char board[][]){
+        System.out.println("-------Chess Board------");
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board.length; j++){
+                System.out.print(board[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void n_Queens(char board[][], int row){
+        //Base Case
+        if (row==board.length) {
+            printBoard(board);
+            return;
+        }
+
+        for(int j=0; j<board.length; j++){
+            if(isSafe(board, row, j)){
+                board[row][j] = 'Q';
+                n_Queens(board, row+1);
+                board[row][j] = 'X';
+            }
+           
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -135,17 +185,29 @@ public class test {
         // }
 
         //----MERGE SORT--
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
-        System.out.println("Enter the value in Array: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Before Sorted Array: ");
+        // printArr(arr);
+        // mergeSort(arr, 0, arr.length-1);
+        // System.out.println("After Sorted Array: ");
+        // printArr(arr);
+
+        //Q)Place the N-Queens on the chess board
+        System.out.println("ENter the number of Queen: ");
+        int N = sc.nextInt();
+
+        char board[][] = new char[N][N];
+        for(int i=0; i<N; i++){
+            for(int j=0; j<N; j++){
+                board[i][j] = 'X';
+            }
         }
-        System.out.println("Before Sorted Array: ");
-        printArr(arr);
-        mergeSort(arr, 0, arr.length-1);
-        System.out.println("After Sorted Array: ");
-        printArr(arr);
+        n_Queens(board, 0);
     }
 }
