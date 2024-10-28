@@ -55,6 +55,20 @@ public class BackTracking {
         }
     }
 
+    
+    public static int gridWays(int i, int j, int n, int m){
+        //Base Case
+        if (i==n-1 && j==m-1) { //yaha starting point hi ending point hai
+            return 1;
+        }
+        else if (i==n || j==m) { //jab row ya column boundry cross karne lage tab 
+            return 0;
+        }
+
+        int w1 = gridWays(i+1, j, n, m);
+        int w2 = gridWays(i, j+1, n, m);
+        return w1 + w2;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // System.out.println("ENter the length of Array: ");
@@ -74,10 +88,21 @@ public class BackTracking {
         // Space Complexity: O(n).
 
         // Q2)Find Permutation of the given String.
-        System.out.println("Enter the String: ");
-        String str = sc.nextLine();
-        System.out.println("Permutation: ");
-        findPermutation(str, "");
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("Permutation: ");
+        // findPermutation(str, "");
+
+        //Time Complexit: O(n*n!)
+
+        //Q3)Find the number of ways to reach from(0,0) to (N-1,M-1) in NxM grid.
+        System.out.println("Enter the number of Row: ");
+        int n = sc.nextInt();
+        System.out.println("Enter the number of Column: ");
+        int m = sc.nextInt();
+
+        int res = gridWays(0, 0, n, m);
+        System.out.println("Total Ways: "+res);
 
     }
 }
