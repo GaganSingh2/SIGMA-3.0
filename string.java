@@ -16,6 +16,7 @@ public class string {
             subString += str.charAt(i);
         }
         return subString;
+        
     }
 
     public static void main(String[] args) {

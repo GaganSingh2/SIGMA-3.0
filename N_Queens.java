@@ -36,7 +36,8 @@ public class N_Queens {
     public static void n_Queens(char board[][], int row) {
         // Base case
         if (row == board.length) {
-            printBoard(board);
+            // printBoard(board); //(Q1)find all ways
+            count++; //(Q2)count the ways
             return;
         }
 
@@ -46,14 +47,14 @@ public class N_Queens {
                 n_Queens(board, row + 1);
                 board[row][j] = 'X';
             }
-
         }
     }
-
+    static int count = 0;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the Number of N: ");
+        //Q)FInd the all ways to place the N-Queens on Chess Board
+        System.out.print("Enter the Number of Queen: ");
         int N = sc.nextInt();
         char board[][] = new char[N][N];
         // Initialization
@@ -63,5 +64,8 @@ public class N_Queens {
             }
         }
         n_Queens(board, 0);
+
+        //Q)Count the all ways to place the N-Queens on Chess Board'
+        System.out.println("Total ways to solve "+N+" Queens: "+count);
     }
 }
