@@ -36,8 +36,8 @@ public class N_Queens {
     public static void n_Queens(char board[][], int row) {
         // Base case
         if (row == board.length) {
-            // printBoard(board); //(Q1)find all ways
-            count++; //(Q2)count the ways
+            // printBoard(board); //(Q1)find & print all ways to solve the n-queens problem
+            count++; //(Q2)count the ways to solve the n-queens problem
             return;
         }
 
