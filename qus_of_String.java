@@ -143,13 +143,12 @@ public class qus_of_String {
         return true;
     }
 
-
-    public static String removeDuplicate(String str){
+    public static String removeDuplicate(String str) {
         str = str.toLowerCase();
         char str1[] = str.toCharArray();
-        for(int i=0;i<str1.length; i++){
-            for(int j=str1.length-1; j>=0; j--){
-                if (str1[i]!=str1[j]) {
+        for (int i = 0; i < str1.length; i++) {
+            for (int j = str1.length - 1; j >= 0; j--) {
+                if (str1[i] != str1[j]) {
                     char temp = str1[i];
                     str1[i] = str1[j];
                     str1[j] = temp;
@@ -158,6 +157,24 @@ public class qus_of_String {
         }
         return str1.toString();
     }
+
+    public static boolean isCircular(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(0) != str.charAt(str.length() - 1)) {
+                return false;
+            }
+        }
+
+        for (int j = 0; j < str.length(); j++) {
+            if (str.charAt(j) == ' ') {
+                if (str.charAt(j - 1) != str.charAt(j + 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -198,7 +215,7 @@ public class qus_of_String {
         // String res = largestString(fruit);
         // System.out.println("Largest String is: "+res);
 
-        //Time Complexity:
+        // Time Complexity:
 
         // Q4) For a given String convert each the first letter of each word to
         // uppercase
@@ -238,24 +255,39 @@ public class qus_of_String {
         // System.out.println(str1 + " and " + str2 + " are not Anagram");
         // }
 
-        // Q8) A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.Given a string s, return true if it is a palindrome, or false otherwise.
-    
+        // Q8) A phrase is a palindrome if, after converting all uppercase letters into
+        // lowercase letters and removing all non-alphanumeric characters, it reads the
+        // same forward and backward. Alphanumeric characters include letters and
+        // numbers.Given a string s, return true if it is a palindrome, or false
+        // otherwise.
+
         // System.out.println("Enter the String: ");
         // String str = sc.nextLine();
         // System.out.println("String is: " + str);
         // boolean res = isPalindrome(str);
         // if (res == true) {
-        //     System.out.print("It is a palindrome");
+        // System.out.print("It is a palindrome");
         // } else {
-        //     System.out.println("It is not a palindrome");
+        // System.out.println("It is not a palindrome");
         // }
 
-        //Q9) Remove the duplicate character in given string
-        System.out.println("ENter the String: ");
-        String str = sc.nextLine();
-        System.out.println("String is: "+str);
-        String res = removeDuplicate(str);
-        System.out.println(res);
+        // Q9) Remove the duplicate character in given string
+        // System.out.println("ENter the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("String is: "+str);
+        // String res = removeDuplicate(str);
+        // System.out.println(res);
 
+        // Q10) A sentence is circular if:The last character of a word is equal to the
+        // first character of the next word.The last character of the last word is equal
+        // to the first character of the first word.
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        boolean res = isCircular(str);
+        if (res == true) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
     }
 }
