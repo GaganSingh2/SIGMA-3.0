@@ -199,15 +199,42 @@ public class test {
         // printArr(arr);
 
         //Q)Place the N-Queens on the chess board
-        System.out.println("ENter the number of Queen: ");
-        int N = sc.nextInt();
+        // System.out.println("ENter the number of Queen: ");
+        // int N = sc.nextInt();
 
-        char board[][] = new char[N][N];
-        for(int i=0; i<N; i++){
-            for(int j=0; j<N; j++){
-                board[i][j] = 'X';
-            }
+        // char board[][] = new char[N][N];
+        // for(int i=0; i<N; i++){
+        //     for(int j=0; j<N; j++){
+        //         board[i][j] = 'X';
+        //     }
+        // }
+        // n_Queens(board, 0);
+
+        //
+        System.out.println("Length: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("value:");
+        for(int i=0; i<len; i++){
+            arr[i]=sc.nextInt();
         }
-        n_Queens(board, 0);
+        System.out.println("array");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
+        for(int i=0; i<arr.length-1; i++){
+            
+                if(arr[i]<arr[i+1]){
+                    int temp=arr[i+1];
+                    arr[i+1]=arr[i];
+                    arr[i]=temp;
+                }
+            
+        }
+        System.out.println("result");
+        for(int i=0; i<arr.length; i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
     }
 }
