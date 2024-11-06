@@ -42,14 +42,40 @@ public class Qus_of_Array_List {
           // swap(list, idx1, idx2);
           // System.out.println("After Swapping: "+list);
 
-          //Q4)Sorting in ArrayList
-          System.out.println("Before Sorting in Ascending order: "+list);
-          Collections.sort(list);
-          System.out.println("After Sorting in Ascending order: "+list);
+          //Q4)Sorting in ArrayList (Comparitor:-it is used to define the logic of Sorting)
+          // System.out.println("Before Sorting in Ascending order: "+list);
+          // Collections.sort(list);
+          // System.out.println("After Sorting in Ascending order: "+list);
 
-          System.out.println("Before Sorting in Descending order: "+list);
-          Collections.sort(list,Collections.reverseOrder());
-          System.out.println("After Sorting in Dscending order: "+list);
+          // System.out.println("Before Sorting in Descending order: "+list);
+          // Collections.sort(list,Collections.reverseOrder());
+          // System.out.println("After Sorting in Dscending order: "+list);
+
+          //Q5)Print the 2-D Matrix in table of 1,2,3
+          ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
+
+          ArrayList<Integer> mat1 = new ArrayList<>();
+          ArrayList<Integer> mat2 = new ArrayList<>();
+          ArrayList<Integer> mat3 = new ArrayList<>();
+
+          for(int i=1; i<=5; i++){
+               mat1.add(i*1);
+               mat2.add(i*2);
+               mat3.add(i*3);
+          }     
+          matrix.add(mat1);
+          matrix.add(mat2);     
+          matrix.add(mat3);
+          
+          System.out.println("Matrix is: ");
+          for(int i=0; i<matrix.size(); i++){
+               ArrayList<Integer> main_Matrix = matrix.get(i);
+               for(int j=0; j<main_Matrix.size(); j++){
+                    System.out.print(main_Matrix.get(j)+" ");
+               }
+               System.out.println();
+          }
+          
 
      }
 }
