@@ -51,5 +51,42 @@ public class Array_List {
         //8)Checking ArrayList is isEmpty or not
         System.out.println("Checking is isEmpty or not: ");
         System.out.println(list2.isEmpty());
+
+        //---Iteration Over ArrayList---
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        list1.add(4);
+        list1.add(5);
+
+        System.out.println("Values in ArrayList: ");
+        for(int i=0; i<list1.size(); i++){
+            System.out.print(list1.get(i)+" ");
+        }
+        System.out.println();
+        //---Multi-Dimensional ArrayList---
+            //Create 2-D ArrayList
+        ArrayList<ArrayList<Integer>> MainMatrix = new ArrayList<>();
+
+        ArrayList<Integer> mat1 = new ArrayList<>();
+        mat1.add(3);
+        mat1.add(5);
+        mat1.add(6);
+        MainMatrix.add(mat1);
+
+        ArrayList<Integer> mat2 = new ArrayList<>();
+        mat2.add(7);
+        mat2.add(8);
+        mat2.add(10);
+        MainMatrix.add(mat2);
+        
+        System.out.println("Multi-Dimensional ArrayList: ");
+        for(int i=0; i<MainMatrix.size(); i++){
+            ArrayList<Integer> currMat = MainMatrix.get(i);
+            for(int j=0; j<currMat.size(); j++){
+                System.out.print(currMat.get(j)+" ");
+            }
+            System.out.println();
+        }
     }
 }
