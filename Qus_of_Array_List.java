@@ -1,8 +1,11 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Qus_of_Array_List {
+
      public static void swap(ArrayList<Integer>list, int idx1,int idx2){
 
           int temp = list.get(idx1);
@@ -40,14 +43,44 @@ public class Qus_of_Array_List {
           }
           return maxWater;
      }
-     public static void main(String[] args) {
-          ArrayList<Integer> list = new ArrayList<>();
 
-          list.add(5);
-          list.add(3);
-          list.add(9);
-          list.add(15);
-          list.add(10);
+     public static void pairSum(ArrayList<Integer> value, int target){
+          ////Brute Force O(n^2)
+          // for(int i=0; i<value.size(); i++){
+          //      for(int j=i+1; j<value.size(); j++){
+          //           if ((value.get(i)+value.get(j))==target) {
+          //                System.out.println("Pair is: ("+value.get(i)+", "+value.get(j)+")");
+          //                return;
+          //           }
+          //      }
+          // }
+
+          //2nd Approach(2-pointer Appraoch)O(n)
+          int lp = 0, rp = value.size()-1;
+          while (lp<rp) {
+               if ((value.get(lp)+value.get(rp))==target) {
+                    System.out.println("Pair is: ("+value.get(lp)+", "+value.get(rp)+")");
+                    return;
+               }
+               else if((value.get(lp)+value.get(rp))<target){
+                    lp++;
+               }
+               else{
+                    rp--;
+               }
+          }
+          System.out.println("Pair does not exist");
+     }
+     public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
+
+          //ArrayList<Integer> list = new ArrayList<>();
+
+          // list.add(5);
+          // list.add(3);
+          // list.add(9);
+          // list.add(15);
+          // list.add(10);
 
           // Q1)Print the Reverse of the ArrayList
           // System.out.println("Reverse ArrayList: ");
@@ -109,21 +142,37 @@ public class Qus_of_Array_List {
 
 
           //Q6)Container With Most Water(For given n lines on x-axis, use 2 lines to form a container, such  that it hold maximum water).
-          ArrayList<Integer> height = new ArrayList<>();
+          //ArrayList<Integer> height = new ArrayList<>();
 
           //heigth=[1,8,6,2,5,4,8,3,7]
-          height.add(1);
-          height.add(8);
-          height.add(6);
-          height.add(2);
-          height.add(5);
-          height.add(4);
-          height.add(8);
-          height.add(3);
-          height.add(7);
+          // height.add(1);
+          // height.add(8);
+          // height.add(6);
+          // height.add(2);
+          // height.add(5);
+          // height.add(4);
+          // height.add(8);
+          // height.add(3);
+          // height.add(7);
           
-          int res = storeWater(height);
-          System.out.println("Maximum Water: "+res);
+          // int res = storeWater(height);
+          // System.out.println("Maximum Water: "+res);
+          
+
+          //Q7)Pair Sum(Find if any pair in a Sorted ArrayList has a target sum)
+          ArrayList<Integer> value = new ArrayList<>();
+          
+          value.add(1);
+          value.add(2);
+          value.add(3);
+          value.add(4);
+          value.add(5);
+          value.add(6);
+
+          System.out.println("Enter the Target: ");
+          int target = sc.nextInt();
+          pairSum(value, target);
+
           
 
      }
