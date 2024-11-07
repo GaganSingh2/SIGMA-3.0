@@ -56,17 +56,44 @@ public class Qus_of_Array_List {
           // }
 
           //2nd Approach(2-pointer Appraoch)O(n)
-          int lp = 0, rp = value.size()-1;
-          while (lp<rp) {
+          // int lp = 0, rp = value.size()-1;
+          // while (lp<rp) {
+          //      if ((value.get(lp)+value.get(rp))==target) {
+          //           System.out.println("Pair is: ("+value.get(lp)+", "+value.get(rp)+")");
+          //           return;
+          //      }
+          //      else if((value.get(lp)+value.get(rp))<target){
+          //           lp++;
+          //      }
+          //      else{
+          //           rp--;
+          //      }
+          // }
+          // System.out.println("Pair does not exist");
+
+          //3rd Approach for Sorted and Rotated
+          int bp = -1;
+          int n = value.size();
+          for(int i=0; i<value.size(); i++){
+               if (value.get(i) > value.get(i+1)) {
+                    bp = i;
+                    break;
+               }
+          }
+
+          int lp = bp+1;
+          int rp = bp;
+
+          while (lp != rp) {
                if ((value.get(lp)+value.get(rp))==target) {
                     System.out.println("Pair is: ("+value.get(lp)+", "+value.get(rp)+")");
                     return;
                }
                else if((value.get(lp)+value.get(rp))<target){
-                    lp++;
+                    lp = (lp + 1)%n;
                }
                else{
-                    rp--;
+                    rp = (n+rp-1)%n;
                }
           }
           System.out.println("Pair does not exist");
@@ -162,12 +189,12 @@ public class Qus_of_Array_List {
           //Q7)Pair Sum(Find if any pair in a Sorted ArrayList has a target sum)
           ArrayList<Integer> value = new ArrayList<>();
           
-          value.add(1);
-          value.add(2);
-          value.add(3);
-          value.add(4);
-          value.add(5);
+          value.add(11);
+          value.add(15);
           value.add(6);
+          value.add(8);
+          value.add(9);
+          value.add(10);
 
           System.out.println("Enter the Target: ");
           int target = sc.nextInt();
