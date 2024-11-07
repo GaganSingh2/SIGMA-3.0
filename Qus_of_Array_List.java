@@ -10,18 +10,35 @@ public class Qus_of_Array_List {
           list.set(idx2, temp);
      }
 
-     public static int maxWater(ArrayList<Integer> height){
-          int max_Water = 0;
-          //Brute Force O(n)
-          for(int i=0; i<height.size(); i++){
-               for(int j=i+1; j<height.size(); j++){
-                    int ht = Math.min(height.get(i),height.get(j));
-                    int width = j-i;
-                    int water = ht*width;
-                    max_Water = Math.max(max_Water, water);
+     public static int storeWater(ArrayList<Integer> height){
+          int maxWater = 0;
+          //1st Approach(Brute Force O(n^2)----
+          // for(int i=0; i<height.size(); i++){
+          //      for(int j=i+1; j<height.size(); j++){
+          //           int ht = Math.min(height.get(i),height.get(j));
+          //           int width = j-i;
+          //           int water = ht*width;
+          //           max_Water = Math.max(max_Water, water);
+          //      }
+          // }
+
+          //2nd Approach (2 Pointer)O(n)---
+          int lp = 0, rp = height.size()-1;
+          while (lp<rp) {
+               //Calculated Area
+               int ht = Math.min(height.get(lp), height.get(rp));
+               int width = rp-lp;
+               int water = ht*width;
+               maxWater = Math.max(maxWater, water);
+
+               //UPdate pointer
+               if (height.get(lp)<height.get(rp)) {
+                    lp++;
+               }else{
+                    rp--;
                }
           }
-          return max_Water;
+          return maxWater;
      }
      public static void main(String[] args) {
           ArrayList<Integer> list = new ArrayList<>();
@@ -105,7 +122,7 @@ public class Qus_of_Array_List {
           height.add(3);
           height.add(7);
           
-          int res = maxWater(height);
+          int res = storeWater(height);
           System.out.println("Maximum Water: "+res);
           
 
