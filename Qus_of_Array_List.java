@@ -98,6 +98,26 @@ public class Qus_of_Array_List {
           }
           System.out.println("Pair does not exist");
      }
+
+     public static boolean isMonotonic(ArrayList<Integer> values){
+          if(values.size()==1){
+               return true;
+          }
+          boolean monotoneInc = true;
+          boolean monotoneDec = true;
+          for(int i=1; i<values.size(); i++){
+               if (values.get(i-1)>values.get(i)) {
+                    monotoneInc = false;
+               }
+               if(values.get(i-1)<values.get(i)){
+                    monotoneDec = false;
+               }
+               if (!(monotoneInc || monotoneDec)) {
+                    return false;
+               }
+          }
+          return monotoneInc || monotoneDec;
+     }
      public static void main(String[] args) {
           Scanner sc = new Scanner(System.in);
 
@@ -187,18 +207,30 @@ public class Qus_of_Array_List {
           
 
           //Q7)Pair Sum(Find if any pair in a Sorted ArrayList has a target sum)
-          ArrayList<Integer> value = new ArrayList<>();
+          // ArrayList<Integer> value = new ArrayList<>();
           
-          value.add(11);
-          value.add(15);
-          value.add(6);
-          value.add(8);
-          value.add(9);
-          value.add(10);
+          // value.add(11);
+          // value.add(15);
+          // value.add(6);
+          // value.add(8);
+          // value.add(9);
+          // value.add(10);
 
-          System.out.println("Enter the Target: ");
-          int target = sc.nextInt();
-          pairSum(value, target);
+          // System.out.println("Enter the Target: ");
+          // int target = sc.nextInt();
+          // pairSum(value, target);
+
+          //Q8)Monotonic ArrayList
+          ArrayList<Integer> values = new ArrayList<>();
+
+          values.add(1);
+          values.add(2);
+          values.add(4);
+          values.add(6);
+          values.add(5);
+          
+          boolean res = isMonotonic(values);
+          System.out.println("ArrayList is Monotonic: "+res);
 
           
 
