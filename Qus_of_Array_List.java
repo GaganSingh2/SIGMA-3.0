@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
@@ -118,6 +119,30 @@ public class Qus_of_Array_List {
           }
           return monotoneInc || monotoneDec;
      }
+
+     public static ArrayList<Integer> findLonelyNum(ArrayList<Integer> num){
+          ArrayList<Integer> lonelynum = new ArrayList<>();
+
+          Collections.sort(num);
+          
+          for(int i=1; i<num.size()-1; i++){
+              if (num.get(i-1)+1 < num.get(i) && num.get(i)+1 < num.get(i+1)) {
+                   lonelynum.add(num.get(i));
+              }
+          }
+          if (num.size()==1) {
+               lonelynum.add(num.get(0));
+          }
+          if (num.size()>1) {
+               if (num.get(0)+1 < num.get(1)) {
+                    lonelynum.add(num.get(0));
+               }
+               if (num.get(num.size()-2)+1 < num.get(num.size()-1)) {
+                    lonelynum.add(num.get(num.size()-1));
+               }
+          }
+          return lonelynum;
+     }
      public static void main(String[] args) {
           Scanner sc = new Scanner(System.in);
 
@@ -221,18 +246,27 @@ public class Qus_of_Array_List {
           // pairSum(value, target);
 
           //Q8)Monotonic ArrayList
-          ArrayList<Integer> values = new ArrayList<>();
+          // ArrayList<Integer> values = new ArrayList<>();
 
-          values.add(1);
-          values.add(2);
-          values.add(4);
-          values.add(6);
-          values.add(5);
+          // values.add(1);
+          // values.add(2);
+          // values.add(4);
+          // values.add(6);
+          // values.add(5);
           
-          boolean res = isMonotonic(values);
-          System.out.println("ArrayList is Monotonic: "+res);
+          // boolean res = isMonotonic(values);
+          // System.out.println("ArrayList is Monotonic: "+res);
 
+
+          //Q8)Lonely Number in ArrayList(Lonely means ke agr 6 array me hai to 5 aur 7 dono nhi hone chahiye agr ak v hai to o Lonely number nhi hoga)
+          ArrayList<Integer> num = new ArrayList<>();
+
+          num.add(1);
+          num.add(3);
+          num.add(5);
+          num.add(3);
           
+          System.out.println("Lonely number is: "+findLonelyNum(num));
 
      }
 }
