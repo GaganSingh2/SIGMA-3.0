@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class array_basic {
     public static void main(String[] args) {
+        int nums[] = {10,5,7,8};
+        for(int i=1; i<nums.length-1; i++){
+            System.out.println(nums[i-1]+1);
+            return;
+        }
+        
         
         /*Syntax of Array:-
             dataType arrayName[] = new dataType[size]; 
