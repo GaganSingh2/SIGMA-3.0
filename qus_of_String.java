@@ -241,7 +241,7 @@ public class qus_of_String {
         // int res = lowercaseVowelsOccurred(let);
         // System.out.println("Vowels in Strings are "+res+"times occurred.");
 
-        // Q7) Determine if 2 Strings areanagramsof each other.ex:- race and care
+        // Q7) Determine if 2 Strings are anagrams of each other.ex:- race and care
         // character is equal or not.
 
         // System.out.println("Enter the first String: ");
