@@ -42,13 +42,35 @@ public class Linked_List {
         tail = newNode;
     }
 
-    public void print(){
+    //print the Nodes
+    public void print(){  //O(n)
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data+"->");
             temp = temp.next;
         }
         System.out.println("NULL");
+    }
+
+    //Adding the nodes in Middle of LinkedList
+    public void add(int idx, int data){
+        //Base case
+        if (idx==0) {
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i=0;
+
+        while (i<idx-1) {
+            temp = temp.next;
+            i++;
+        }
+
+        //i=idx-1, temp->prev
+        newNode.next = temp.next;
+        temp.next = newNode;
     }
     
     public static void main(String[] args) {
@@ -63,6 +85,8 @@ public class Linked_List {
         ll.addFirst(6);
         ll.print();
         ll.addLast(4);
-        
+        ll.print();
+        ll.add(2, 10);
+        ll.print();
     }
 }
