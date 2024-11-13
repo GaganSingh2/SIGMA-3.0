@@ -95,6 +95,32 @@ public class Linked_List {
         return val;
     }
     
+    //Remove the last Node in LinkedList
+    public int removeLast(){
+        int val = tail.data;
+        if (size==0) {
+            System.out.println("LL is empty");
+            return Integer.MIN_VALUE;
+        }else if (size==1) {
+            head = tail = null;
+            size=0;
+            return val;
+
+        }
+        
+        int i=0;
+        Node prev = head;
+        while (i<size-2) {
+            prev = prev.next;
+            i++;
+        }
+        
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+    }
+
     public static void main(String[] args) {
         Linked_List ll = new Linked_List();
         ll.print();
@@ -112,6 +138,9 @@ public class Linked_List {
         ll.print();
         System.out.println("Size of LinkedList: "+ll.size);
         ll.removeFirst();
+        ll.print();
+        System.out.println("Size of LinkedList: "+ll.size);
+        ll.removeLast();
         ll.print();
         System.out.println("Size of LinkedList: "+ll.size);
     }
