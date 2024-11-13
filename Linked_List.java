@@ -1,5 +1,5 @@
 import java.util.LinkedList;
-
+import java.util.*;
 public class Linked_List {
     public static class Node{
         int data; 
@@ -14,7 +14,7 @@ public class Linked_List {
     public static Node tail;
 
     //Adding the new Node in first position
-    public void addFirst(int data){
+    public static void addFirst(int data){
         //step1= create new Node
         Node newNode = new Node(data);
         if (head==null) {
@@ -28,7 +28,7 @@ public class Linked_List {
         head = newNode;
     }
     //Adding the newNode in last position
-    public void addLast(int data){
+    public static void addLast(int data){
         //step1-> create new Node
         Node newNode = new Node(data);
         if (head==null) {
@@ -41,11 +41,27 @@ public class Linked_List {
         //step3-> tail = newNode
         tail = newNode;
     }
+
+    public void print(){
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data+"->");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+    
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        Linked_List ll = new Linked_List();
+        ll.print();
         ll.addFirst(1);
+        ll.print();
         ll.addFirst(2);
+        ll.print();
         ll.addLast(3);
+        ll.print();
+        ll.addFirst(6);
+        ll.print();
         ll.addLast(4);
         
     }
