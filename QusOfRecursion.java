@@ -281,6 +281,15 @@ public class QusOfRecursion {
         
         return (long)pow(2,disks)-1;
     }
+
+    public static int sumOfTen(int sum){
+        if (sum==1) {
+            return 1;
+        }
+        int snm1 = sumOfTen(sum-1);
+        int Sum = sum+snm1;
+        return Sum;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q1) Print numbers from n to 1 (Decreasing order).
@@ -490,10 +499,16 @@ public class QusOfRecursion {
 
 
         //Q4)Tower Of Hanoi.
-        System.out.println("Enter the Number of Disks: ");
-        int disks = sc.nextInt();
-        long res = towerOfHanoi(disks, "S", "H", "D");
-        System.out.println(res);
+        // System.out.println("Enter the Number of Disks: ");
+        // int disks = sc.nextInt();
+        // long res = towerOfHanoi(disks, "S", "H", "D");
+        // System.out.println(res);
+
+        //Q5) Sum of first 10 number
+        System.out.println("Enter the number: ");
+        int num = sc.nextInt();
+        int res = sumOfTen(num);
+        System.out.println("Value is: "+res);
     }
 }
  
