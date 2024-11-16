@@ -83,6 +83,33 @@ public class Qus_Of_LinkedList {
         }
         head = prev;
     }
+
+    //Delete Nth Node
+    public void deleteNthfromEnd(int key){
+        //Calculate size 
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            sz++;
+        }
+
+        if (key == sz) {
+            head = head.next; //remove first if key is stay on head
+            return;
+        }
+
+        //Otherwise use formula sz-n+1
+        int idx = 1;
+        int iToFind = sz-key;
+        Node prev = head;
+        while (idx < iToFind) {
+            prev = prev.next;
+            idx++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -106,8 +133,13 @@ public class Qus_Of_LinkedList {
         // System.out.println("Position of Node: "+result);
 
         //Q2)Reverse the Linked List
-        linkqus.reverse();
-        linkqus.print();
+        // linkqus.reverse();
+        // linkqus.print();
 
+        //Q3)Find & Remove Nth Node from End
+        System.out.println("Enter key: ");
+        int key = sc.nextInt();
+        linkqus.deleteNthfromEnd(key);
+        linkqus.print();
     }
 }
