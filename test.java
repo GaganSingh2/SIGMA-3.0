@@ -163,6 +163,17 @@ public class test {
            
         }
     }
+    public static boolean sum(int arr[],int k){
+        for(int i=0; i<arr.length-1; i++){
+            for(int j=i+1; j<arr.length; j++){
+                if ((arr[i]+arr[j])==k) {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -211,30 +222,48 @@ public class test {
         // n_Queens(board, 0);
 
         //
-        System.out.println("Length: ");
+        // System.out.println("Length: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("value:");
+        // for(int i=0; i<len; i++){
+        //     arr[i]=sc.nextInt();
+        // }
+        // System.out.println("array");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // for(int i=0; i<arr.length-1; i++){
+            
+        //         if(arr[i]<arr[i+1]){
+        //             int temp=arr[i+1];
+        //             arr[i+1]=arr[i];
+        //             arr[i]=temp;
+        //         }
+            
+        // }
+        // System.out.println("result");
+        // for(int i=0; i<arr.length; i++)
+        // {
+        //     System.out.print(arr[i]+" ");
+        // }
+
+        //Q)
+        System.out.println("Enter the length of Array: ");
         int len = sc.nextInt();
         int arr[] = new int[len];
-        System.out.println("value:");
+        System.out.println("Enter the value: ");
         for(int i=0; i<len; i++){
-            arr[i]=sc.nextInt();
+            arr[i] = sc.nextInt();
         }
-        System.out.println("array");
+        System.out.println("Array is: ");
         for(int i=0; i<len; i++){
             System.out.print(arr[i]+" ");
         }
-        for(int i=0; i<arr.length-1; i++){
-            
-                if(arr[i]<arr[i+1]){
-                    int temp=arr[i+1];
-                    arr[i+1]=arr[i];
-                    arr[i]=temp;
-                }
-            
-        }
-        System.out.println("result");
-        for(int i=0; i<arr.length; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
+        System.out.println();
+        System.out.println("Enter key: ");
+        int k = sc.nextInt();
+        System.out.println(sum(arr, k));
+        
     }
 }
