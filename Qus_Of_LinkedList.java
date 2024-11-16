@@ -68,26 +68,46 @@ public class Qus_Of_LinkedList {
     public  int recSearch(int key){
         return helper(key,head);
     }
+
+    //Reverse
+    public void reverse(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         Qus_Of_LinkedList linkqus = new Qus_Of_LinkedList();
-        linkqus.addFirst(1);
-        linkqus.addFirst(2);
-        linkqus.addFirst(3);
-        linkqus.addFirst(4);
         linkqus.addFirst(5);
+        linkqus.addFirst(4);
+        linkqus.addFirst(3);
+        linkqus.addFirst(2);
+        linkqus.addFirst(1);
 
         linkqus.print();
         //Q1)Search the key and return the position of key using loop
-        System.out.println("Enter the key: ");
-        int key = sc.nextInt();
+        // System.out.println("Enter the key: ");
+        // int key = sc.nextInt();
 
         // int res = linkqus.searchKey(key);
         // System.out.println("Postion of Node: "+res);
 
         //Same qus using Recursion
-        int result = linkqus.recSearch(key);
-        System.out.println("Position of Node: "+result);
+        // int result = linkqus.recSearch(key);
+        // System.out.println("Position of Node: "+result);
+
+        //Q2)Reverse the Linked List
+        linkqus.reverse();
+        linkqus.print();
+
     }
 }
