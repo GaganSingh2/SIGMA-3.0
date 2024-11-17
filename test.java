@@ -175,6 +175,18 @@ public class test {
         return false;
     }
     
+    public static boolean isPalindrome(String str){
+        int i=0; 
+        int j=str.length()-1;
+        while (i<j) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;  
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -249,21 +261,28 @@ public class test {
         // }
 
         //Q)
-        System.out.println("Enter the length of Array: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
-        System.out.println("Enter the value: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Array is: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-        System.out.println("Enter key: ");
-        int k = sc.nextInt();
-        System.out.println(sum(arr, k));
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Array is: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // System.out.println();
+        // System.out.println("Enter key: ");
+        // int k = sc.nextInt();
+        // System.out.println(sum(arr, k));
+
+        //Q)Check a Palindrome
+        System.out.println("Entre the String: ");
+        String str = sc.nextLine();
+        System.out.println("String is: "+str);
+        boolean res = isPalindrome(str);
+        System.out.println("Result is: "+res);
         
     }
 }
