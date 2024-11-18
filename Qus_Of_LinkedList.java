@@ -110,14 +110,54 @@ public class Qus_Of_LinkedList {
         prev.next = prev.next.next;
         return;
     }
+
+    //Palindrome 
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next; //+1 forward
+            fast = fast.next.next; //+2 forward
+        }
+        return slow; //slow is my MidNode
+    }
+    public boolean isPalnidrome(){
+        if (head==null && head.next!=null) {
+            return true;
+        }
+        //Step1:- find Mid Node
+        Node midNode = findMid(head);
+
+        //Step2:- reverse the right half LL
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+        //step3:- commpare the left and right part
+        while (right != null) {
+            if(right.data != left.data){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         Qus_Of_LinkedList linkqus = new Qus_Of_LinkedList();
-        linkqus.addFirst(5);
         linkqus.addFirst(4);
-        linkqus.addFirst(3);
         linkqus.addFirst(2);
+        linkqus.addFirst(6);
         linkqus.addFirst(1);
 
         linkqus.print();
@@ -137,9 +177,12 @@ public class Qus_Of_LinkedList {
         // linkqus.print();
 
         //Q3)Find & Remove Nth Node from End
-        System.out.println("Enter key: ");
-        int key = sc.nextInt();
-        linkqus.deleteNthfromEnd(key);
-        linkqus.print();
+        // System.out.println("Enter key: ");
+        // int key = sc.nextInt();
+        // linkqus.deleteNthfromEnd(key);
+        // linkqus.print();
+
+        //Q6) Check the given integer is Palindrome or not.
+       System.out.println("Resul is: "+linkqus.isPalnidrome());
     }
 }
