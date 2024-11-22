@@ -113,25 +113,27 @@ public class Qus_Of_LinkedList {
 
     //Palindrome 
     public Node findMid(Node head){
-        Node slow = head;
-        Node fast = head;
+        Node slow = head; //+1 increment
+        Node fast = head; //+2 increment
 
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next == null) {
             slow = slow.next; //+1 forward
             fast = fast.next.next; //+2 forward
         }
-        return slow; //slow is my MidNode
+        return slow; //slow on the Mid
     }
     public boolean isPalnidrome(){
-        if (head==null && head.next!=null) {
+        //Base Case
+        if (head==null || head.next == null) {
             return true;
         }
-        //Step1:- find Mid Node
-        Node midNode = findMid(head);
 
-        //Step2:- reverse the right half LL
+        //Step1- find the mid Node
+        Node mid = findMid(head);
+
+        //Step2- Reverse the 2nd half
+        Node curr =  mid;
         Node prev = null;
-        Node curr = midNode;
         Node next;
         while (curr != null) {
             next = curr.next;
@@ -141,13 +143,14 @@ public class Qus_Of_LinkedList {
         }
         Node right = prev;
         Node left = head;
-        //step3:- commpare the left and right part
+
+        //Step3- check the left and right is equal
         while (right != null) {
-            if(right.data != left.data){
+            if (left.data != right.data) {
                 return false;
             }
-            right = right.next;
             left = left.next;
+            right = right.next;
         }
         return true;
     }
@@ -183,6 +186,6 @@ public class Qus_Of_LinkedList {
         // linkqus.print();
 
         //Q6) Check the given integer is Palindrome or not.
-       System.out.println("Resul is: "+linkqus.isPalnidrome());
+       System.out.println("Result is: "+linkqus.isPalnidrome());
     }
 }
