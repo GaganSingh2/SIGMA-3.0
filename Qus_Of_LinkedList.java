@@ -154,6 +154,20 @@ public class Qus_Of_LinkedList {
         }
         return true;
     }
+
+    public static boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;  //Cycle exist
+            }
+        }
+        return false; //Cycle does not exist
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -187,5 +201,17 @@ public class Qus_Of_LinkedList {
 
         //Q6) Check the given integer is Palindrome or not.
        System.out.println("Result is: "+linkqus.isPalnidrome());
+
+       //Q7)Detect the Linked List contain the Loop/Cycle or not.
+       head = new Node(1);
+       head.next = new Node(2);
+       head.next.next = new Node(5);
+       head.next.next.next = head;
+
+       //linkqus.print();
+       System.out.println("Cycle Exist: "+linkqus.isCycle());
+       
+
+
     }
 }
