@@ -168,6 +168,34 @@ public class Qus_Of_LinkedList {
         }
         return false; //Cycle does not exist
     }
+
+    public static void isRemoveCycle(){
+        //Detect the cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle==false) {
+            return;
+        }
+        //slow = head & find meeting point
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        //lastnode.next = null
+        prev.next = null;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -177,7 +205,7 @@ public class Qus_Of_LinkedList {
         linkqus.addFirst(6);
         linkqus.addFirst(1);
 
-        linkqus.print();
+        //linkqus.print();
         //Q1)Search the key and return the position of key using loop
         // System.out.println("Enter the key: ");
         // int key = sc.nextInt();
@@ -200,18 +228,27 @@ public class Qus_Of_LinkedList {
         // linkqus.print();
 
         //Q6) Check the given integer is Palindrome or not.
-       System.out.println("Result is: "+linkqus.isPalnidrome());
+       //System.out.println("Result is: "+linkqus.isPalnidrome());
 
        //Q7)Detect the Linked List contain the Loop/Cycle or not.
+    //    head = new Node(1);
+    //    head.next = new Node(2);
+    //    head.next.next = new Node(5);
+    //    head.next.next.next = head;
+  
+    
+       //System.out.println("Cycle Exist: "+linkqus.isCycle());
+
+    //Q7) Remove the Cycle/Loop in a Linked List
        head = new Node(1);
-       head.next = new Node(2);
-       head.next.next = new Node(5);
-       head.next.next.next = head;
-
-       //linkqus.print();
-       System.out.println("Cycle Exist: "+linkqus.isCycle());
+       Node temp = new Node(2);
+       head.next = temp;
+       head.next.next = new Node(3);
+       head.next.next.next = new Node(4);
+       head.next.next.next.next = temp;
        
-
-
+       System.out.println("Cycle is Exist: "+isCycle());
+       isRemoveCycle();
+       System.out.println("Cycle is Exist: "+isCycle());
     }
 }
