@@ -285,6 +285,7 @@ public class test {
         System.out.println("Result is: "+res);
 
         //Time Complexit:- O(logn)
+        System.out.println(24);
         
     }
 }
