@@ -222,7 +222,7 @@ public class Qus_Of_LinkedList {
 
     //Merge Sort
     //find the mid Node
-    public Node midNode(Node head){
+    private Node getMidNode(Node head){
         Node slow = head;
         Node fast = head.next;
         while (fast != null && fast.next != null) {
@@ -231,13 +231,48 @@ public class Qus_Of_LinkedList {
         }
         return slow;
     }
-    public void isMergeSort(Node head){
+    private Node merge(Node head1, Node head2){
+        Node mergell =  new Node(-1);
+        Node temp = mergell;
+        while (head1 != null && head2 != null) {
+            if (head1.data <= head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+            }
+            else{
+                temp.next = head2;
+                head2 = head2.next;
+            }
+            temp = temp.next;
+        }   
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }     
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return mergell.next;
+    }
+    public Node isMergeSort(Node head){
+        //Base Case
+        if (head == null || head.next==null) {
+            return head;
+        }
         //find Mid Node
-         Node mid= midNode(head); 
-         System.out.println(mid);
-        //Divide the LL in 2 part
+         Node mid= getMidNode(head); 
+         
+        //Divide and applie Merge Sort on Left and Right part
+        Node rightHead = mid.next;
+        mid.next = null;
+        Node newLeft = isMergeSort(head);
+        Node newRight = isMergeSort(rightHead);
 
         //Merge the Node
+        return merge(newLeft,newRight);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -299,8 +334,8 @@ public class Qus_Of_LinkedList {
 
 
         //9)Merge Sort on the Linked List
-        linkqus.isMergeSort(head);
-        
-
+        linkqus.print();
+        linkqus.head = linkqus.isMergeSort(linkqus.head);
+        linkqus.print();
     }
 }
