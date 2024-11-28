@@ -219,6 +219,26 @@ public class Qus_Of_LinkedList {
         prev.next = slow.next;
         return head;
     }
+
+    //Merge Sort
+    //find the mid Node
+    public Node midNode(Node head){
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    public void isMergeSort(Node head){
+        //find Mid Node
+         Node mid= midNode(head); 
+         System.out.println(mid);
+        //Divide the LL in 2 part
+
+        //Merge the Node
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -274,8 +294,13 @@ public class Qus_Of_LinkedList {
         // System.out.println("Cycle is Exist: "+isCycle());
 
         //Q8)Delete the middle Node and print the others Node
-        linkqus.print();
-        System.out.println(deleteMidNode(head));
+        // linkqus.print();
+        // System.out.println(deleteMidNode(head));
+
+
+        //9)Merge Sort on the Linked List
+        linkqus.isMergeSort(head);
+        
 
     }
 }
