@@ -229,10 +229,10 @@ public class Qus_Of_LinkedList {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow;
+        return slow;  //Mid Node
     }
     private Node merge(Node head1, Node head2){
-        Node mergell =  new Node(-1);
+        Node mergell =  new Node(-1);   //temp. node for connect the nodes
         Node temp = mergell;
         while (head1 != null && head2 != null) {
             if (head1.data <= head2.data) {
@@ -282,6 +282,8 @@ public class Qus_Of_LinkedList {
         linkqus.addFirst(2);
         linkqus.addFirst(6);
         linkqus.addFirst(1);
+        linkqus.addFirst(5);
+        linkqus.addFirst(10);
 
         // linkqus.print();
         // Q1)Search the key and return the position of key using loop

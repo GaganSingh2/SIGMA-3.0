@@ -1,5 +1,5 @@
-import java.util.LinkedList;
-import java.util.*;
+// import java.util.LinkedList;
+// import java.util.*;
 
 public class Linked_List {
     public static class Node {
