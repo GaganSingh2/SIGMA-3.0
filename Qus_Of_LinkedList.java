@@ -222,17 +222,17 @@ public class Qus_Of_LinkedList {
 
     //Merge Sort
     //find the mid Node
-    private Node getMidNode(Node head){
+    private Node getMid(Node head){
         Node slow = head;
         Node fast = head.next;
         while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+            slow = slow.next; //+1 increment
+            fast = fast.next.next; //+2 increment
         }
-        return slow;  //Mid Node
+        return slow; //Mid Node
     }
     private Node merge(Node head1, Node head2){
-        Node mergell =  new Node(-1);   //temp. node for connect the nodes
+        Node mergell = new Node(-1);
         Node temp = mergell;
         while (head1 != null && head2 != null) {
             if (head1.data <= head2.data) {
@@ -244,12 +244,12 @@ public class Qus_Of_LinkedList {
                 head2 = head2.next;
             }
             temp = temp.next;
-        }   
+        }
         while (head1 != null) {
             temp.next = head1;
             head1 = head1.next;
             temp = temp.next;
-        }     
+        }
         while (head2 != null) {
             temp.next = head2;
             head2 = head2.next;
@@ -259,20 +259,20 @@ public class Qus_Of_LinkedList {
     }
     public Node isMergeSort(Node head){
         //Base Case
-        if (head == null || head.next==null) {
+        if(head==null || head.next==null){
             return head;
         }
-        //find Mid Node
-         Node mid= getMidNode(head); 
-         
-        //Divide and applie Merge Sort on Left and Right part
-        Node rightHead = mid.next;
-        mid.next = null;
+        //Find Mid Node
+        Node midNode = getMid(head);
+
+        //Divide and applies merge sort on left & right part
+        Node rightHead = midNode.next;
+        midNode.next = null;
         Node newLeft = isMergeSort(head);
         Node newRight = isMergeSort(rightHead);
-
-        //Merge the Node
-        return merge(newLeft,newRight);
+        
+        //After sorting merge the Node
+        return merge(newLeft, newRight);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -284,7 +284,8 @@ public class Qus_Of_LinkedList {
         linkqus.addFirst(1);
         linkqus.addFirst(5);
         linkqus.addFirst(10);
-
+        linkqus.addFirst(7);
+        linkqus.addFirst(3);
         // linkqus.print();
         // Q1)Search the key and return the position of key using loop
         // System.out.println("Enter the key: ");
