@@ -340,5 +340,7 @@ public class Qus_Of_LinkedList {
         linkqus.print();
         linkqus.head = linkqus.isMergeSort(linkqus.head);
         linkqus.print();
+
+        //10) Zig-Zag in Linked List
     }
 }
