@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -187,6 +188,19 @@ public class test {
         }
         return true;
     }
+
+    public static void factorial(int num){
+        if (num==0) {
+            System.out.print(1);
+            return;
+        }
+        BigInteger res = BigInteger.ONE;
+        while (num>0) {
+            res = res.multiply(BigInteger.valueOf(num));
+            num--;
+        }
+        System.out.println("Result is: "+res);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -278,14 +292,19 @@ public class test {
         // System.out.println(sum(arr, k));
 
         //Q)Check a Palindrome
-        System.out.println("Entre the String: ");
-        String str = sc.nextLine();
-        System.out.println("String is: "+str);
-        boolean res = isPalindrome(str);
-        System.out.println("Result is: "+res);
+        // System.out.println("Entre the String: ");
+        // String str = sc.nextLine();
+        // System.out.println("String is: "+str);
+        // boolean res = isPalindrome(str);
+        // System.out.println("Result is: "+res);
 
         //Time Complexit:- O(logn)
-        System.out.println(24);
+        //System.out.println(24);
+
+        //Q) Find Factorial for BigInteger
+        System.out.println("Enter the number: "); 
+        int num = sc.nextInt();
+        factorial(num);
         
     }
 }
