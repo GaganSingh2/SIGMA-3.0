@@ -201,6 +201,19 @@ public class test {
         }
         System.out.println("Result is: "+res);
     }
+    public static String isRight(int arr[]){
+        int len = arr.length;
+        String res = "EVEN";
+        Arrays.sort(arr);
+        int diff = arr[0]-arr[len-1];
+        if (diff % 2==0) {
+            return res;
+        }
+        else{
+            res = "ODD";
+        }
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -302,9 +315,23 @@ public class test {
         //System.out.println(24);
 
         //Q) Find Factorial for BigInteger
-        System.out.println("Enter the number: "); 
-        int num = sc.nextInt();
-        factorial(num);
-        
+        // System.out.println("Enter the number: "); 
+        // int num = sc.nextInt();
+        // factorial(num);
+
+        //Q)Find the biggest diff in two value and return EVEN if diff is even and ODD if diff is odd
+        System.out.println("Enter the length: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("Enter the value: ");
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }System.out.println();
+        String res = isRight(arr);
+        System.out.println("Result: "+res);
     }
 }
