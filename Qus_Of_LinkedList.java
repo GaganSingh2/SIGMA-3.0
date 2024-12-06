@@ -274,18 +274,59 @@ public class Qus_Of_LinkedList {
         //After sorting merge the Node
         return merge(newLeft, newRight);
     }
+
+    //Zig-Zag Problem
+    private Node giveMid(Node head){
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null || fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;  //Slow is Mid
+    }
+    public void zigZag(){
+        //Find mid of LL
+         Node midNode = getMid(head);
+
+        //Reverse the 2nd half
+        Node curr = midNode.next;
+        midNode.next = null;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+        Node nextL , nextR;
+
+        //Alternat Merging
+        while (left != null && right != null) {
+            nextL = left.next;        //allocate the nodes
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            left = nextL;
+            right = nextR;  //Update the node after swaping two nodes
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         Qus_Of_LinkedList linkqus = new Qus_Of_LinkedList();
-        linkqus.addFirst(4);
-        linkqus.addFirst(2);
-        linkqus.addFirst(6);
-        linkqus.addFirst(1);
-        linkqus.addFirst(5);
-        linkqus.addFirst(10);
+        linkqus.addFirst(8);
         linkqus.addFirst(7);
+        linkqus.addFirst(6);
+        linkqus.addFirst(5);
+        linkqus.addFirst(4);
         linkqus.addFirst(3);
+        linkqus.addFirst(2);
+        linkqus.addFirst(1);
         // linkqus.print();
         // Q1)Search the key and return the position of key using loop
         // System.out.println("Enter the key: ");
@@ -337,10 +378,14 @@ public class Qus_Of_LinkedList {
 
 
         //9)Merge Sort on the Linked List
-        linkqus.print();
-        linkqus.head = linkqus.isMergeSort(linkqus.head);
-        linkqus.print();
+        // linkqus.print();
+        // linkqus.head = linkqus.isMergeSort(linkqus.head);
+        // linkqus.print();
 
         //10) Zig-Zag in Linked List
+        linkqus.print();
+        linkqus.zigZag();
+        linkqus.print();
+
     }
 }
