@@ -320,18 +320,29 @@ public class test {
         // factorial(num);
 
         //Q)Find the biggest diff in two value and return EVEN if diff is even and ODD if diff is odd
-        System.out.println("Enter the length: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
-        System.out.println("Enter the value: ");
-        for(int i=0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Array: ");
-        for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+" ");
-        }System.out.println();
-        String res = isRight(arr);
-        System.out.println("Result: "+res);
+        // System.out.println("Enter the length: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value: ");
+        // for(int i=0; i<arr.length; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Array: ");
+        // for(int i=0; i<arr.length; i++){
+        //     System.out.print(arr[i]+" ");
+        // }System.out.println();
+        // String res = isRight(arr);
+        // System.out.println("Result: "+res);
+
+        //Q) Swap the value without using 3rd variable
+
+        System.out.println("Enter the 1st value: ");
+        int a = sc.nextInt();
+        System.out.println("Enter the 2nd value: ");
+        int b = sc.nextInt();
+
+        
+        System.out.println("Val1: "+ ((a+b)-a)); 
+        System.out.println("Val2: "+((a+b)-b));
     }
 }
