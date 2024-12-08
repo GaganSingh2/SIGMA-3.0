@@ -32,14 +32,13 @@ public class DoublyLL {
         int val = Integer.MIN_VALUE;
         if (head == null) {
             System.out.println("DLL is Empty");
-            size = 0;
             return val;
         }
         
         if (size==1) {
             val = head.data;
             head = tail = null;
-            size--;
+            size=0;
             return val;
         }
         val = head.data;
@@ -60,6 +59,27 @@ public class DoublyLL {
         newNode.prev = tail;
         tail.next = newNode;
         tail = newNode;
+     }
+
+     //RemoveLast
+     public int removeLast(){
+        int val = Integer.MIN_VALUE;
+        //if DLL is empty
+        if(tail == null) {
+            System.out.println("DLL is Empty.");
+            return val;
+        }
+        if(size==1){
+            val = tail.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        val = tail.data;
+        tail = tail.prev;
+        tail.next = null;
+        size--;
+        return val;
      }
 
     //Print the LL
@@ -97,6 +117,11 @@ public class DoublyLL {
         dll.addLast(6);
         dll.print();
         System.out.println("Size Of DLL: "+size);
+
+        //Remove Last
+        dll.removeLast();
+        dll.print();
+        System.out.println("Size of DLL: "+size);
         
     }
 }
