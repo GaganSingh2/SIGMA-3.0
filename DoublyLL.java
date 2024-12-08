@@ -48,6 +48,20 @@ public class DoublyLL {
         size--;
         return val;
     }
+    
+    //AddLast
+     public void addLast(int data){
+        Node newNode = new Node(data);
+        size++;
+        if (tail == null) {
+            head = tail = newNode;
+            return;
+        }
+        newNode.prev = tail;
+        tail.next = newNode;
+        tail = newNode;
+     }
+
     //Print the LL
     public void print(){
         Node temp = head;
@@ -68,13 +82,21 @@ public class DoublyLL {
         dll.addFirst(1);
 
         //Print
-        dll.print();
-        System.out.println("Size of DLL: "+size);
+        //dll.print();
+        //System.out.println("Size of DLL: "+size);
 
         //Remove First
-        dll.removeFirst();
+        // dll.removeFirst();
+        // dll.print();
+        // System.out.println("Size of DLL: "+size);
+
+        //AddLast
         dll.print();
-        System.out.println("Size of DLL: "+size);
+        dll.addLast(4);
+        dll.addLast(5);
+        dll.addLast(6);
+        dll.print();
+        System.out.println("Size Of DLL: "+size);
         
     }
 }
