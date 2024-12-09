@@ -214,6 +214,28 @@ public class test {
         }
         return res;
     }
+    public static int findMajority(int[] arr, int n) {
+		// Write your code here.
+		if(arr.length == 1){
+			return arr[0];
+		}
+	    int count = 0;
+		for(int i=0; i<=n-1; i++){
+			for(int j=i+1; j<n; j++){
+				if(arr[i]==arr[j]){
+					count++;
+				}
+			}
+			if(Math.floor(n/2)<=count){
+				return arr[i];
+			}
+			else{
+                count =0;
+			} 
+		}
+		
+		return -1;
+	}
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -336,13 +358,29 @@ public class test {
 
         //Q) Swap the value without using 3rd variable
 
-        System.out.println("Enter the 1st value: ");
-        int a = sc.nextInt();
-        System.out.println("Enter the 2nd value: ");
-        int b = sc.nextInt();
+        // System.out.println("Enter the 1st value: ");
+        // int a = sc.nextInt();
+        // System.out.println("Enter the 2nd value: ");
+        // int b = sc.nextInt();
 
         
-        System.out.println("Val1: "+ ((a+b)-a)); 
-        System.out.println("Val2: "+((a+b)-b));
+        // System.out.println("Val1: "+ ((a+b)-a)); 
+        // System.out.println("Val2: "+((a+b)-b));
+
+        //Q) FInd majority element
+         System.out.println("ENter the length: ");
+         int len = sc.nextInt();
+         int arr[] = new int[len];
+         System.out.println("Enter the value in Array: ");
+         for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+         }
+         System.out.println("Array: ");
+         for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+         }
+         System.out.println();
+         int res = findMajority(arr, len);
+         System.out.println("Majority Element: "+res);
     }
 }
