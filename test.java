@@ -382,5 +382,7 @@ public class test {
          System.out.println();
          int res = findMajority(arr, len);
          System.out.println("Majority Element: "+res);
+
+         //Time Complexity:
     }
 }
