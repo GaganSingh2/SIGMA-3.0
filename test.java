@@ -236,6 +236,21 @@ public class test {
 		
 		return -1;
 	}
+
+    public static int maxBeauty(int nums[],int k){
+        Arrays.sort(nums);
+        int len = nums.length;
+        int left = 0;
+        int maxbeauty = 0;
+
+        for(int right=0; right<len; right++){
+            while (nums[right]-nums[left]>2*k) {
+                left++;
+            }
+            maxbeauty = Math.max(maxbeauty, right-left+1);
+        }
+        return maxbeauty;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -368,7 +383,25 @@ public class test {
         // System.out.println("Val2: "+((a+b)-b));
 
         //Q) FInd majority element
-         System.out.println("ENter the length: ");
+        //  System.out.println("ENter the length: ");
+        //  int len = sc.nextInt();
+        //  int arr[] = new int[len];
+        //  System.out.println("Enter the value in Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        //  }
+        //  System.out.println("Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        //  }
+        //  System.out.println();
+        //  int res = findMajority(arr, len);
+        //  System.out.println("Majority Element: "+res);
+
+         //Time Complexity:
+
+         //Q) Maximum beauty of an array after applying the operation
+         System.out.println("ENter the lenght: ");
          int len = sc.nextInt();
          int arr[] = new int[len];
          System.out.println("Enter the value in Array: ");
@@ -378,11 +411,10 @@ public class test {
          System.out.println("Array: ");
          for(int i=0; i<len; i++){
             System.out.print(arr[i]+" ");
-         }
-         System.out.println();
-         int res = findMajority(arr, len);
-         System.out.println("Majority Element: "+res);
+         }System.out.println();
+         System.out.println("Enter the value of K: ");
+         int k = sc.nextInt();
 
-         //Time Complexity:
+         System.out.println("Result: "+maxBeauty(arr, k));
     }
 }
