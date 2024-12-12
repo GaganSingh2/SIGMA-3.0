@@ -416,5 +416,8 @@ public class test {
          int k = sc.nextInt();
 
          System.out.println("Result: "+maxBeauty(arr, k));
+
+         //Time Complexity:
+         //Space Complexity:
     }
 }
