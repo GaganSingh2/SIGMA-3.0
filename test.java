@@ -251,6 +251,20 @@ public class test {
         }
         return maxbeauty;
     }
+
+    public static void printPattern(int n){
+        for(int i=1; i<=n; i++){
+            //space
+            for(int j=1; j<=n-i; j++){
+                System.out.print(" ");
+            }
+            //stars
+            for(int k=1; k<=2*i-1; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -401,23 +415,28 @@ public class test {
          //Time Complexity:
 
          //Q) Maximum beauty of an array after applying the operation
-         System.out.println("ENter the lenght: ");
-         int len = sc.nextInt();
-         int arr[] = new int[len];
-         System.out.println("Enter the value in Array: ");
-         for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-         }
-         System.out.println("Array: ");
-         for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-         }System.out.println();
-         System.out.println("Enter the value of K: ");
-         int k = sc.nextInt();
+        //  System.out.println("ENter the lenght: ");
+        //  int len = sc.nextInt();
+        //  int arr[] = new int[len];
+        //  System.out.println("Enter the value in Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        //  }
+        //  System.out.println("Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        //  }System.out.println();
+        //  System.out.println("Enter the value of K: ");
+        //  int k = sc.nextInt();
 
-         System.out.println("Result: "+maxBeauty(arr, k));
+        //  System.out.println("Result: "+maxBeauty(arr, k));
 
          //Time Complexity:
          //Space Complexity:
+
+         //Q)Print the pattern
+         System.out.println("ENter the number of Line: ");
+         int n = sc.nextInt();
+         printPattern(n);
     }
 }
