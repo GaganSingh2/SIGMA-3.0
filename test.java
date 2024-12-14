@@ -265,6 +265,15 @@ public class test {
             System.out.println();
         }
     }
+
+    public static void swap(int arr1[],int arr2[]){
+        arr1[0] = arr1[0]+arr2[0];
+        arr2[0] = arr1[0]-arr2[0];
+        arr1[0] = arr1[0]-arr2[0];
+        System.out.println("After Swaping:");
+        System.out.println("1st Value: "+arr1[0]);
+        System.out.println("2nd Value: "+arr2[0]);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -435,8 +444,20 @@ public class test {
          //Space Complexity:
 
          //Q)Print the pattern
-         System.out.println("ENter the number of Line: ");
-         int n = sc.nextInt();
-         printPattern(n);
+        //  System.out.println("ENter the number of Line: ");
+        //  int n = sc.nextInt();
+        //  printPattern(n);
+
+        //Q)Swap the number using array
+        int arr1[] = new int[1];
+        int arr2[] = new int[1];
+        System.out.println("Enter the 1st value: ");
+        arr1[0] = sc.nextInt();
+        System.out.println("Enter the 2nd value: ");
+        arr2[0] = sc.nextInt();
+        System.out.println("Before Swapping: ");
+        System.out.println("1st Value: "+arr1[0]);
+        System.out.println("2nd Value: "+arr2[0]);
+        swap(arr1, arr2);
     }
 }
