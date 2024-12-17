@@ -274,6 +274,21 @@ public class test {
         System.out.println("1st Value: "+arr1[0]);
         System.out.println("2nd Value: "+arr2[0]);
     }
+
+    public static int minimumSumPair(int arr1[],int arr2[]){
+        int len = arr1.length;
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        int res = 0;
+        int i = 0;
+        int j = 0;
+        while (i<len) {
+            res += Math.abs(arr1[i]-arr2[j]);
+            i++;
+            j++;
+        }
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -449,18 +464,47 @@ public class test {
         //  printPattern(n);
 
         //Q)Swap the number using array
-        int arr1[] = new int[1];
-        int arr2[] = new int[1];
-        System.out.println("Enter the 1st value: ");
-        arr1[0] = sc.nextInt();
-        System.out.println("Enter the 2nd value: ");
-        arr2[0] = sc.nextInt();
-        System.out.println("Before Swapping: ");
-        System.out.println("1st Value: "+arr1[0]);
-        System.out.println("2nd Value: "+arr2[0]);
-        swap(arr1, arr2);
+        // int arr1[] = new int[1];
+        // int arr2[] = new int[1];
+        // System.out.println("Enter the 1st value: ");
+        // arr1[0] = sc.nextInt();
+        // System.out.println("Enter the 2nd value: ");
+        // arr2[0] = sc.nextInt();
+        // System.out.println("Before Swapping: ");
+        // System.out.println("1st Value: "+arr1[0]);
+        // System.out.println("2nd Value: "+arr2[0]);
+        // swap(arr1, arr2);
 
         //Time Complexity:
         //Space Complexity:
+
+        //Q)Minimum sum of pairing in two same size of array
+        System.out.println("ENter the lenght: ");
+         int len = sc.nextInt();
+
+         int arr1[] = new int[len];
+         int arr2[] = new int[len];
+
+         System.out.println("Enter the value in 1st Array: ");
+         for(int i=0; i<len; i++){
+            arr1[i] = sc.nextInt();
+         }
+         System.out.println("Enter the value in 2nd Array: ");
+         for(int i=0; i<len; i++){
+            arr2[i] = sc.nextInt();
+         }
+
+         System.out.println("1st Array: ");
+         for(int i=0; i<len; i++){
+            System.out.print(arr1[i]+" ");
+         }System.out.println();
+
+         System.out.println("2nd Array: ");
+         for(int i=0; i<len; i++){
+            System.out.print(arr2[i]+" ");
+         }System.out.println();
+
+         int res = minimumSumPair(arr1, arr2);
+         System.out.println("Minimum Sum: "+res);
     }
 }
