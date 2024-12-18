@@ -506,5 +506,8 @@ public class test {
 
          int res = minimumSumPair(arr1, arr2);
          System.out.println("Minimum Sum: "+res);
+
+         //Time Complexit: O(log n)
+         //Space Complexity: O(1)
     }
 }
