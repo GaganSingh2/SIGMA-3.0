@@ -289,6 +289,13 @@ public class test {
         }
         return res;
     }
+
+    public static boolean oneSegment(String str){
+        if(str.contains("01")){
+            return false;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -479,35 +486,43 @@ public class test {
         //Space Complexity:
 
         //Q)Minimum sum of pairing in two same size of array
-        System.out.println("ENter the lenght: ");
-         int len = sc.nextInt();
+        // System.out.println("ENter the lenght: ");
+        //  int len = sc.nextInt();
 
-         int arr1[] = new int[len];
-         int arr2[] = new int[len];
+        //  int arr1[] = new int[len];
+        //  int arr2[] = new int[len];
 
-         System.out.println("Enter the value in 1st Array: ");
-         for(int i=0; i<len; i++){
-            arr1[i] = sc.nextInt();
-         }
-         System.out.println("Enter the value in 2nd Array: ");
-         for(int i=0; i<len; i++){
-            arr2[i] = sc.nextInt();
-         }
+        //  System.out.println("Enter the value in 1st Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr1[i] = sc.nextInt();
+        //  }
+        //  System.out.println("Enter the value in 2nd Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr2[i] = sc.nextInt();
+        //  }
 
-         System.out.println("1st Array: ");
-         for(int i=0; i<len; i++){
-            System.out.print(arr1[i]+" ");
-         }System.out.println();
+        //  System.out.println("1st Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr1[i]+" ");
+        //  }System.out.println();
 
-         System.out.println("2nd Array: ");
-         for(int i=0; i<len; i++){
-            System.out.print(arr2[i]+" ");
-         }System.out.println();
+        //  System.out.println("2nd Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr2[i]+" ");
+        //  }System.out.println();
 
-         int res = minimumSumPair(arr1, arr2);
-         System.out.println("Minimum Sum: "+res);
+        //  int res = minimumSumPair(arr1, arr2);
+        //  System.out.println("Minimum Sum: "+res);
 
          //Time Complexit: O(log n)
          //Space Complexity: O(1)
+         
+         //Q)You are given a binary string ‘STR’, containing only zeroes and ones. This string does not contain any leading zero.Your task is to determine if this string contains at most one contiguous segment of ones.
+         System.out.println("Enter the String in 0 & 1: ");
+         String str = sc.nextLine();
+         boolean res = oneSegment(str);
+
+         System.out.println("Result is: "+res);
+
     }
 }
