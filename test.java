@@ -524,5 +524,7 @@ public class test {
 
          System.out.println("Result is: "+res);
 
+         //Time Complexity: O(n)
+         //Space Complexity: O(1)
     }
 }
