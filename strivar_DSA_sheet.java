@@ -86,6 +86,8 @@ public class strivar_DSA_sheet {
         // int num = secondLargestNum(arr);
         // System.out.println("Second Largest is "+num);
 
+        //Time Complexity: O(n)
+        //Space Complexityy: O(1)
 
         //Q3) Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false
         System.out.println("ENter the length in array: ");
