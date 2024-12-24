@@ -296,6 +296,25 @@ public class test {
         }
         return true;
     }
+
+    public static boolean isPeriodic(String s) {
+        // Write your code here.
+        int len = s.length();
+        
+        for(int period=1; period<=len/2; period++){
+            if(len % period == 0){
+                String subString = s.substring(0,period);
+                StringBuilder repeat = new StringBuilder();
+                for(int i=0; i<len/period; i++){
+                    repeat.append(subString);
+                }
+                if(repeat.toString().equals(s)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -518,13 +537,19 @@ public class test {
          //Space Complexity: O(1)
          
          //Q)You are given a binary string ‘STR’, containing only zeroes and ones. This string does not contain any leading zero.Your task is to determine if this string contains at most one contiguous segment of ones.
-         System.out.println("Enter the String in 0 & 1: ");
-         String str = sc.nextLine();
-         boolean res = oneSegment(str);
+        //  System.out.println("Enter the String in 0 & 1: ");
+        //  String str = sc.nextLine();
+        //  boolean res = oneSegment(str);
 
-         System.out.println("Result is: "+res);
+        //  System.out.println("Result is: "+res);
 
          //Time Complexity: O(n)
          //Space Complexity: O(1)
+
+         //Q) Check the given string is periodic or not(Periodic means the given string can repeate less then time of our size)
+         System.out.println("ENter the String: ");
+         String str = new String();
+         Boolean res = isPeriodic(str);
+         System.out.println("Result: "+res);
     }
 }
