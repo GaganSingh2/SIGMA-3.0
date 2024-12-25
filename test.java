@@ -551,5 +551,8 @@ public class test {
          String str = new String();
          Boolean res = isPeriodic(str);
          System.out.println("Result: "+res);
+
+         //Time Complexity: 
+         //Space Complexity: 
     }
 }
