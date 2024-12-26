@@ -552,7 +552,7 @@ public class test {
          Boolean res = isPeriodic(str);
          System.out.println("Result: "+res);
 
-         //Time Complexity: 
-         //Space Complexity: 
+         //Time Complexity: O(n)
+         //Space Complexity: O(1)
     }
 }
