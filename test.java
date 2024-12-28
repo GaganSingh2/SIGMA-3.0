@@ -579,5 +579,8 @@ public class test {
 
          int res = isSorted(arr);
          System.out.println("Result is: "+res);
+
+         //Time Complexity: O(n)
+         //Space COmplexity: O(1)
     }
 }
