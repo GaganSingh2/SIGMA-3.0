@@ -565,6 +565,25 @@ public class test {
          //Space Complexity: O(1)
 
          //Q)You have been given an array ‘a’ of ‘n’ non-negative integers.You have to check whether the given array is sorted in the non-decreasing order or not.Your task is to return 1 if the given array is sorted. Else, return 0.
+        //  System.out.println("ENter the lenght: ");
+        //  int len = sc.nextInt();
+        //  int arr[] = new int[len];
+        //  System.out.println("Enter the value in Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        //  }
+        //  System.out.println("Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        //  }System.out.println();
+
+        //  int res = isSorted(arr);
+        //  System.out.println("Result is: "+res);
+
+         //Time Complexity: O(n)
+         //Space COmplexity: O(1)
+
+         //Q)Create a array and  check the sorted or not
          System.out.println("ENter the lenght: ");
          int len = sc.nextInt();
          int arr[] = new int[len];
@@ -577,10 +596,5 @@ public class test {
             System.out.print(arr[i]+" ");
          }System.out.println();
 
-         int res = isSorted(arr);
-         System.out.println("Result is: "+res);
-
-         //Time Complexity: O(n)
-         //Space COmplexity: O(1)
     }
 }
