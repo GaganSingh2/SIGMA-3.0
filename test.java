@@ -596,5 +596,8 @@ public class test {
             System.out.print(arr[i]+" ");
          }System.out.println();
 
+         //Time COmplexity:O(n)
+         //Space COmplexity:O(1)
+
     }
 }
