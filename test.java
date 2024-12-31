@@ -324,6 +324,21 @@ public class test {
         }
         return 1;
     }
+
+    
+    public static int missingNumber(int arr[]) {
+            // code here
+            int n = arr.length+1;
+            Arrays.sort(arr);
+            int sum = n*(n+1)/2;
+            int ans=0;
+            for(int i=0; i<n-1; i++){
+                ans += arr[i];
+            }
+            
+            return sum-ans;
+        
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -583,7 +598,7 @@ public class test {
          //Time Complexity: O(n)
          //Space COmplexity: O(1)
 
-         //Q)Create a array and  check the sorted or not
+         //Q)Create a array and  check the missing number(1 to n)
          System.out.println("ENter the lenght: ");
          int len = sc.nextInt();
          int arr[] = new int[len];
@@ -595,6 +610,9 @@ public class test {
          for(int i=0; i<len; i++){
             System.out.print(arr[i]+" ");
          }System.out.println();
+
+         int res = missingNumber(arr);
+         System.out.println("VAlue is: "+res);
 
          //Time COmplexity:O(n)
          //Space COmplexity:O(1)
