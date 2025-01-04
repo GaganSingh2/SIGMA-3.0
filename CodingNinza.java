@@ -18,5 +18,8 @@ public class CodingNinza {
         
         int res = square(num);
         System.out.println("Sqaure of "+num+" is: "+res);
+
+        //Time Complexity: O(n)
+        //Space Complexity: O(1)
     }
 }
