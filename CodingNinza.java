@@ -40,5 +40,8 @@ public class CodingNinza {
         else{
             System.out.println("The "+val+" does not represent as a sum of Two even numbers");
         }
+
+        //Time Complexity: O(n)
+        //Space Complexity: O(1)
     }
 }
