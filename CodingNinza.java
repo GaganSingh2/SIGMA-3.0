@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.*;
 public class CodingNinza {
     public static int square(int num){
         int squ = 0;
@@ -16,6 +16,11 @@ public class CodingNinza {
         }
         return false;
     }
+
+    public static double power(int val, int pow){
+        double res = Math.pow(val, pow);
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -31,17 +36,25 @@ public class CodingNinza {
 
         //Q2)You are given a positive integer ‘N’. You have to check whether ‘N’ can be represented as a sum of two even numbers or not.
 
-        System.out.println("Enter the value: ");
-        int val = sc.nextInt();
-        boolean res = canBeSumisEven(val);
-        if(res==true){
-            System.out.println("The "+val+" represent as a sum of Two even numbers");
-        }
-        else{
-            System.out.println("The "+val+" does not represent as a sum of Two even numbers");
-        }
+        // System.out.println("Enter the value: ");
+        // int val = sc.nextInt();
+        // boolean res = canBeSumisEven(val);
+        // if(res==true){
+        //     System.out.println("The "+val+" represent as a sum of Two even numbers");
+        // }
+        // else{
+        //     System.out.println("The "+val+" does not represent as a sum of Two even numbers");
+        // }
 
         //Time Complexity: O(n)
         //Space Complexity: O(1)
+
+        //Q2)Find the power of the given value
+        System.out.println("Enter the value: ");
+        int val = sc.nextInt();
+        System.out.println("Enter the time's of power: ");
+        int pow = sc.nextInt();
+        double res = power(val, pow);
+        System.out.println("Result is: "+res);
     }
 }
