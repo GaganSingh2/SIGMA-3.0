@@ -21,6 +21,24 @@ public class CodingNinza {
         double res = Math.pow(val, pow);
         return res;
     }
+
+    public static String reverseStatement(String statement){
+        //remove the extra spaces
+        statement = statement.trim();
+
+        //divide the string into singal words
+        String[] words = statement.split("\\s+");
+
+        //reversse the string using StringBuilder
+        StringBuilder reverse = new StringBuilder();
+        for(int i=words.length-1; i>=0; i--){
+            reverse.append(words[i]);
+            if (i != 0) {
+                reverse.append(" ");
+            }
+        }
+        return reverse.toString();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -50,11 +68,21 @@ public class CodingNinza {
         //Space Complexity: O(1)
 
         //Q2)Find the power of the given value
-        System.out.println("Enter the value: ");
-        int val = sc.nextInt();
-        System.out.println("Enter the time's of power: ");
-        int pow = sc.nextInt();
-        double res = power(val, pow);
-        System.out.println("Result is: "+res);
+        // System.out.println("Enter the value: ");
+        // int val = sc.nextInt();
+        // System.out.println("Enter the time's of power: ");
+        // int pow = sc.nextInt();
+        // double res = power(val, pow);
+        // System.out.println("Result is: "+res);
+
+        //Q3)You are given a string 'str' of length 'N'.Your task is to reverse the original string word by word.
+        System.out.println("Enter the Statement: ");
+        String statement = sc.nextLine();
+
+        String revString = reverseStatement(statement);
+
+        System.out.println("Reverse Statement: "+revString);
+
+
     }
 }
