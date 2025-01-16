@@ -19,15 +19,57 @@ public class GFG_Qus {
         }
         return pos;
     }
+
+    public static boolean findIndexOfKey(int arr[][],int key){
+        int row = 0;
+        int col = arr[0].length-1;
+        while (row<arr.length && col>=0) {
+            if (key == arr[row][col]) {
+                return true;
+            }
+            else if(key < arr[row][col]){
+                col--;
+            }
+            else{
+                row++;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         //Q1) Given two numbers m and n. The task is to find the position of the rightmost different bit in the binary representation of numbers. If both m and n are the same then return -1 in this case.
-        System.out.println("ENter the Fisrt Value: ");
-        int num1 = sc.nextInt();
-        System.out.println("Enter the Second Value: ");
-        int num2 = sc.nextInt();
-        int position = posRightMostSet(num1, num2);
-        System.out.println("Postion of the Set Bit: "+position);
+        // System.out.println("ENter the Fisrt Value: ");
+        // int num1 = sc.nextInt();
+        // System.out.println("Enter the Second Value: ");
+        // int num2 = sc.nextInt();
+        // int position = posRightMostSet(num1, num2);
+        // System.out.println("Postion of the Set Bit: "+position);
+
+        //Q2)Find key in the given sorted 2-D Array
+        System.out.println("Enter the length of 2-D Array: ");
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+
+        int arr[][] = new int[row][col];
+        System.out.println("Enter the VAlue in Array: ");
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("ENter the Key: ");
+        int key = sc.nextInt();
+        boolean res = findIndexOfKey(arr, key);
+        System.out.println(res);
     }
 }
