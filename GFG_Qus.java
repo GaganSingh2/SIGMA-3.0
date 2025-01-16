@@ -71,5 +71,7 @@ public class GFG_Qus {
         int key = sc.nextInt();
         boolean res = findIndexOfKey(arr, key);
         System.out.println(res);
+
+        //Time Complexity: O(n+m)
     }
 }
