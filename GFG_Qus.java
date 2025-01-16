@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GFG_Qus {
@@ -36,6 +37,31 @@ public class GFG_Qus {
         }
         return false;
     }
+
+    public static boolean isAnagram(String str1, String str2){
+        boolean res = false;
+        //Convert the uppercase into lowercases
+        String str1L = str1.toLowerCase();
+        String str2L = str2.toLowerCase();
+
+        //CHeck the length is same or not
+        if (str1L.length() == str2L.length()) {
+            //convert the string into char array
+            char str1charArray[] = str1L.toCharArray();
+            char str2charArray[] = str2L.toCharArray();
+
+            //sort the array
+            Arrays.sort(str1charArray);
+            Arrays.sort(str2charArray);
+
+            //check the equal
+            if (Arrays.equals(str1charArray, str2charArray)) {
+                res = true;
+            }
+        }
+        return res;
+        
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -48,30 +74,39 @@ public class GFG_Qus {
         // System.out.println("Postion of the Set Bit: "+position);
 
         //Q2)Find key in the given sorted 2-D Array
-        System.out.println("Enter the length of 2-D Array: ");
-        int row = sc.nextInt();
-        int col = sc.nextInt();
+        // System.out.println("Enter the length of 2-D Array: ");
+        // int row = sc.nextInt();
+        // int col = sc.nextInt();
 
-        int arr[][] = new int[row][col];
-        System.out.println("Enter the VAlue in Array: ");
-        for(int i=0; i<row; i++){
-            for(int j=0; j<col; j++){
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        System.out.println("Array: ");
-        for(int i=0; i<row; i++){
-            for(int j=0; j<col; j++){
-                System.out.print(arr[i][j]+" ");
-            }
-            System.out.println();
-        }
+        // int arr[][] = new int[row][col];
+        // System.out.println("Enter the VAlue in Array: ");
+        // for(int i=0; i<row; i++){
+        //     for(int j=0; j<col; j++){
+        //         arr[i][j] = sc.nextInt();
+        //     }
+        // }
+        // System.out.println("Array: ");
+        // for(int i=0; i<row; i++){
+        //     for(int j=0; j<col; j++){
+        //         System.out.print(arr[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
 
-        System.out.println("ENter the Key: ");
-        int key = sc.nextInt();
-        boolean res = findIndexOfKey(arr, key);
-        System.out.println(res);
+        // System.out.println("ENter the Key: ");
+        // int key = sc.nextInt();
+        // boolean res = findIndexOfKey(arr, key);
+        // System.out.println(res);
 
         //Time Complexity: O(n+m)
+
+        //Q3)Find the given String is Anagram or not
+        System.out.println("Enter the 1st String: ");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the 2nd String: ");
+        String str2 = sc.nextLine();
+
+        boolean res = isAnagram(str1, str2);
+        System.out.println("Given String is Anagram: "+res);
     }
 }
