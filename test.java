@@ -339,6 +339,15 @@ public class test {
             return sum-ans;
         
     }
+
+    public static boolean oddOrEven(int value){
+        int bitMask = 1;
+
+        if((value & bitMask)==0){
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -599,23 +608,34 @@ public class test {
          //Space COmplexity: O(1)
 
          //Q)Create a array and  check the missing number(1 to n)
-         System.out.println("ENter the lenght: ");
-         int len = sc.nextInt();
-         int arr[] = new int[len];
-         System.out.println("Enter the value in Array: ");
-         for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-         }
-         System.out.println("Array: ");
-         for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-         }System.out.println();
+        //  System.out.println("ENter the lenght: ");
+        //  int len = sc.nextInt();
+        //  int arr[] = new int[len];
+        //  System.out.println("Enter the value in Array: ");
+        //  for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        //  }
+        //  System.out.println("Array: ");
+        //  for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        //  }System.out.println();
 
-         int res = missingNumber(arr);
-         System.out.println("VAlue is: "+res);
+        //  int res = missingNumber(arr);
+        //  System.out.println("VAlue is: "+res);
 
          //Time COmplexity:O(n)
          //Space COmplexity:O(1)
 
+         //Q)Given value is odd or even in Bit-Manipulation
+         System.out.println("ENter the Value: ");
+         int value = sc.nextInt();
+
+         boolean res = oddOrEven(value);
+        if (res==true) {
+            System.out.println(+value+" is Even");
+        }
+        else{
+            System.out.println(+value+" is Odd");
+        }
     }
 }
