@@ -44,9 +44,26 @@ public class RevisionOfLinkedList {
         tail = newNode;
     }
 
+    //Add in Middle or define index position
+    public void addMiddle(int idx,int data){
+        Node newNode = new Node(data);
+        if (idx == 0) {
+            addFirst(data);
+            return;
+        }
+        Node temp = head;
+        int i=0;
+        while (i<idx-1) {
+            temp = temp.next;
+            i++;
+        }
+        
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     //print the LL
     public void printLL(){
-        
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data+"-->");
@@ -62,6 +79,7 @@ public class RevisionOfLinkedList {
         rll.addFirst(1);
         rll.addLast(3);
         rll.addLast(4);
+        rll.addMiddle(0, 9);
         rll.printLL();
 
     }
