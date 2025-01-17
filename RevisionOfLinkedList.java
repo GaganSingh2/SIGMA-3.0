@@ -127,6 +127,25 @@ public class RevisionOfLinkedList {
         return -1;
     }
 
+    //Search using Recursion
+    public int helper(Node head, int key){
+        if(head==null){
+            return -1;
+        }
+
+        if (key==head.data) {
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if (idx == -1) {
+            return -1;
+        }
+        return idx+1;
+    }
+    public int recSearch(int key){
+        return helper(head, key);
+    }
+    
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -159,5 +178,7 @@ public class RevisionOfLinkedList {
         System.out.println("Index: "+res);
         int res1 = rll.itrativeSearch(15);
         System.out.println("Index: "+res1);
+        int res2 = rll.recSearch(3);
+        System.out.println("Index: "+res2);
     }
 }
