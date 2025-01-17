@@ -87,6 +87,32 @@ public class RevisionOfLinkedList {
         return val;
     }
 
+    //Remove Last
+    public int removeLast(){
+        int val = 0;
+        if (size == 0) {
+            System.out.println("LL is Empty");
+            return Integer.MIN_VALUE;
+        }else if(size == 1){
+            val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+
+        //Traversing on the previous of tail
+        Node prev = head;
+        for(int i=0; i<size-2; i++){
+            prev = prev.next;
+        }
+        
+        val = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+    }
+
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -110,6 +136,9 @@ public class RevisionOfLinkedList {
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
         rll.removeFirst();
+        rll.printLL();
+        System.out.println("Size of LL: "+rll.size);
+        rll.removeLast();
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
     }
