@@ -145,7 +145,21 @@ public class RevisionOfLinkedList {
     public int recSearch(int key){
         return helper(head, key);
     }
-    
+
+    //Reverse the LL
+    public void reverseLL(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -180,5 +194,7 @@ public class RevisionOfLinkedList {
         System.out.println("Index: "+res1);
         int res2 = rll.recSearch(3);
         System.out.println("Index: "+res2);
+        rll.reverseLL();
+        rll.printLL();
     }
 }
