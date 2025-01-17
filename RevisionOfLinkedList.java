@@ -106,11 +106,25 @@ public class RevisionOfLinkedList {
             prev = prev.next;
         }
         
-        val = prev.next.data;
+        val = prev.next.data; //tail.data
         prev.next = null;
         tail = prev;
         size--;
         return val;
+    }
+
+    //Searching the key in LL
+    public int itrativeSearch(int key){
+        Node temp = head;
+        int i=0;
+        while (temp != null) {
+            if (temp.data == key) {
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
     }
 
     //print the LL
@@ -141,5 +155,9 @@ public class RevisionOfLinkedList {
         rll.removeLast();
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
+        int res = rll.itrativeSearch(3);
+        System.out.println("Index: "+res);
+        int res1 = rll.itrativeSearch(15);
+        System.out.println("Index: "+res1);
     }
 }
