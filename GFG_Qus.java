@@ -60,7 +60,24 @@ public class GFG_Qus {
             }
         }
         return res;
+    }
+
+    public static int[] productExceptItself(int nums[]){
+        int len = nums.length;
+
+        int result[] =new int[len];
         
+        for(int i=0; i<len; i++){
+            int Product = 1;
+            for(int j=0; j<len; j++){
+                if (i==j) {
+                    continue;
+                }
+                Product *= nums[j];
+            }
+            result[i] = Product;
+        }
+        return result;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -101,12 +118,33 @@ public class GFG_Qus {
         //Time Complexity: O(n+m)
 
         //Q3)Find the given String is Anagram or not
-        System.out.println("Enter the 1st String: ");
-        String str1 = sc.nextLine();
-        System.out.println("Enter the 2nd String: ");
-        String str2 = sc.nextLine();
+        // System.out.println("Enter the 1st String: ");
+        // String str1 = sc.nextLine();
+        // System.out.println("Enter the 2nd String: ");
+        // String str2 = sc.nextLine();
 
-        boolean res = isAnagram(str1, str2);
-        System.out.println("Given String is Anagram: "+res);
+        // boolean res = isAnagram(str1, str2);
+        // System.out.println("Given String is Anagram: "+res);
+
+        //Q4)Product Array Except itself
+        System.out.println("Enter the length of Array: ");
+        int len = sc.nextInt();
+
+        int nums[] = new int[len];
+
+        System.out.println("Enter the Value: ");
+        for(int i=0; i<len; i++){
+            nums[i] = sc.nextInt();
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(nums[i]+" ");
+        }
+        System.out.println();
+        int result[] = productExceptItself(nums);
+        System.out.println("Prduct Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(result[i]+" ");
+        }
     }
 }
