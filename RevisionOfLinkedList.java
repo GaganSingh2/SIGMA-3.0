@@ -230,6 +230,21 @@ public class RevisionOfLinkedList {
         return true;
 
     }
+
+    //Detect the LL is contain the Cycle/Loop or not
+    public boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -243,33 +258,41 @@ public class RevisionOfLinkedList {
         Scanner sc = new Scanner(System.in);
 
         RevisionOfLinkedList rll = new RevisionOfLinkedList();
-        rll.addFirst(2);
-        rll.addFirst(1);
-        rll.addLast(3);
-        rll.addLast(4);
-        rll.addMiddle(0, 9);
-        rll.addMiddle(4, 8);
-        rll.addMiddle(6, 10);
-        rll.printLL();
-        System.out.println("Size of LL: "+rll.size);
-        rll.removeFirst(); //Remove the first Node
-        rll.printLL();
-        System.out.println("Size of LL: "+rll.size);
-        rll.removeLast(); //Remove last Node
-        rll.printLL();
-        System.out.println("Size of LL: "+rll.size);
-        int res = rll.itrativeSearch(3);
-        System.out.println("Index: "+res);
-        int res1 = rll.itrativeSearch(15); //Search the index using linear search
-        System.out.println("Index: "+res1);
-        int res2 = rll.recSearch(3); //Serach the index using Recurrsion
-        System.out.println("Index: "+res2);
-        //rll.reverseLL(); //Reverse the LL
-        rll.printLL();
-        rll.deleteNthNodeFromEnd(3);  //Remove the Nth node from the end of the LL
+        // rll.addFirst(2);
+        // rll.addFirst(1);
+        // rll.addLast(3);
+        // rll.addLast(4);
+        // rll.addMiddle(0, 9);
+        // rll.addMiddle(4, 8);
+        // rll.addMiddle(6, 10);
+        // rll.printLL();
+        // System.out.println("Size of LL: "+rll.size);
+        // rll.removeFirst(); //Remove the first Node
+        // rll.printLL();
+        // System.out.println("Size of LL: "+rll.size);
+        // rll.removeLast(); //Remove last Node
+        // rll.printLL();
+        // System.out.println("Size of LL: "+rll.size);
+        // int res = rll.itrativeSearch(3);
+        // System.out.println("Index: "+res);
+        // int res1 = rll.itrativeSearch(15); //Search the index using linear search
+        // System.out.println("Index: "+res1);
+        // int res2 = rll.recSearch(3); //Serach the index using Recurrsion
+        // System.out.println("Index: "+res2);
+        // //rll.reverseLL(); //Reverse the LL
+        // rll.printLL();
+        // rll.deleteNthNodeFromEnd(3);  //Remove the Nth node from the end of the LL
         
-        rll.printLL();
-        boolean palindrome = rll.isPalnidrome();
-        System.out.println("Given Linked List is Palindrome: "+palindrome);
+        // rll.printLL();
+        // boolean palindrome = rll.isPalnidrome();
+        // System.out.println("Given Linked List is Palindrome: "+palindrome);
+
+        //Detect the cycle
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head; //1->2->3->1
+        boolean ans = rll.isCycle();
+        System.out.println("LL is Contain Cycle: "+ans);
     }
 }
