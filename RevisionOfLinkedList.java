@@ -160,6 +160,32 @@ public class RevisionOfLinkedList {
         }
         head = prev;
     }
+
+    //Delete the Nth Node form End
+    public void deleteNthNodeFromEnd(int key){
+        //CAlculate the size
+        int Size = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            Size++;
+        }
+
+        if(key == Size){
+            head = head.next;
+            return;
+        }
+
+        int i = 1;
+        int iToFind = Size-key;
+        Node prev = head;
+        while (i < iToFind) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -182,19 +208,21 @@ public class RevisionOfLinkedList {
         rll.addMiddle(6, 10);
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
-        rll.removeFirst();
+        rll.removeFirst(); //Remove the first Node
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
-        rll.removeLast();
+        rll.removeLast(); //Remove last Node
         rll.printLL();
         System.out.println("Size of LL: "+rll.size);
         int res = rll.itrativeSearch(3);
         System.out.println("Index: "+res);
-        int res1 = rll.itrativeSearch(15);
+        int res1 = rll.itrativeSearch(15); //Search the index using linear search
         System.out.println("Index: "+res1);
-        int res2 = rll.recSearch(3);
+        int res2 = rll.recSearch(3); //Serach the index using Recurrsion
         System.out.println("Index: "+res2);
-        rll.reverseLL();
+        rll.reverseLL(); //Reverse the LL
+        rll.printLL();
+        rll.deleteNthNodeFromEnd(3);
         rll.printLL();
     }
 }
