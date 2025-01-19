@@ -186,6 +186,50 @@ public class RevisionOfLinkedList {
         prev.next = prev.next.next;
         return;
     }
+
+    //Check the Given LL is Palindrome or not
+    public Node findMidNode(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; // slow is stay on mid node
+    }
+
+    public boolean isPalnidrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        //Step1 to find mid
+        Node midNode = findMidNode(head);
+
+        //step2 to reverse 2nd half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev; //right half head
+        Node left = head; //left half head
+
+        //step3 to check left and right part
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+
+    }
     //print the LL
     public void printLL(){
         Node temp = head;
@@ -220,9 +264,12 @@ public class RevisionOfLinkedList {
         System.out.println("Index: "+res1);
         int res2 = rll.recSearch(3); //Serach the index using Recurrsion
         System.out.println("Index: "+res2);
-        rll.reverseLL(); //Reverse the LL
+        //rll.reverseLL(); //Reverse the LL
         rll.printLL();
-        rll.deleteNthNodeFromEnd(3);
+        rll.deleteNthNodeFromEnd(3);  //Remove the Nth node from the end of the LL
+        
         rll.printLL();
+        boolean palindrome = rll.isPalnidrome();
+        System.out.println("Given Linked List is Palindrome: "+palindrome);
     }
 }
