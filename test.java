@@ -348,6 +348,22 @@ public class test {
         }
         return false;
     }
+
+    public static boolean armstrong_number(int num){
+
+        int len = String.valueOf(num).length();
+        
+        int original = num;
+        int sum=0;
+        while(num>0){
+            int val = num % 10;
+            
+            sum += Math.pow(val, len);
+            num /= 10;
+        }
+        
+        return original==sum;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -627,15 +643,21 @@ public class test {
          //Space COmplexity:O(1)
 
          //Q)Given value is odd or even in Bit-Manipulation
-         System.out.println("ENter the Value: ");
-         int value = sc.nextInt();
+        //  System.out.println("ENter the Value: ");
+        //  int value = sc.nextInt();
 
-         boolean res = oddOrEven(value);
-        if (res==true) {
-            System.out.println(+value+" is Even");
-        }
-        else{
-            System.out.println(+value+" is Odd");
-        }
+        //  boolean res = oddOrEven(value);
+        // if (res==true) {
+        //     System.out.println(+value+" is Even");
+        // }
+        // else{
+        //     System.out.println(+value+" is Odd");
+        // }
+
+        //Q) Armstrong number
+        System.out.println("Enter the val:");
+        int num = sc.nextInt();
+        boolean res = armstrong_number(num);
+        System.out.println(res);
     }
 }
