@@ -39,6 +39,15 @@ public class CodingNinza {
         }
         return reverse.toString();
     }
+
+    public static String revString(String str){
+       // String cleanString = str.replaceAll("[^a-zA-Z0-9]", "");
+        StringBuilder sb = new StringBuilder();
+        for(int i=str.length()-1; i>=0; i--){
+            sb.append(str.charAt(i));
+        }
+        return sb.toString();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -76,13 +85,18 @@ public class CodingNinza {
         // System.out.println("Result is: "+res);
 
         //Q3)You are given a string 'str' of length 'N'.Your task is to reverse the original string word by word.
-        System.out.println("Enter the Statement: ");
-        String statement = sc.nextLine();
+        // System.out.println("Enter the Statement: ");
+        // String statement = sc.nextLine();
 
-        String revString = reverseStatement(statement);
+        // String revString = reverseStatement(statement);
 
-        System.out.println("Reverse Statement: "+revString);
+        // System.out.println("Reverse Statement: "+revString);
 
+        //Q)You are given a string 'STR'. The string contains [a-z] [A-Z] [0-9] [special characters]. You have to find the reverse of the string.For example:If the given string is: STR = "abcde". You have to print the string "edcba".
 
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        String res = revString(str);
+        System.out.println("Reverse String is:"+res);
     }
 }
