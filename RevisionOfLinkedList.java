@@ -228,7 +228,6 @@ public class RevisionOfLinkedList {
             right = right.next;
         }
         return true;
-
     }
 
     //Detect the LL is contain the Cycle/Loop or not
@@ -244,6 +243,36 @@ public class RevisionOfLinkedList {
             }
         }
         return false;
+    }
+
+    //Remove the Cycle in the LL
+    public void isRemoveCycle(){
+        //detect the cycle
+        Node slow = head;
+        Node fast = head;
+        boolean flag = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                flag = true;
+                break;
+            }
+        }
+        if (flag == false) {
+            return;
+        }
+
+        //find the meeting point
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        //remove the cycle to conncet the prev to null
+        prev.next = null;
     }
     //print the LL
     public void printLL(){
@@ -289,10 +318,14 @@ public class RevisionOfLinkedList {
 
         //Detect the cycle
         head = new Node(1);
-        head.next = new Node(2);
+        Node temp = new Node(2);
+        head.next = temp;
         head.next.next = new Node(3);
-        head.next.next.next = head; //1->2->3->1
+        head.next.next.next = temp; //1->2->3->2
         boolean ans = rll.isCycle();
         System.out.println("LL is Contain Cycle: "+ans);
+        rll.isRemoveCycle();
+        System.out.println("LL is Contain Cycle: "+rll.isCycle());
+        
     }
 }
