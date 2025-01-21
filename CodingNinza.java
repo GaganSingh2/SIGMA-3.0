@@ -48,6 +48,12 @@ public class CodingNinza {
         }
         return sb.toString();
     }
+
+    public static int toggleKBits(int num, int k){
+        int mask = (1<<k)-1;
+        int result = num ^ mask;
+        return result;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -94,9 +100,18 @@ public class CodingNinza {
 
         //Q)You are given a string 'STR'. The string contains [a-z] [A-Z] [0-9] [special characters]. You have to find the reverse of the string.For example:If the given string is: STR = "abcde". You have to print the string "edcba".
 
-        System.out.println("Enter the String: ");
-        String str = sc.nextLine();
-        String res = revString(str);
-        System.out.println("Reverse String is:"+res);
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // String res = revString(str);
+        // System.out.println("Reverse String is:"+res);
+
+        //Q)You are given a 32-bit integer ‘N’. Your task is to toggle the rightmost ‘K’ bits in the given integer and return the new integer.For Example :If ‘N’ = 12 and ‘K’ = 2:The binary representation of 12 is ‘1100’, after toggling rightmost 2 bits, it becomes ‘1111’ i.e. 15. Hence, the answer is 15. 
+        
+        System.out.println("Enter the value: ");
+        int num = sc.nextInt();
+        System.out.println("Enter the value of K: ");
+        int k = sc.nextInt();
+        int res = toggleKBits(num, k);
+        System.out.println("After Toggling: "+res);
     }
 }
