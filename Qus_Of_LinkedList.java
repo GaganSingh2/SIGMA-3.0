@@ -221,19 +221,20 @@ public class Qus_Of_LinkedList {
     }
 
     //Merge Sort
-    //find the mid Node
-    private Node getMid(Node head){
+    //Find mid Node
+    private Node miNode(Node head){
         Node slow = head;
         Node fast = head.next;
         while (fast != null && fast.next != null) {
-            slow = slow.next; //+1 increment
-            fast = fast.next.next; //+2 increment
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return slow; //Mid Node
+        return slow; //mid Node(last node of first half)
     }
-    private Node merge(Node head1, Node head2){
-        Node mergell = new Node(-1);
-        Node temp = mergell;
+    //for merging
+    private Node merge(Node head1,Node head2){
+        Node mergeLL = new Node(-1);
+        Node temp = mergeLL;
         while (head1 != null && head2 != null) {
             if (head1.data <= head2.data) {
                 temp.next = head1;
@@ -245,37 +246,38 @@ public class Qus_Of_LinkedList {
             }
             temp = temp.next;
         }
+        //left part me jo node bache hai unke liye
         while (head1 != null) {
             temp.next = head1;
             head1 = head1.next;
             temp = temp.next;
-        }
+        } 
+        //right part me jo node bache hai unke liye
         while (head2 != null) {
             temp.next = head2;
             head2 = head2.next;
             temp = temp.next;
         }
-        return mergell.next;
+        return mergeLL.next;
     }
-    public Node isMergeSort(Node head){
-        //Base Case
-        if(head==null || head.next==null){
+    public Node mergeSort(Node head){
+        if(head == null || head.next == null){
             return head;
         }
-        //Find Mid Node
-        Node midNode = getMid(head);
+        //Get the mid node
+        Node midNode = miNode(head);
 
-        //Divide and applies merge sort on left & right part
         Node rightHead = midNode.next;
         midNode.next = null;
-        Node newLeft = isMergeSort(head);
-        Node newRight = isMergeSort(rightHead);
-        
-        //After sorting merge the Node
+
+        Node newLeft = mergeSort(head);
+        Node newRight = mergeSort(rightHead);
+
         return merge(newLeft, newRight);
     }
 
     //Zig-Zag Problem
+    //Find the mid node
     private Node giveMid(Node head){
         Node slow = head;
         Node fast = head.next;
@@ -287,7 +289,7 @@ public class Qus_Of_LinkedList {
     }
     public void zigZag(){
         //Find mid of LL
-         Node midNode = getMid(head);
+        Node midNode = giveMid(head);
 
         //Reverse the 2nd half
         Node curr = midNode.next;
@@ -378,14 +380,14 @@ public class Qus_Of_LinkedList {
 
 
         //9)Merge Sort on the Linked List
-        // linkqus.print();
-        // linkqus.head = linkqus.isMergeSort(linkqus.head);
-        // linkqus.print();
+        linkqus.print();
+        linkqus.head = linkqus.mergeSort(linkqus.head);
+        linkqus.print();
 
         //10) Zig-Zag in Linked List
-        linkqus.print();
-        linkqus.zigZag();
-        linkqus.print();
+        // linkqus.print();
+        // linkqus.zigZag();
+        // linkqus.print();
 
     }
 }
