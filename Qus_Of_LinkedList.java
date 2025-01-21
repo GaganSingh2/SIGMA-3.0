@@ -278,20 +278,21 @@ public class Qus_Of_LinkedList {
 
     //Zig-Zag Problem
     //Find the mid node
-    private Node giveMid(Node head){
+    private Node getMid(Node head){
         Node slow = head;
         Node fast = head.next;
-        while (fast != null || fast.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow;  //Slow is Mid
+        return slow;
     }
     public void zigZag(){
-        //Find mid of LL
-        Node midNode = giveMid(head);
-
+        //Find mid node
+        Node midNode = getMid(head);
+        
         //Reverse the 2nd half
+        
         Node curr = midNode.next;
         midNode.next = null;
         Node prev = null;
@@ -302,19 +303,19 @@ public class Qus_Of_LinkedList {
             prev = curr;
             curr = next;
         }
-        Node right = prev;
-        Node left = head;
-        Node nextL , nextR;
-
-        //Alternat Merging
-        while (left != null && right != null) {
-            nextL = left.next;        //allocate the nodes
-            left.next = right;
-            nextR = right.next;
-            right.next = nextL;
-
-            left = nextL;
-            right = nextR;  //Update the node after swaping two nodes
+        Node rightHead = prev;
+        //Alternate merging
+        Node leftHead = head;
+        Node nextL, nextR;
+        while (rightHead != null && leftHead != null) {
+            //create zig-zag form
+            nextL = leftHead.next;
+            leftHead.next = rightHead;
+            nextR = rightHead.next;
+            rightHead.next = nextL;
+            //update the rightHead and leftHead
+            leftHead = nextL;
+            rightHead = nextR;
         }
     }
     public static void main(String[] args) {
@@ -380,14 +381,14 @@ public class Qus_Of_LinkedList {
 
 
         //9)Merge Sort on the Linked List
-        linkqus.print();
-        linkqus.head = linkqus.mergeSort(linkqus.head);
-        linkqus.print();
+        // linkqus.print();
+        // linkqus.head = linkqus.mergeSort(linkqus.head);
+        // linkqus.print();
 
         //10) Zig-Zag in Linked List
-        // linkqus.print();
-        // linkqus.zigZag();
-        // linkqus.print();
+        linkqus.print();
+        linkqus.zigZag();
+        linkqus.print();
 
     }
 }
