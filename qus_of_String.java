@@ -261,15 +261,15 @@ public class qus_of_String {
         // numbers.Given a string s, return true if it is a palindrome, or false
         // otherwise.
 
-        // System.out.println("Enter the String: ");
-        // String str = sc.nextLine();
-        // System.out.println("String is: " + str);
-        // boolean res = isPalindrome(str);
-        // if (res == true) {
-        // System.out.print("It is a palindrome");
-        // } else {
-        // System.out.println("It is not a palindrome");
-        // }
+        System.out.println("Enter the String: ");
+        String str = sc.nextLine();
+        System.out.println("String is: " + str);
+        boolean res = isPalindrome(str);
+        if (res == true) {
+        System.out.print("It is a palindrome");
+        } else {
+        System.out.println("It is not a palindrome");
+        }
 
         // Q9) Remove the duplicate character in given string
         // System.out.println("ENter the String: ");
@@ -281,13 +281,13 @@ public class qus_of_String {
         // Q10) A sentence is circular if:The last character of a word is equal to the
         // first character of the next word.The last character of the last word is equal
         // to the first character of the first word.
-        System.out.println("Enter the String: ");
-        String str = sc.nextLine();
-        boolean res = isCircular(str);
-        if (res == true) {
-            System.out.println("True");
-        } else {
-            System.out.println("False");
-        }
+        // System.out.println("Enter the String: ");
+        // String str = sc.nextLine();
+        // boolean res = isCircular(str);
+        // if (res == true) {
+        //     System.out.println("True");
+        // } else {
+        //     System.out.println("False");
+        // }
     }
 }
