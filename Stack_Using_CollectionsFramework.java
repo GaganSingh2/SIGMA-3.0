@@ -46,6 +46,27 @@ public class Stack_Using_CollectionsFramework{
         pushAtBottom(list, top);
 
     }
+
+    public static void stockSpan(int stock[],int span[]){
+        Stack<Integer> list = new Stack<>();
+        span[0] = 1;
+        list.push(0);
+
+        for(int i=1; i<stock.length; i++){
+            int currPrice = stock[i];
+            while (!list.isEmpty() && currPrice >= stock[list.peek()]) {
+                list.pop();
+            }
+            if (list.isEmpty()) {
+                span[i] = i+1;
+                
+            }else{
+                int prevHigh = list.peek();
+                span[i] = i-prevHigh;
+            }
+            list.push(i);
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> list = new Stack<>();
@@ -72,8 +93,24 @@ public class Stack_Using_CollectionsFramework{
 
         //Q3) Reverse the Stack
         //Before: 3->2->1 & After: 1->2->3
-        System.out.println("After Reversing the Stack: ");
-        reverseOfStack(list);
-        printStack(list);
+        // System.out.println("After Reversing the Stack: ");
+        // reverseOfStack(list);
+        // printStack(list);
+
+        //Q4) Stock Span Problem
+        System.out.println("Enter the length: ");
+        int len = sc.nextInt();
+        int stock[] = new int[len];
+        System.out.println("ENter the Value: ");
+        for(int i=0; i<stock.length; i++){
+            stock[i] = sc.nextInt();
+        }
+        int span[] = new int[stock.length]; //for tracking the max days
+
+        stockSpan(stock,span);
+        System.out.println("Span is: ");
+        for(int i=0; i<span.length; i++){
+            System.out.print(span[i]+" ");
+        }
     }
 }
