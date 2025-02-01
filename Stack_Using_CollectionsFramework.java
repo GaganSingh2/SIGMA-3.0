@@ -8,6 +8,7 @@ public class Stack_Using_CollectionsFramework{
             list.pop();
         }
     }
+
     public static void pushAtBottom(Stack<Integer> sb,int data){
         if (sb.isEmpty()) {
             sb.push(data);
@@ -34,6 +35,17 @@ public class Stack_Using_CollectionsFramework{
         return sb.toString();
 
     }
+
+    public static void reverseOfStack(Stack<Integer> list){
+        
+        if(list.isEmpty()){
+            return;
+        }
+        int top = list.pop();
+        reverseOfStack(list);
+        pushAtBottom(list, top);
+
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> list = new Stack<>();
@@ -43,12 +55,12 @@ public class Stack_Using_CollectionsFramework{
         list.push(3);
 
         //Q1) Push the data at the bottom of the stack
-        System.out.print("Enter the Data: ");
-        int data = sc.nextInt();
-        pushAtBottom(list, data);
+        // System.out.print("Enter the Data: ");
+        // int data = sc.nextInt();
+        // pushAtBottom(list, data);
 
-        System.out.println("After the Pushing the DAta At Bottom: ");
-        printStack(list);
+        // System.out.println("After the Pushing the DAta At Bottom: ");
+        // printStack(list);
         
 
         //Q2) Reverse the String using Stack
@@ -59,5 +71,9 @@ public class Stack_Using_CollectionsFramework{
         // System.out.println("After Reversing the String: "+result);
 
         //Q3) Reverse the Stack
+        //Before: 3->2->1 & After: 1->2->3
+        System.out.println("After Reversing the Stack: ");
+        reverseOfStack(list);
+        printStack(list);
     }
 }
