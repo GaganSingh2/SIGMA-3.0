@@ -1,9 +1,9 @@
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Stack;
 import java.util.Map;
 import java.util.Scanner;
-
+//import java.util.HashMap;
 import javax.swing.text.Style;
 
 public class test {
@@ -48,22 +48,22 @@ public class test {
         return true;
     }
 
-    public static int[] arrayRankTransform(int[] arr) {
-        Map<Integer, Integer> valueToRank = new HashMap<>();  // Map to store value-to-rank mapping
-        int[] sortedUniqueNumbers = Arrays.stream(arr).distinct().sorted().toArray();  // Remove duplicates and sort
+    // public static int[] arrayRankTransform(int[] arr) {
+    //     Map<Integer, Integer> valueToRank = new HashMap<>();  // Map to store value-to-rank mapping
+    //     int[] sortedUniqueNumbers = Arrays.stream(arr).distinct().sorted().toArray();  // Remove duplicates and sort
         
-        // Assign ranks to sorted unique elements
-        for (int i = 0; i < sortedUniqueNumbers.length; i++) {
-            valueToRank.put(sortedUniqueNumbers[i], i + 1);
-        }
+    //     // Assign ranks to sorted unique elements
+    //     for (int i = 0; i < sortedUniqueNumbers.length; i++) {
+    //         valueToRank.put(sortedUniqueNumbers[i], i + 1);
+    //     }
 
-        // Replace each element in the original array with its rank
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = valueToRank.get(arr[i]);
-        }
+    //     // Replace each element in the original array with its rank
+    //     for (int i = 0; i < arr.length; i++) {
+    //         arr[i] = valueToRank.get(arr[i]);
+    //     }
 
-        return arr;  // Return the updated array
-    }
+    //     return arr;  // Return the updated array
+    // }
 
     //Merge sorting
     public static void mergeSort(int arr[],int si, int ei){
@@ -364,6 +364,18 @@ public class test {
         
         return original==sum;
     }
+    
+    public static void revereseStack(Stack<Integer> list){
+        
+        Stack<Integer> res = new Stack<>();
+        while (!list.isEmpty()) {
+            res.push(list.pop());
+        }
+        while (!res.isEmpty()) {
+            list.push(res.pop());
+        }
+        
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -655,9 +667,20 @@ public class test {
         // }
 
         //Q) Armstrong number
-        System.out.println("Enter the val:");
-        int num = sc.nextInt();
-        boolean res = armstrong_number(num);
-        System.out.println(res);
+        // System.out.println("Enter the val:");
+        // int num = sc.nextInt();
+        // boolean res = armstrong_number(num);
+        // System.out.println(res);
+
+        //Q)REverse the Stack
+        Stack<Integer> list = new Stack<>();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        
+        revereseStack(list);
+        System.out.println("After reversing: "+list);
+    
     }
 }
