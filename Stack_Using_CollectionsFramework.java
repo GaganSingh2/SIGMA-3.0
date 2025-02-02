@@ -47,7 +47,7 @@ public class Stack_Using_CollectionsFramework{
 
     }
 
-    public static void stockSpan(int stock[],int span[]){
+    public static void stockSpan(int stock[],int span[]){ //O(n)
         Stack<Integer> list = new Stack<>();
         span[0] = 1;
         list.push(0);

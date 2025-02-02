@@ -33,7 +33,7 @@ public class Stack_using_ArrayList {
     }
     public static void main(String[] args) {
         Stack sb = new Stack();
-        sb.push(4);
+        
         sb.push(1);
         sb.push(2);
         sb.push(3);
