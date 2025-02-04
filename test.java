@@ -376,6 +376,27 @@ public class test {
         }
         
     }
+
+    public static int trappingRainWater(int arr[]){
+        int len = arr.length;
+        int leftmax[] = new int[len];
+        leftmax[0] = arr[0];
+        for(int i=1; i<len; i++){
+            leftmax[i] = Math.max(arr[i], leftmax[i-1]);
+        }
+
+        int rightmax[] = new int[len];
+        rightmax[len-1] = arr[len-1];
+        for(int i=len-2; i>=0; i--){
+            rightmax[i] = Math.max(arr[i], rightmax[i+1]);
+        }
+        int trapped_water = 0;
+        for(int i=0; i<len; i++){
+            int water_level = Math.min(leftmax[i],rightmax[i]);
+            trapped_water += water_level - arr[i];
+        }
+        return trapped_water;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -673,14 +694,29 @@ public class test {
         // System.out.println(res);
 
         //Q)REverse the Stack
-        Stack<Integer> list = new Stack<>();
-        list.push(1);
-        list.push(2);
-        list.push(3);
+        // Stack<Integer> list = new Stack<>();
+        // list.push(1);
+        // list.push(2);
+        // list.push(3);
 
         
-        revereseStack(list);
-        System.out.println("After reversing: "+list);
+        // revereseStack(list);
+        // System.out.println("After reversing: "+list);
+
+        //Q)Trapping Rain Water 
+        System.out.println("Enter the length: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("Enter the value: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
     
+        int res = trappingRainWater(arr);
+        System.out.println("Total Water: "+res);
     }
 }
