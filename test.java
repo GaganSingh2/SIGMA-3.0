@@ -397,6 +397,16 @@ public class test {
         }
         return trapped_water;
     }
+
+    public static int multiply(int arr[],int arr1[]){
+        int res = 1;
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr1.length; j++){
+                res *= arr[i]*arr[j];
+            }
+        }
+        return res;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -704,19 +714,43 @@ public class test {
         // System.out.println("After reversing: "+list);
 
         //Q)Trapping Rain Water 
-        System.out.println("Enter the length: ");
+        // System.out.println("Enter the length: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+    
+        // int res = trappingRainWater(arr);
+        // System.out.println("Total Water: "+res);
+
+        //Q)Multiply the 2-D array
+        System.out.println("ENter the len: ");
         int len = sc.nextInt();
         int arr[] = new int[len];
-        System.out.println("Enter the value: ");
+        int arr1[] = new int[len];
+        System.out.println("enter the value in 1st Array: ");
         for(int i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
-        System.out.println("Array: ");
+        System.out.println("Enter the value in 2nd Array: ");
+        for(int i=0; i<len; i++){
+            arr1[i] = sc.nextInt();
+        }
+        System.out.println("1st Array: ");
         for(int i=0; i<len; i++){
             System.out.print(arr[i]+" ");
+        }System.out.println();
+        System.out.println("2nd Arrray: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr1[i]+" ");
         }
-    
-        int res = trappingRainWater(arr);
-        System.out.println("Total Water: "+res);
+        int res = multiply(arr, arr1);
+        System.out.println("Result: "+res);
     }
 }
