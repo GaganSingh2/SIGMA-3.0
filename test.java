@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 import java.util.Map;
@@ -407,6 +408,30 @@ public class test {
         }
         return res;
     }
+
+    public static ArrayList<Integer> majorityElement(int arr[]){
+            int len = arr.length;
+            ArrayList<Integer> list = new ArrayList<>();
+            if (len == 0) {
+                return list;
+            }
+            Arrays.sort(arr);
+            int count = 1;
+            for(int i=1; i<len; i++){
+                if (arr[i]==arr[i-1]) {
+                    count++;
+                }else{
+                    if(count > (len/3)){
+                        list.add(arr[i-1]);
+                    }
+                    count = 1;
+                }
+            }
+            if(count > (len/3)){
+                list.add(arr[len-1]);
+            }
+            return list;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -730,27 +755,51 @@ public class test {
         // System.out.println("Total Water: "+res);
 
         //Q)Multiply the 2-D array
-        System.out.println("ENter the len: ");
+        // System.out.println("ENter the len: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // int arr1[] = new int[len];
+        // System.out.println("enter the value in 1st Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Enter the value in 2nd Array: ");
+        // for(int i=0; i<len; i++){
+        //     arr1[i] = sc.nextInt();
+        // }
+        // System.out.println("1st Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }System.out.println();
+        // System.out.println("2nd Arrray: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr1[i]+" ");
+        // }
+        // int res = multiply(arr, arr1);
+        // System.out.println("Result: "+res);
+
+        //Q)Find Majority Element of (size/3)
+        ArrayList<Integer> res = new ArrayList<>();
+        System.out.println("Enter the len of Array: ");
         int len = sc.nextInt();
         int arr[] = new int[len];
-        int arr1[] = new int[len];
-        System.out.println("enter the value in 1st Array: ");
+        System.out.println("Enter the value: ");
         for(int i=0; i<len; i++){
             arr[i] = sc.nextInt();
         }
-        System.out.println("Enter the value in 2nd Array: ");
-        for(int i=0; i<len; i++){
-            arr1[i] = sc.nextInt();
-        }
-        System.out.println("1st Array: ");
+        System.out.println("Array: ");
         for(int i=0; i<len; i++){
             System.out.print(arr[i]+" ");
         }System.out.println();
-        System.out.println("2nd Arrray: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr1[i]+" ");
+        
+        res = majorityElement(arr);
+        if (res.size()==0) {
+            System.out.println("[]");
         }
-        int res = multiply(arr, arr1);
-        System.out.println("Result: "+res);
+        else{
+            for(int i=0; i<res.size(); i++){
+                System.out.print(res.get(i)+" ");
+            }
+        }
     }
 }
