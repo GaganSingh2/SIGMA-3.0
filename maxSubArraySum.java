@@ -58,6 +58,23 @@ public class maxSubArraySum {
         System.out.println("Max Sum is " + maxSum);
     }
 
+    //PREFIX Sum Approach
+    public static int subArr2(int arr[]){
+        int largest = Integer.MIN_VALUE;
+        for(int i=0 ; i<arr.length ; i++){
+            int sum = 0;
+            for(int j=i ; j<arr.length ; j++){
+                sum = sum+arr[j];
+                System.out.print ("sum:" +sum);
+            }
+            if(sum > largest){
+                largest = sum;
+            }
+
+            System.out.println();
+        }
+        return largest;
+    }
     public static int kadane_Algo_to_maxSum(int arr[]) {
         /*
          * Kadane Algorithm: Kadane Algorithm works when the sum of two value can be
