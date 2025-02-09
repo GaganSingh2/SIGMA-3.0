@@ -67,6 +67,30 @@ public class Stack_Using_CollectionsFramework{
             list.push(i);
         }
     }
+
+    // public static void nextGreater(int arr[]){
+    //     int len = arr.length-1;
+    //     int nxtGreater[] = new int[len];
+    //     Stack<Integer> val_track = new Stack<>();
+
+    //     for(int i=len; i>=0; i--){
+    //         // for track the stack
+    //         while (val_track.isEmpty() && arr[val_track.peek()]<=arr[i]) {
+    //             val_track.peek();
+    //         }
+    //         //when the stack is empty
+    //         if (val_track.isEmpty()) {
+    //             nxtGreater[i] = -1;
+    //         }else{
+    //             nxtGreater[i] = arr[val_track.peek()];
+    //         }
+    //         val_track.push(i);
+    //     }
+    //     System.out.println("Next Greater Array: ");  
+    //     for(int i=0; i<len; i++){
+    //         System.out.print(nxtGreater[i]+" ");
+    //     }
+    // }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> list = new Stack<>();
@@ -98,19 +122,54 @@ public class Stack_Using_CollectionsFramework{
         // printStack(list);
 
         //Q4) Stock Span Problem
-        System.out.println("Enter the length: ");
-        int len = sc.nextInt();
-        int stock[] = new int[len];
-        System.out.println("ENter the Value: ");
-        for(int i=0; i<stock.length; i++){
-            stock[i] = sc.nextInt();
-        }
-        int span[] = new int[stock.length]; //for tracking the max days
+        // System.out.println("Enter the length: ");
+        // int len = sc.nextInt();
+        // int stock[] = new int[len];
+        // System.out.println("ENter the Value: ");
+        // for(int i=0; i<stock.length; i++){
+        //     stock[i] = sc.nextInt();
+        // }
+        // int span[] = new int[stock.length]; //for tracking the max days
 
-        stockSpan(stock,span);
-        System.out.println("Span is: ");
-        for(int i=0; i<span.length; i++){
-            System.out.print(span[i]+" ");
+        // stockSpan(stock,span);
+        // System.out.println("Span is: ");
+        // for(int i=0; i<span.length; i++){
+        //     System.out.print(span[i]+" ");
+        // }
+
+        //Q5) Next Greater ELement 
+        System.out.println("ENter the length: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+
+        System.out.println("Enter the value: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
+
+        int nxtGreater[] = new int[len];
+        Stack<Integer> val_track = new Stack<>();
+
+        for(int i=arr.length-1; i>=0; i--){
+            // for track the stack
+            while (!val_track.isEmpty() && arr[val_track.peek()]<=arr[i]) {
+                val_track.pop();
+            }
+            //when the stack is empty
+            if (val_track.isEmpty()) {
+                nxtGreater[i] = -1;
+            }else{
+                nxtGreater[i] = arr[val_track.peek()];
+            }
+            val_track.push(i);
+        }
+        System.out.println("Next Greater Array: ");  
+        for(int i=0; i<len; i++){
+            System.out.print(nxtGreater[i]+" ");
         }
     }
 }
