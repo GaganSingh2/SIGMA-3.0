@@ -92,8 +92,11 @@ public class Stack_Using_CollectionsFramework {
     }
 
     public static boolean isValidParenthesis(String bracket) {
+        if(bracket.length()%2 != 0){
+            return false;
+        }
         Stack<Character> tracker = new Stack<>();
-        
+
         for (int i = 0; i < bracket.length(); i++) {
             char ch = bracket.charAt(i);
             if (ch == '(' || ch == '[' || ch == '{') {
