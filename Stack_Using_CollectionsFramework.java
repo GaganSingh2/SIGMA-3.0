@@ -85,9 +85,34 @@ public class Stack_Using_CollectionsFramework {
                 nxtGreater[i] = arr[val_track.peek()];
             }
             val_track.push(i);
+
         }
 
         return nxtGreater;
+    }
+
+    public static boolean isValidParenthesis(String bracket) {
+        Stack<Character> tracker = new Stack<>();
+        
+        for (int i = 0; i < bracket.length(); i++) {
+            char ch = bracket.charAt(i);
+            if (ch == '(' || ch == '[' || ch == '{') {
+                tracker.push(ch);
+            } else {
+                if (tracker.isEmpty()) {
+                    return false;
+                }
+                if((tracker.peek()=='(' && ch==')') || tracker.peek()=='[' && ch==']' || tracker.peek()=='{' && ch=='}'){
+                    tracker.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        if (!tracker.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -136,24 +161,35 @@ public class Stack_Using_CollectionsFramework {
         // }
 
         // Q5) Next Greater ELement
-        System.out.println("ENter the length: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
+        // System.out.println("ENter the length: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
 
-        System.out.println("Enter the value: ");
-        for (int i = 0; i < len; i++) {
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Array: ");
-        for (int i = 0; i < len; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        int nxtGreater[] = nextGreater(arr);
+        // System.out.println("Enter the value: ");
+        // for (int i = 0; i < len; i++) {
+        // arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Array: ");
+        // for (int i = 0; i < len; i++) {
+        // System.out.print(arr[i] + " ");
+        // }System.out.println();
+        // int nxtGreater[] = nextGreater(arr);
 
-        
-        System.out.println("Next Greater Array: ");
-        for (int i = 0; i < len; i++) {
-            System.out.print(nxtGreater[i] + " ");
+        // System.out.println("Next Greater Array: ");
+        // for (int i = 0; i < len; i++) {
+        // System.out.print(nxtGreater[i] + " ");
+        // }
+
+        // Q6)Valid Parenthesis
+        System.out.println("Enter the Brackets: ");
+        String brackets = sc.nextLine();
+
+        Boolean res = isValidParenthesis(brackets);
+        if (res==true) {
+            System.out.println("Brackets "+brackets+" are the correct order");
+        }
+        else{
+            System.out.println("Brackets "+brackets+" are not the correct order");
         }
     }
 }
