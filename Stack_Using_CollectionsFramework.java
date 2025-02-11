@@ -126,16 +126,15 @@ public class Stack_Using_CollectionsFramework {
             //for closing parenthsis
             if (ch == ')') {
                 int count = 0;
-                while (!track.isEmpty() && track.peek() != '(') {
-                    track.pop();
+                while (track.pop() != '(') {
+                    
                     count++;
                 }
                 if (count < 1) {
                     return true;
-                }else{
-                    track.pop();
                 }
             }
+            //for opening and other values
             else{
                 track.push(ch);
             }
