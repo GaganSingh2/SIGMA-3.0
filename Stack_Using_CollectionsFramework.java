@@ -118,6 +118,30 @@ public class Stack_Using_CollectionsFramework {
         return true;
     }
 
+    public static boolean isDuplicateParenthesis(String brackets){
+        Stack<Character> track = new Stack<>();
+
+        for(int i=0; i<brackets.length(); i++){
+            char ch = brackets.charAt(i);
+            //for closing parenthsis
+            if (ch == ')') {
+                int count = 0;
+                while (!track.isEmpty() && track.peek() != '(') {
+                    track.pop();
+                    count++;
+                }
+                if (count < 1) {
+                    return true;
+                }else{
+                    track.pop();
+                }
+            }
+            else{
+                track.push(ch);
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> list = new Stack<>();
@@ -184,15 +208,27 @@ public class Stack_Using_CollectionsFramework {
         // }
 
         // Q6)Valid Parenthesis
+        // System.out.println("Enter the Brackets: ");
+        // String brackets = sc.nextLine();
+
+        // Boolean res = isValidParenthesis(brackets);
+        // if (res==true) {
+        //     System.out.println("Brackets "+brackets+" are the correct order");
+        // }
+        // else{
+        //     System.out.println("Brackets "+brackets+" are not the correct order");
+        // }
+
+        //Q7)Duplicate Parenthsis
         System.out.println("Enter the Brackets: ");
         String brackets = sc.nextLine();
 
-        Boolean res = isValidParenthesis(brackets);
+        Boolean res = isDuplicateParenthesis(brackets);
         if (res==true) {
-            System.out.println("Brackets "+brackets+" are the correct order");
+            System.out.println("String "+brackets+" can be contain the duplicate parenthesis");
         }
         else{
-            System.out.println("Brackets "+brackets+" are not the correct order");
+            System.out.println("String "+brackets+" can not be contain the duplicate parenthsis");
         }
     }
 }
