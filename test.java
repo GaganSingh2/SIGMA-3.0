@@ -472,6 +472,18 @@ public class test {
         return res;
     }
 
+    public static int KadaneAlgo(int newArr[]){
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for(int i=0; i<newArr.length; i++){
+            currSum += newArr[i];
+            maxSum = Math.max(maxSum, currSum);
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        }
+        return maxSum;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -866,8 +878,20 @@ public class test {
         //     System.out.print(val+", ");
         // }
 
-        int a = 3, b=5, c=2;
-        int max = (a>b && a>c) ? a : (b>a && b>c) ? b : c;
-        System.out.println(max);
+        // int a = 3, b=5, c=2;
+        // int max = (a>b && a>c) ? a : (b>a && b>c) ? b : c;
+        // System.out.println(max);
+
+        //Q)Kadane's Algo
+        System.out.println("Enter the len: ");
+        int len = sc.nextInt();
+        int newArr[] = new int[len];
+        System.out.println("enter the value: ");
+        for(int i=0; i<len; i++){
+            newArr[i] = sc.nextInt();
+        }
+
+        int maxSum = KadaneAlgo(newArr);
+        System.out.println("Max SUm: "+maxSum);
     }
 }
