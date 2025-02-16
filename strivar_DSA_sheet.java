@@ -55,6 +55,18 @@ public class strivar_DSA_sheet {
         return true;
     }
 
+    public static void moveZero(int arr[]){
+        int left = 0;
+        for(int right=0; right<arr.length; right++){
+            if(arr[right] != 0){
+                int temp = arr[right];
+                arr[right] = arr[left];
+                arr[left] = temp;
+                left++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -90,20 +102,38 @@ public class strivar_DSA_sheet {
         //Space Complexityy: O(1)
 
         //Q3) Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false
-        System.out.println("ENter the length in array: ");
-        int len = sc.nextInt();
+        // System.out.println("ENter the length in array: ");
+        // int len = sc.nextInt();
 
-        int nums[] = new int[len];
+        // int nums[] = new int[len];
 
-        System.out.println("Enter the value in Array: ");
-        for(int i=0; i<len; i++){
-            nums[i] = sc.nextInt();
-        }
+        // System.out.println("Enter the value in Array: ");
+        // for(int i=0; i<len; i++){
+        //     nums[i] = sc.nextInt();
+        // }
 
-        boolean res = sortedAndRotated(nums);
-        System.out.println(res);
+        // boolean res = sortedAndRotated(nums);
+        // System.out.println(res);
 
         //Time Complexity:- O(n)
         //Space complexity
+
+        //Q)Move all zeros in the right side
+        System.out.println("enter the len: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
+        System.out.println("Enter the value: ");
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Before Moving the Zero: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
+        moveZero(arr);
+        System.out.println("After Moving th Zero: ");
+        for(int i=0; i<len; i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }
