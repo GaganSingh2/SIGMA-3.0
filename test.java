@@ -893,5 +893,7 @@ public class test {
 
         int maxSum = KadaneAlgo(newArr);
         System.out.println("Max SUm: "+maxSum);
+
+        //TC: O(n)
     }
 }
