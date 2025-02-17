@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -79,6 +80,18 @@ public class GFG_Qus {
         }
         return result;
     }
+
+    public static ArrayList<Integer> k_LargestEle(int newArr[], int k){
+        ArrayList<Integer> list = new ArrayList<>();
+        Arrays.sort(newArr);
+        int len = newArr.length - k;
+        int i=newArr.length-1;
+        while(i>=len){
+            list.add(newArr[i--]);
+        }
+
+        return list;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -127,24 +140,43 @@ public class GFG_Qus {
         // System.out.println("Given String is Anagram: "+res);
 
         //Q4)Product Array Except itself
-        System.out.println("Enter the length of Array: ");
+        // System.out.println("Enter the length of Array: ");
+        // int len = sc.nextInt();
+
+        // int nums[] = new int[len];
+
+        // System.out.println("Enter the Value: ");
+        // for(int i=0; i<len; i++){
+        //     nums[i] = sc.nextInt();
+        // }
+        // System.out.println("Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(nums[i]+" ");
+        // }
+        // System.out.println();
+        // int result[] = productExceptItself(nums);
+        // System.out.println("Prduct Array: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(result[i]+" ");
+        // }
+
+        //Q)Given an array arr[] of positive integers and an integer k, Your task is to return k largest elements in decreasing order. 
+       
+        System.out.println("Enter the len: ");
         int len = sc.nextInt();
-
-        int nums[] = new int[len];
-
-        System.out.println("Enter the Value: ");
+        int newArr[] = new int[len];
+        System.out.println("enter the value: ");
         for(int i=0; i<len; i++){
-            nums[i] = sc.nextInt();
+            newArr[i] = sc.nextInt();
         }
-        System.out.println("Array: ");
-        for(int i=0; i<len; i++){
-            System.out.print(nums[i]+" ");
-        }
-        System.out.println();
-        int result[] = productExceptItself(nums);
-        System.out.println("Prduct Array: ");
-        for(int i=0; i<len; i++){
-            System.out.print(result[i]+" ");
+        System.out.println("Enter the value of k: ");
+        int k = sc.nextInt();
+
+        ArrayList<Integer> res = new ArrayList<>();
+        res = k_LargestEle(newArr, k);
+        System.out.println("K largests elements is: ");
+        for(int i=0; i<res.size(); i++){
+            System.out.println(res.get(i)+" ");
         }
     }
 }
