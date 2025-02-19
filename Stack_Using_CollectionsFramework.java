@@ -141,6 +141,51 @@ public class Stack_Using_CollectionsFramework {
         }
         return false;
     }
+
+    public static int maxAreaHistogram(int arr[]){
+        int len = arr.length;
+
+        int maxArea = 0;
+        int nsR[] = new int[len];
+        int nsL[] = new int[len];
+        Stack<Integer> track = new Stack<>();
+
+        //Next Smaller Right
+        for(int i=len-1; i>=0; i--){
+            while (!track.isEmpty() && arr[track.peek()] >= arr[i]) {
+                track.pop();
+            }
+            if (track.isEmpty()) {
+                nsR[i] = len;
+            }else{
+                nsR[i] = track.peek();
+            }
+            track.push(i);
+        }
+
+        //Next Smaller Left
+        track = new Stack<>();
+        for(int i=0; i<len; i++){
+            while (!track.isEmpty() && arr[track.peek()] >= arr[i]) {
+                track.pop();
+            }
+            if (track.isEmpty()) {
+                nsL[i] = -1;
+            }else{
+                nsL[i] = track.peek();
+            }
+            track.push(i);
+        }
+        
+        //find the currAreA: width=j-i-1 => nsR[i]-nsL[i]-1
+        for(int i=0; i<len; i++){
+            int height = arr[i];
+            int width = nsR[i] - nsL[i] - 1;
+            int currArea = height * width;
+            maxArea = Math.max(maxArea, currArea);
+        }
+        return maxArea;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> list = new Stack<>();
@@ -219,15 +264,32 @@ public class Stack_Using_CollectionsFramework {
         // }
 
         //Q7)Duplicate Parenthsis
-        System.out.println("Enter the Brackets: ");
-        String brackets = sc.nextLine();
+        // System.out.println("Enter the Brackets: ");
+        // String brackets = sc.nextLine();
 
-        Boolean res = isDuplicateParenthesis(brackets);
-        if (res==true) {
-            System.out.println("String "+brackets+" can be contain the duplicate parenthesis");
-        }
-        else{
-            System.out.println("String "+brackets+" can not be contain the duplicate parenthsis");
-        }
+        // Boolean res = isDuplicateParenthesis(brackets);
+        // if (res==true) {
+        //     System.out.println("String "+brackets+" can be contain the duplicate parenthesis");
+        // }
+        // else{
+        //     System.out.println("String "+brackets+" can not be contain the duplicate parenthsis");
+        // }
+
+         // Q8)MaxArea in a given Histogram
+         System.out.println("Enter the length: ");
+         int len = sc.nextInt();
+         int height[] = new int[len];
+         System.out.println("Enter the Heights: ");
+         for (int i = 0; i < len; i++) {
+             height[i] = sc.nextInt();
+         }
+ 
+         System.out.println("Heights: ");
+         for (int i = 0; i < len; i++) {
+             System.out.print(height[i] + " ");
+         }System.out.println();
+
+         int maxArea = maxAreaHistogram(height);
+         System.out.println("Maximum Area of Histogram: "+maxArea);
     }
 }
