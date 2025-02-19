@@ -54,6 +54,66 @@ public class CodingNinza {
         int result = num ^ mask;
         return result;
     }
+
+    public static ArrayList<Integer> absDiff(ArrayList<Integer> arr, int n) {
+            // Write your code here.
+            ArrayList<Integer> even = new ArrayList<>();
+            ArrayList<Integer> odd = new ArrayList<>();
+    
+            ArrayList<Integer> diff = new ArrayList<>();
+            
+            //System.out.print(even.get(0));
+            int i=0;
+            while(i<arr.size()){
+                if(i % 2 == 0){
+                    even.add(arr.get(i));   //17,18
+                }
+                else{
+                    odd.add(arr.get(i));    //6,8
+                }
+                i++;
+            }
+        
+            int k=2;
+            if(even.size()==0){
+                diff.add(0);
+            }
+            else if(even.size()==1){
+                diff.add(even.get(0));
+            }
+            else{
+                int reev = Math.abs(even.get(0)-even.get(1));
+                if(even.size()>2){
+                    while(k<even.size()){
+                        reev = Math.abs(reev - even.get(k));
+                        k++;
+                    }
+                }
+            
+                diff.add(reev);
+            }
+    
+            int j=2;
+            if(odd.size()==0){
+                diff.add(0);
+            }
+            else if(odd.size()==1){
+                diff.add(odd.get(0));
+            }
+            else{
+                int reod = Math.abs(odd.get(0)-odd.get(1));
+                if(odd.size()>2){
+                    while(j<=odd.size()-1){
+                        reod = Math.abs(reod - odd.get(j));
+                         j++;
+                    }
+                }
+            
+                diff.add(reod);
+            }
+            
+            return diff;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -107,11 +167,37 @@ public class CodingNinza {
 
         //Q)You are given a 32-bit integer ‘N’. Your task is to toggle the rightmost ‘K’ bits in the given integer and return the new integer.For Example :If ‘N’ = 12 and ‘K’ = 2:The binary representation of 12 is ‘1100’, after toggling rightmost 2 bits, it becomes ‘1111’ i.e. 15. Hence, the answer is 15. 
         
+        // System.out.println("Enter the value: ");
+        // int num = sc.nextInt();
+        // System.out.println("Enter the value of K: ");
+        // int k = sc.nextInt();
+        // int res = toggleKBits(num, k);
+        // System.out.println("After Toggling: "+res);
+
+        //Q)You are given an array/list 'ARR' consisting of 'N' non - negative integers. Your task is to return the running absolute difference of the elements at even and odd index positions separately.The index of the first element in the array is considered to be zero that is 0 - based indexing is considered for calculating the parity of the index.
+        System.out.println("Enter the lenght: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
         System.out.println("Enter the value: ");
-        int num = sc.nextInt();
-        System.out.println("Enter the value of K: ");
-        int k = sc.nextInt();
-        int res = toggleKBits(num, k);
-        System.out.println("After Toggling: "+res);
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        //System.out.println("Array: ");
+        for(int i=0; i<len; i++){
+            list.add(arr[i]);
+        }
+        System.out.println("Array: ");
+        for(int i=0; i<len; i++){
+            System.out.print(list.get(i)+" ");
+        }
+
+        ArrayList<Integer> result = new ArrayList<>();
+        result = absDiff(result, len);
+        System.out.println("Final Result: ");
+        for(int i=0; i<result.size(); i++){
+            System.out.print(result.get(i)+" ");
+        }
+
     }
 }
