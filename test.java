@@ -883,17 +883,20 @@ public class test {
         // System.out.println(max);
 
         //Q)Kadane's Algo
-        System.out.println("Enter the len: ");
-        int len = sc.nextInt();
-        int newArr[] = new int[len];
-        System.out.println("enter the value: ");
-        for(int i=0; i<len; i++){
-            newArr[i] = sc.nextInt();
-        }
+        // System.out.println("Enter the len: ");
+        // int len = sc.nextInt();
+        // int newArr[] = new int[len];
+        // System.out.println("enter the value: ");
+        // for(int i=0; i<len; i++){
+        //     newArr[i] = sc.nextInt();
+        // }
 
-        int maxSum = KadaneAlgo(newArr);
-        System.out.println("Max SUm: "+maxSum);
+        // int maxSum = KadaneAlgo(newArr);
+        // System.out.println("Max SUm: "+maxSum);
 
         //TC: O(n)
+
+        
+
     }
 }
