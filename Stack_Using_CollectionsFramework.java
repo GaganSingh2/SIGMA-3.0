@@ -142,7 +142,7 @@ public class Stack_Using_CollectionsFramework {
         return false;
     }
 
-    public static int maxAreaHistogram(int arr[]){
+    public static int maxAreaHistogram(int arr[]){  //TC: O(n)
         int len = arr.length;
 
         int maxArea = 0;
@@ -291,5 +291,8 @@ public class Stack_Using_CollectionsFramework {
 
          int maxArea = maxAreaHistogram(height);
          System.out.println("Maximum Area of Histogram: "+maxArea);
+
+         //TC: O(n)
+         //SC: O(n)
     }
 }
