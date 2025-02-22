@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.*;
 
 public class CodingNinza {
@@ -111,7 +110,17 @@ public class CodingNinza {
         return diff;
     }
 
-    
+    public static void rearrangeArray(int arr[]){
+        int len = arr.length;
+        int tempArr[] = new int[len];
+
+        for(int i=0; i<len; i++){
+            tempArr[i] = arr[arr[i]];
+        }
+        for(int i=0; i<len; i++){
+            arr[i] = tempArr[i];
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -213,7 +222,24 @@ public class CodingNinza {
         // System.out.print(result.get(i)+" ");
         // }
 
-       
+       //Q)You're given an array ARR[] of size N, where every element belongs to the range 0 to N-1. Your task is to rearrange the given array so that ARR[i] becomes ARR[ARR[i]] and make sure that this task is done with O(1) extra space.
+       System.out.println("ENter the length: ");
+       int len = sc.nextInt();
+       int arr[] = new int[len];
+       System.out.println("Enter the value: ");
+       for(int i=0; i<len; i++){
+           arr[i] = sc.nextInt();
+       }
+       System.out.println("Array: ");
+       for(int i=0; i<len; i++){
+           System.out.print(arr[i]+" ");
+       }System.out.println();
+
+       rearrangeArray(arr);
+       System.out.println("AFter Rearange the Array: ");
+       for(int i=0; i<len; i++){
+           System.out.print(arr[i]+" ");
+       }
 
     }
 }
