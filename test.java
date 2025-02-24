@@ -484,6 +484,19 @@ public class test {
         }
         return maxSum;
     }
+
+    public static boolean is_Palindrome(String str){
+        int start = 0;
+        int end = str.length()-1;
+        while (start<end) {
+            if(str.charAt(start) != str.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -896,7 +909,11 @@ public class test {
 
         //TC: O(n)
 
-        
+        //Q)check the given string is palindrome or not
+        System.out.println("ENter the String: ");
+        String str = sc.nextLine();
+
+        System.out.println("Result: "+is_Palindrome(str));
 
     }
 }
