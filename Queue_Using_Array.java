@@ -31,10 +31,10 @@ public class Queue_Using_Array {
                 return -1;
             }
             int front = arr[0];
-            for(int i=0; i<rear; i++){
+            for(int i=0; i<rear; i++){   //O(n)
                 arr[i] = arr[i+1];
             }
-            rear--;
+            rear--;         //rear ko current ke index pe bhejne ke liye
             return front;
        }
 
