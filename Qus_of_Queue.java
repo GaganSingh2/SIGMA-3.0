@@ -181,19 +181,29 @@ public class Qus_of_Queue {
         
     }
 
-    public static void interleaveOf_Two_Halves(Queue<Integer> list){
-        if(list.size() % 2 != 0){
+    public static void interleaveOf_Two_Halves(Queue<Integer> final_list){
+        if(final_list.size() % 2 != 0){
             System.out.println("Size is not Even Length, So we can not generate of Interleave.");
             return;
         }
-        int len = list.size()/2;
+        int len = final_list.size()/2;
         Queue<Integer> newQueue = new LinkedList<>();
         for(int i=0; i<len; i++){
-            newQueue.add(list.remove());
+            newQueue.add(final_list.remove());
         }
         while (!newQueue.isEmpty()) {
-            list.add(newQueue.remove());
-            list.add(list.remove());
+            final_list.add(newQueue.remove());
+            final_list.add(final_list.remove());
+        }
+    }
+
+    public static void reverse_Queue(Queue<Integer> list){
+        Stack temp = new Stack();
+        while (!list.isEmpty()) {
+            temp.add(list.remove());
+        }
+        while (!temp.isEmpty()) {
+            list.add(temp.pop());
         }
     }
     public static void main(String[] args) {
@@ -230,25 +240,38 @@ public class Qus_of_Queue {
         // firstNon_ReaptingCharacter(str);
 
         // Q4)Interleave 2 Halves of Queue(even length)
-        Queue<Integer> val = new LinkedList<>();
-        val.add(1);
-        val.add(2);
-        val.add(3);
-        val.add(4);
-        val.add(5);
-        val.add(6);
-        val.add(7);
-        val.add(8);
-        val.add(9);
-        val.add(10);  
-        interleaveOf_Two_Halves(val);
-        if(val.size() % 2 == 0){
-            System.out.println("After the InterLeave of Two Halves: ");
-            while (!val.isEmpty()) {
-                System.out.print(val.peek()+" ");
-                val.remove();
-            }
-        }
+        // Queue<Integer> val = new LinkedList<>();
+        // val.add(1);
+        // val.add(2);
+        // val.add(3);
+        // val.add(4);
+        // val.add(5);
+        // val.add(6);
+        // val.add(7);
+        // val.add(8);
+        // val.add(9);
+        // val.add(10);  
+        // interleaveOf_Two_Halves(val);
+        // if(val.size() % 2 == 0){
+        //     System.out.println("After the InterLeave of Two Halves: ");
+        //     while (!val.isEmpty()) {
+        //         System.out.print(val.peek()+" ");
+        //         val.remove();
+        //     }
+        // }
        
+        //Q5)Reverse Queue
+        Queue<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        
+        reverse_Queue(list);
+        while (!list.isEmpty()) {
+            System.out.print(list.peek()+" ");
+            list.remove();
+        }
     }
 }
