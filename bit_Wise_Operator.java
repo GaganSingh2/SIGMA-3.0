@@ -175,12 +175,12 @@ public class bit_Wise_Operator {
 
         /*c) Clear ith bit:- Clearing the ith Bit refers to setting a specific bit in a binary number to 0. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right. */
 
-        // System.out.println("Enter the number: ");
-        // int num = sc.nextInt();
-        // System.out.println("Enter the Position: ");
-        // int pos = sc.nextInt();
-        // int result = clear_ith_bit(num, pos);
-        // System.out.println("Result is: "+result);
+        System.out.println("Enter the number: ");
+        int num = sc.nextInt();
+        System.out.println("Enter the Position: ");
+        int pos = sc.nextInt();
+        int result = clear_ith_bit(num, pos);
+        System.out.println("Result is: "+result);
 
 
         /*d) Update ith Bit:- Updating the ith Bit refers to modifying a specific bit in a binary number to a desired value. The least significant bit is considered the 0th bit, so the ith bit is the bit at position i from the right.  */

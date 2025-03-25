@@ -157,9 +157,6 @@ public class Qus_of_Queue {
     public static void firstNon_ReaptingCharacter(String str){
         // Create a Frequency Array
         int freq[] = new int[26];
-        for(int i=0; i<26; i++){
-            freq[i] = 0;
-        }
 
         // Create a Queue for tracking the character of string
         Queue<Character> list = new LinkedList<>();
@@ -182,6 +179,22 @@ public class Qus_of_Queue {
             }
         }System.out.println();
         
+    }
+
+    public static void interleaveOf_Two_Halves(Queue<Integer> list){
+        if(list.size() % 2 != 0){
+            System.out.println("Size is not Even Length, So we can not generate of Interleave.");
+            return;
+        }
+        int len = list.size()/2;
+        Queue<Integer> newQueue = new LinkedList<>();
+        for(int i=0; i<len; i++){
+            newQueue.add(list.remove());
+        }
+        while (!newQueue.isEmpty()) {
+            list.add(newQueue.remove());
+            list.add(list.remove());
+        }
     }
     public static void main(String[] args) {
 
@@ -211,9 +224,31 @@ public class Qus_of_Queue {
         // }
 
         // Q3)First Non-Repeating Letter in a Stream of characters.
-        System.out.println("Enter the Streamm of Characters: ");
-        String str = sc.nextLine();
-        System.out.println("Characters is: "+str);
-        firstNon_ReaptingCharacter(str);
+        // System.out.println("Enter the Streamm of Characters: ");
+        // String str = sc.nextLine();
+        // System.out.println("Characters is: "+str);
+        // firstNon_ReaptingCharacter(str);
+
+        // Q4)Interleave 2 Halves of Queue(even length)
+        Queue<Integer> val = new LinkedList<>();
+        val.add(1);
+        val.add(2);
+        val.add(3);
+        val.add(4);
+        val.add(5);
+        val.add(6);
+        val.add(7);
+        val.add(8);
+        val.add(9);
+        val.add(10);  
+        interleaveOf_Two_Halves(val);
+        if(val.size() % 2 == 0){
+            System.out.println("After the InterLeave of Two Halves: ");
+            while (!val.isEmpty()) {
+                System.out.print(val.peek()+" ");
+                val.remove();
+            }
+        }
+       
     }
 }
