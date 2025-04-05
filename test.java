@@ -485,7 +485,7 @@ public class test {
         return maxSum;
     }
 
-    public static boolean is_Palindrome(String str){
+    public static boolean is_Palindrome(String str){  //for string
         int start = 0;
         int end = str.length()-1;
         while (start<end) {
@@ -496,6 +496,22 @@ public class test {
             end--;
         }
         return true;
+    }
+
+    public static boolean val_isPalindrome(int val){ //for integer
+        int num = val;
+        int res = 0;
+        while (val > 0) {
+            int digit = val % 10;
+            res = res * 10 + digit;
+            val /= 10;
+        }
+        if (num == res) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -910,10 +926,16 @@ public class test {
         //TC: O(n)
 
         //Q)check the given string is palindrome or not
-        System.out.println("ENter the String: ");
-        String str = sc.nextLine();
+        // System.out.println("ENter the String: ");
+        // String str = sc.nextLine();
 
-        System.out.println("Result: "+is_Palindrome(str));
+        // System.out.println("Result: "+is_Palindrome(str));
+
+        //Q)check the given integeer is palindrome or not without converting the integer to string
+        System.out.println("Enter the value: ");
+        int val = sc.nextInt();
+
+        System.out.println("Result: "+val_isPalindrome(val));
 
     }
 }
