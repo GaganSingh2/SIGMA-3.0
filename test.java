@@ -513,6 +513,23 @@ public class test {
             return false;
         }
     }
+
+    public static int reverseOfValue(int val){
+        long rev = 0;
+        int max = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
+
+        while(val != 0){
+            int rem = val % 10;
+            rev = rev * 10 + rem;
+            val /= 10;
+        }
+        if(rev >= min && rev <= max){
+            return (int)rev;
+        }else{
+            return 0;
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -932,10 +949,18 @@ public class test {
         // System.out.println("Result: "+is_Palindrome(str));
 
         //Q)check the given integeer is palindrome or not without converting the integer to string
+        // System.out.println("Enter the value: ");
+        // int val = sc.nextInt();
+        
+        // System.out.println("Result: "+val_isPalindrome(val));
+
+        // Q)Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
         System.out.println("Enter the value: ");
         int val = sc.nextInt();
+        int rev = reverseOfValue(val);
 
-        System.out.println("Result: "+val_isPalindrome(val));
+        System.out.println("Reverse value is: "+rev);
 
     }
 }
