@@ -115,8 +115,18 @@ public class Greedy_Algo {
                 }
             }
         }
-
         return maxValue;
+    }
+
+    public static int min_Absolute_Difference(int first[],int second[]){
+        int minDiff = 0;
+        Arrays.sort(first);
+        Arrays.sort(second);
+        for(int i=0; i<first.length; i++){
+            minDiff += Math.abs(first[i]-second[i]);
+        }
+
+        return minDiff;
     }
 
     public static void main(String[] args) {
@@ -143,24 +153,44 @@ public class Greedy_Algo {
         // items in a Knapsack of capacity W to get the maximum total value in the
         // Knapsack.
 
-        System.out.println("Enter the length of Value and Weight: ");
+        // System.out.println("Enter the length of Value and Weight: ");
+        // int len = sc.nextInt();
+        // int value[] = new int[len];
+        // int weight[] = new int[len];
+
+        // System.out.println("Enter the value: ");
+        // for (int i = 0; i < len; i++) {
+        //     value[i] = sc.nextInt();
+        // }
+        // System.out.println("Enter the weight: ");
+        // for (int i = 0; i < len; i++) {
+        //     weight[i] = sc.nextInt();
+        // }
+
+        // System.out.println("Enter the total Capacity: ");
+        // int capacity = sc.nextInt();
+
+        // int max_Value = fractional_Knapscak_MaxValue(value, weight, capacity);
+        // System.out.println("Total Maximum Value: " + max_Value);
+
+
+        // Q3)Minimum Absolute Difference Pair=> Given two arrays A and B of equal length n.Pair each element of array A to an element in array B, such that sum S of absolute differences of all the pairs is minimum.
+
+        System.out.println("Enter the length: ");
         int len = sc.nextInt();
-        int value[] = new int[len];
-        int weight[] = new int[len];
+        int first[] = new int[len];
+        int second[] = new int[len];
 
-        System.out.println("Enter the value: ");
-        for (int i = 0; i < len; i++) {
-            value[i] = sc.nextInt();
+        System.out.println("Enter the value in First Array: ");
+        for(int i=0; i<len; i++){
+            first[i] = sc.nextInt();
         }
-        System.out.println("Enter the weight: ");
-        for (int i = 0; i < len; i++) {
-            weight[i] = sc.nextInt();
+        System.out.println("Enter the value in Second Array: ");
+        for(int i=0; i<len; i++){
+            second[i] = sc.nextInt();
         }
 
-        System.out.println("Enter the total Capacity: ");
-        int capacity = sc.nextInt();
-
-        int max_Value = fractional_Knapscak_MaxValue(value, weight, capacity);
-        System.out.println("Total Maximum Value: " + max_Value);
+        int minDiff = min_Absolute_Difference(first, second);
+        System.out.println("Minimum Absolute Difference: "+minDiff);
     }
 }
