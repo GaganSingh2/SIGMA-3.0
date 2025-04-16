@@ -119,21 +119,25 @@ public class strivar_DSA_sheet {
         //Space complexity
 
         //Q)Move all zeros in the right side
-        System.out.println("enter the len: ");
-        int len = sc.nextInt();
-        int arr[] = new int[len];
-        System.out.println("Enter the value: ");
-        for(int i=0; i<len; i++){
-            arr[i] = sc.nextInt();
-        }
-        System.out.println("Before Moving the Zero: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-        }
-        moveZero(arr);
-        System.out.println("After Moving th Zero: ");
-        for(int i=0; i<len; i++){
-            System.out.print(arr[i]+" ");
-        }
+        // System.out.println("enter the len: ");
+        // int len = sc.nextInt();
+        // int arr[] = new int[len];
+        // System.out.println("Enter the value: ");
+        // for(int i=0; i<len; i++){
+        //     arr[i] = sc.nextInt();
+        // }
+        // System.out.println("Before Moving the Zero: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+        // moveZero(arr);
+        // System.out.println("After Moving th Zero: ");
+        // for(int i=0; i<len; i++){
+        //     System.out.print(arr[i]+" ");
+        // }
+
+
+        //Q)Given the array to find the 
     }
+
 }

@@ -275,24 +275,26 @@ public class Stack_Using_CollectionsFramework {
         //     System.out.println("String "+brackets+" can not be contain the duplicate parenthsis");
         // }
 
-         // Q8)MaxArea in a given Histogram
-         System.out.println("Enter the length: ");
-         int len = sc.nextInt();
-         int height[] = new int[len];
-         System.out.println("Enter the Heights: ");
-         for (int i = 0; i < len; i++) {
-             height[i] = sc.nextInt();
-         }
+         //Q8) MaxArea in a given Histogram
+        //  System.out.println("Enter the length: ");
+        //  int len = sc.nextInt();
+        //  int height[] = new int[len];
+        //  System.out.println("Enter the Heights: ");
+        //  for (int i = 0; i < len; i++) {
+        //      height[i] = sc.nextInt();
+        //  }
  
-         System.out.println("Heights: ");
-         for (int i = 0; i < len; i++) {
-             System.out.print(height[i] + " ");
-         }System.out.println();
+        //  System.out.println("Heights: ");
+        //  for (int i = 0; i < len; i++) {
+        //      System.out.print(height[i] + " ");
+        //  }System.out.println();
 
-         int maxArea = maxAreaHistogram(height);
-         System.out.println("Maximum Area of Histogram: "+maxArea);
+        //  int maxArea = maxAreaHistogram(height);
+        //  System.out.println("Maximum Area of Histogram: "+maxArea);
 
          //TC: O(n)
          //SC: O(n)
+
+         
     }
 }

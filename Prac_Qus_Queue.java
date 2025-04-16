@@ -33,7 +33,7 @@ public class Prac_Qus_Queue {
             System.out.println("Invalid Value!");
             return;
         }
-
+        // Using Queue-------
         Queue<String> li = new LinkedList<String>();
         li.add("1");
         while (val-- > 0) {
@@ -44,6 +44,11 @@ public class Prac_Qus_Queue {
             li.add(s1 + "0");
             li.add(s2 + "1");
         }
+
+        // Using Inbuilt Function
+        // for(int i=1; i<=val; i++){
+        //     System.out.println(Integer.toBinaryString(i));
+        // }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

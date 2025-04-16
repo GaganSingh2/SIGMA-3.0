@@ -47,12 +47,12 @@ public class Qus_of_Queue {
             return list1.isEmpty() && list2.isEmpty();
         }
         
-        //Add
+        //Add O(1)
         public static void add(int data){
             list1.push(data);
         }
 
-        // Remove (pop)
+        // Remove (pop) O(n)
         public static int remove(){
             if(list1.isEmpty() && list2.isEmpty()){
                 System.out.println("Queue is Empty");
@@ -67,7 +67,7 @@ public class Qus_of_Queue {
             return list2.pop();
         }
         
-        // Peek
+        // Peek O(n)
         public static int peek(){
             if(list1.isEmpty() && list2.isEmpty()){
                 System.out.println("Queue is Empty");
@@ -152,7 +152,7 @@ public class Qus_of_Queue {
             return top;
         }
 
-    }
+    } 
 
     public static void firstNon_ReaptingCharacter(String str){
         // Create a Frequency Array
@@ -206,6 +206,8 @@ public class Qus_of_Queue {
             list.add(temp.pop());
         }
     }
+
+    
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -261,17 +263,21 @@ public class Qus_of_Queue {
         // }
        
         //Q5)Reverse Queue
-        Queue<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
+        // Queue<Integer> list = new LinkedList<>();
+        // list.add(1);
+        // list.add(2);
+        // list.add(3);
+        // list.add(4);
+        // list.add(5);
         
-        reverse_Queue(list);
-        while (!list.isEmpty()) {
-            System.out.print(list.peek()+" ");
-            list.remove();
-        }
+        // reverse_Queue(list);
+        // while (!list.isEmpty()) {
+        //     System.out.print(list.peek()+" ");
+        //     list.remove();
+        // }
+
+
+        
+
     }
 }
