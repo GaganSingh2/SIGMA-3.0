@@ -530,6 +530,19 @@ public class test {
             return 0;
         }
     }
+
+    public static int Kadane_Algo(int arr[]){
+        int maxSum = 0,currSum = 0;
+        for(int i=0; i<arr.length; i++){
+            currSum = 0;
+            currSum += arr[i];
+            if(currSum<0){
+                currSum = 0;
+            }
+            
+        }
+        return Math.max(maxSum, currSum);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // int arr[] = {5,4,1,3,2};
@@ -956,11 +969,21 @@ public class test {
 
         // Q)Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 
+        // System.out.println("Enter the value: ");
+        // int val = sc.nextInt();
+        // int rev = reverseOfValue(val);
+
+        // System.out.println("Reverse value is: "+rev);
+
+
+        // Q)Using Kadane algo find max sub array.
+        System.out.println("Enter the len: ");
+        int len = sc.nextInt();
+        int arr[] = new int[len];
         System.out.println("Enter the value: ");
-        int val = sc.nextInt();
-        int rev = reverseOfValue(val);
-
-        System.out.println("Reverse value is: "+rev);
-
+        for(int i=0; i<len; i++){
+            arr[i] = sc.nextInt();
+        }
+        int res = Kadane_Algo(arr);
     }
 }
