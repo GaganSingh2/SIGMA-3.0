@@ -27,7 +27,6 @@ class StackUsingArray {
         //for pop in stack
         public int pop(){
             if (isEmpty()) {
-                System.out.println("Stack UnderFlow");
                 return -1;
             }
 
@@ -39,7 +38,7 @@ class StackUsingArray {
         //For peek in Stack
         public int peek(){
             if (isEmpty()) {
-                System.out.println("Stack is Empty");
+               
                 return -1;
             }
             return arr[top];
@@ -60,5 +59,8 @@ class StackUsingArray {
             System.out.println(temp.peek());
             temp.pop();
         }
+
+        System.out.println("Stack is Empty: "+temp.peek());
+
     }
 }

@@ -43,5 +43,7 @@ class StackUsingArrayList {
             System.out.println(temp.peek());
             temp.pop();
         }
+        System.out.println("Stack is Empty: "+temp.peek());
+
     }
 }
