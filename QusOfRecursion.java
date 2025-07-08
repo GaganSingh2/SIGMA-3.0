@@ -321,10 +321,10 @@ public class QusOfRecursion {
         //Space Complexity:- O(n).
 
         //Q5)Print Nth fibonacci number.
-        // System.out.println("Enter a Number: ");
-        // int num = sc.nextInt();
-        // int res = fibonacci(num);
-        // System.out.println("Result: "+res);
+        System.out.println("Enter a Number: ");
+        int num = sc.nextInt();
+        int res = fibonacci(num);
+        System.out.println("Result: "+res);
 
         //Time COmplexity:- O(2^n)
         //Space Complexity:- O(n).
@@ -505,10 +505,10 @@ public class QusOfRecursion {
         // System.out.println(res);
 
         //Q5) Sum of first 10 number
-        System.out.println("Enter the number: ");
-        int num = sc.nextInt();
-        int res = sumOfTen(num);
-        System.out.println("Value is: "+res);
+        // System.out.println("Enter the number: ");
+        // int num = sc.nextInt();
+        // int res = sumOfTen(num);
+        // System.out.println("Value is: "+res);
     }
 }
  
