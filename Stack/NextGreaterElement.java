@@ -2,7 +2,7 @@ import java.util.Stack;
 import java.util.Scanner;
 public class NextGreaterElement {
 
-    private static int[] nextGreaterElement(int nums[]){
+    private static int[] nextGreaterElementRight(int nums[]){
         Stack<Integer> idx = new Stack<>();
 
         int nextGrtEle[] = new int[nums.length];
@@ -35,10 +35,17 @@ public class NextGreaterElement {
             System.out.print(arr[i]+" ");
         }System.out.println();
 
-        int res[] = nextGreaterElement(arr);
+        int res[] = nextGreaterElementRight(arr);
         System.out.println("After Inserting Next Greater Elements: ");
         for(int i=0; i<res.length; i++){
             System.out.print(res[i]+" ");
         }System.out.println();
+
+        /*Qus Ask on this topic: 
+         * Next Greater Right (Loop i=n-1 to 0 and inner loop check: nums[idx.peek()] <= nums[i])
+         * Next Greater Left (Loop i=0 to n-1 and inner loop check: nums[idx.peek()] <= nums[i])
+         * Next Smaller Right (Loop i=n-1 to 0 and inner loop check: nums[idx.peek()] >= nums[i])
+         * Next Smaller Left (Loop i=0 to n-1 and inner loop check: nums[idx.peek()] >= nums[i])
+         */
     }
 }
