@@ -3,15 +3,18 @@ package Recursion;
 public class Print1ToN {
     public static void main(String[] args) {
         // Print 1,2,3,4,5,...........
-        print(1);
+        print(5);
     }
 
     static void print(int n){
-        if(n==5){
+        if(n==1){
             System.out.println(n);
             return;
         }
-        System.out.println(n);
-        print(n+1);
+       
+
+        //This is called Tail Recursion Because this is the last Call Function.
+        print(n-1);
+         System.out.println(n);
     }
 }
