@@ -15,3 +15,8 @@ public class NthFibboUsingFromula {
         return (long) ((Math.pow(phi, n) ) / Math.sqrt(5));
     }
 }
+
+/*
+ * THis Formula is Called Golden Ratio Formula
+ * He gives TC:
+ */

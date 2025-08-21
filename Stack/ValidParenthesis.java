@@ -28,7 +28,7 @@ public class ValidParenthesis {
         String str = sc.nextLine();
 
         System.out.println("Parenthesis: "+str);
-
+        
         boolean res = isValidParenthesis(str);
         if(res) System.out.println(str+" is a Valid Parenthesis Format!");
         else System.out.println(str+" is not a Valid Parenthesis Format!");
