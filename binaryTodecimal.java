@@ -18,8 +18,8 @@ public class binaryTodecimal {
         
     }
 
-
-    public static void decToBin(int decNum){
+  00
+0    public static void decToBin(int decNum){
         int myNum = decNum;
         int pow = 0;
         int binNum = 0;
