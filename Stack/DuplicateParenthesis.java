@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -19,12 +20,14 @@ public class DuplicateParenthesis {
                 if(count<1){    //Contain the Duplicate Parenthesis
                     return true;
                 }
+                
             }
             //For Opening and other Operands and Operators
             else{
                 temp.push(str.charAt(i));
             }
         }
+        //After the traversing our Stack is not empty means we have some  value in stack(i.e. we pass unbalanced string for checking)
         if(!temp.isEmpty()){
             System.out.println("Un-Balanced String!");
             return false;
