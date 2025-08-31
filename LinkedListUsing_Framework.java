@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 
 public class LinkedListUsing_Framework {
+    
     public static void main(String[] args) {
         //Create a Linked List
         LinkedList<Integer> link = new LinkedList<>();
