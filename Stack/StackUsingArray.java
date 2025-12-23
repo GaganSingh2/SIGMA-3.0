@@ -1,66 +1,63 @@
 import java.util.Stack;
 class StackUsingArray {
-    static class Stack{
+    static class Stack {
+    
         int arr[];
         int top;
+
         Stack(int size){
             this.arr = new int[size];
-            this.top = -1;
+            top = -1;
         }
 
-        //For Empty of Stack
+        //Empty
         public boolean isEmpty(){
-            return top == -1;
+            return top==-1;
         }
 
-        //For push in Stack
-        public void push(int data){
-            if(top == arr.length-1){
-                System.out.println("Stack OverFlow");
+        //PUsh
+        public void push(int val){
+            if(top==arr.length){
+                System.out.println("Overflow!!!!");
                 return;
             }
-
             top++;
-            arr[top] = data;
+            arr[top]= val;
         }
 
-        //for pop in stack
+        //pop
         public int pop(){
-            if (isEmpty()) {
+            if(top==-1){
+                System.out.println("Underflow!!!!");
                 return -1;
             }
-
-            int topElement = arr[top];
-            top--;
-            return topElement;
+            
+            return arr[top--];
         }
 
-        //For peek in Stack
+        //peek
         public int peek(){
-            if (isEmpty()) {
-               
+            if(top==-1){
+                System.out.println("Underflow!!!!");
                 return -1;
             }
+            
             return arr[top];
         }
     }
 
     public static void main(String[] args) {
-        Stack temp = new Stack(5);
-        temp.push(10);
-        temp.push(20);
-        temp.push(30);
-        temp.push(40);
-        temp.push(50);
-        temp.push(40);
+        Stack stk = new Stack(5);
+        System.out.println(stk.isEmpty());
+        stk.push(4);
+        stk.push(5);
+        stk.push(3);
 
-        
-        while (!temp.isEmpty()) {
-            System.out.println(temp.peek());
-            temp.pop();
+        while (!stk.isEmpty()) {
+            System.out.println("Top Value: "+stk.peek());
+            stk.pop();
         }
-
-        System.out.println("Stack is Empty: "+temp.peek());
-
+        System.out.println(stk.peek());
     }
 }
+
