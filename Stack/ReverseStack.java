@@ -1,36 +1,39 @@
 import java.util.Stack;
 public class ReverseStack {
-    private static void pushAtBottom(Stack<Integer> st,int top){
-        if(st.isEmpty()){
-            st.push(top);
+    public static void pushAtBottom(Stack<Integer> tmp, int data){
+        if(tmp.isEmpty()){
+            tmp.push(data);
             return;
         }
 
-        int data = st.pop();
-        pushAtBottom(st, top);
-        st.push(data);
+        int top = tmp.pop();
+        pushAtBottom(tmp, data);
+        tmp.push(top);
     }
 
-    private static void Reverse_Stack(Stack<Integer> st){
-        if(st.isEmpty()){
+    public static void revStack(Stack<Integer> tmp){
+        if(tmp.isEmpty()){
             return;
         }
-        int top = st.pop();
-        Reverse_Stack(st);
-        pushAtBottom(st, top);
+        int top = tmp.pop();
+        revStack(tmp);
+        pushAtBottom(tmp, top);
+    }
+
+    public static void printStack(Stack<Integer> tmp){
+        while (!tmp.isEmpty()) {
+            System.out.println("Top Value: "+tmp.peek());
+            tmp.pop();
+        }
     }
     public static void main(String[] args) {
         Stack<Integer> stk = new Stack<>();
         stk.push(1);
         stk.push(2);
         stk.push(3);
-        stk.push(4);
-
-        Reverse_Stack(stk);
-        while(!stk.isEmpty()){
-            System.out.println("Value: "+stk.peek());
-            stk.pop();
-        }
-        
+        //3 2 1
+        revStack(stk);
+        printStack(stk);
+        //1 2 3
     }
 }
