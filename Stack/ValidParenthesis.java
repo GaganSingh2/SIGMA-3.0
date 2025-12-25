@@ -2,7 +2,21 @@ import java.util.Scanner;
 import java.util.Stack;
 public class ValidParenthesis {
 
-    public static boolean isValidParenthesis(String bracket){
+    //Using Repeated Parenthesis(){}[] are replace with ""(empty string). TC: O(n^2)(contains take O(n) and replace take O(n)), SC:O(n)(each time create String)
+    public static boolean isValidParenthesisUsingReplaceApproach(String bracket){
+        //// Keep removing valid pairs until no more exist
+        while (bracket.contains("()") || bracket.contains("[]") || bracket.contains("{}")) {
+            bracket = (bracket.replace("()",""))
+                        .replace("[]","")
+                        .replace("{}", "");
+        }
+
+        //if string is empty means Valid Parenthesis, Otherwise Invalid Parenthesis
+        return bracket.isEmpty();
+    }
+
+    //Using Stack TC: O(n), SC: O(n)
+    public static boolean isValidParenthesisUsingStack(String bracket){
         Stack<Character> stk = new Stack<>();
 
         for(int i=0; i<bracket.length(); i++){
@@ -26,7 +40,7 @@ public class ValidParenthesis {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Brackets: ");
         String breacket = sc.next();
-        if (isValidParenthesis(breacket)) {
+        if (isValidParenthesisUsingReplaceApproach(breacket)) {
             System.out.println("Valid Parenthesis!!");
         }
         else{
