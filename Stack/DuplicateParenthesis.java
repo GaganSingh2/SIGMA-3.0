@@ -4,35 +4,33 @@ import java.util.Stack;
 
 public class DuplicateParenthesis {
     private static boolean isContainDuplicateParenthesis(String str){
-        Stack<Character> temp = new Stack<>();
-        
+        Stack<Character> stk = new Stack<>();
+
         for(int i=0; i<str.length(); i++){
-            //For Closing 
-            if(str.charAt(i)==')'){
-                if(temp.isEmpty()){
-                    System.out.println("Un-Balanced String!");
-                    return false;
-                }
-                int count = 0;
-                while (temp.pop() != '(') {
-                    count++;
-                }
-                if(count<1){    //Contain the Duplicate Parenthesis
+            char ch = str.charAt(i);
+            if(ch==')'){
+                if(stk.isEmpty()){ // if stack is empty and String have value means pair is not available
                     return true;
                 }
-                
+                else{
+                    int cnt = 0;
+                    while (stk.pop() != '(') { //if ch = ')' so he check how many operator or operand are available between the opening and closing 
+                        cnt++;
+                    }
+                    if(cnt<1){ //between open and closing bracket any operand or operator are not available then String is Invalid
+                        return true;
+                    }
+                }
             }
-            //For Opening and other Operands and Operators
             else{
-                temp.push(str.charAt(i));
+                stk.push(ch);
             }
         }
-        //After the traversing our Stack is not empty means we have some  value in stack(i.e. we pass unbalanced string for checking)
-        if(!temp.isEmpty()){
-            System.out.println("Un-Balanced String!");
-            return false;
-        } 
-        return false; //Not Contain the Duplicate Parenthesis
+        //If String is empty but stack have some value means String are Invalid
+        if(!stk.isEmpty()){
+            return true;
+        }
+        return false; //String are Valid
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
