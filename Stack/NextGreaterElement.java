@@ -2,50 +2,79 @@ import java.util.Stack;
 import java.util.Scanner;
 public class NextGreaterElement {
 
-    private static int[] nextGreaterElementRight(int nums[]){
-        Stack<Integer> idx = new Stack<>();
-
-        int nextGrtEle[] = new int[nums.length];
-        for(int i=nums.length-1; i>=0; i--){
-            while (!idx.isEmpty() && nums[idx.peek()] <= nums[i]) {
-                idx.pop();
+    
+    //Using NestedLoop TC:O(n^2) SC:O(n)
+    public static void nextGreaterElementRightUsingLoop(int nums[]){
+        int res[] = new int[nums.length];
+        for(int i=0; i<nums.length; i++){
+            boolean flag = false;
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i]<nums[j]){
+                    res[i] = nums[j];
+                    flag = true;
+                    break;
+                }
             }
-            if(idx.isEmpty()){
-                nextGrtEle[i] = -1;
+            if (!flag) {
+                res[i] = -1;
+            }
+        }
+
+        System.out.println("Next Greater: ");
+        for(int ele: res){
+            System.out.print(ele+" ");
+        }
+    }
+
+    //Using Stack TC:O(n) and SC:O(n)
+    private static int[] nextGreaterElementRight(int nums[]){
+        int nextGreater[] = new int[nums.length];
+
+        Stack<Integer> tmp = new Stack<>();
+
+        for(int i=nums.length-1; i>=0; i--){
+            int currValue = nums[i];
+            while (!tmp.isEmpty() && nums[tmp.peek()]<=currValue) {
+                tmp.pop();
+            }
+            if(tmp.isEmpty()){
+                nextGreater[i] = -1; //Greater value is not exist for currValue
             }
             else{
-                nextGrtEle[i] = nums[idx.peek()];
+                nextGreater[i] = nums[tmp.peek()]; //Greater value is exist for currValue
             }
-            idx.push(i);
+            tmp.push(i);
         }
-        return nextGrtEle;
-    }
+        return nextGreater;
+    } 
+
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of Array: ");
-        int len = sc.nextInt();
-
-        int arr[] = new int[len];
-        System.err.println("Enter the value: ");
-        for(int i=0; i<arr.length; i++){
-            arr[i] = sc.nextInt();
+        System.out.println("Enter the Size: ");
+        int size = sc.nextInt();
+        int nums[] = new int[size];
+        System.out.println("Enter the Value: ");
+        for(int i=0; i<nums.length; i++){
+            nums[i] = sc.nextInt();
         }
-        System.out.println("Array: ");
-        for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+" ");
+        System.out.println("Before Inserting NextGreater: ");
+        for(int i=0; i<nums.length; i++){
+            System.out.print(nums[i]+" ");
         }System.out.println();
-
-        int res[] = nextGreaterElementRight(arr);
-        System.out.println("After Inserting Next Greater Elements: ");
+        // nextGreaterElementRightUsingLoop(nums); 
+        int res[] = nextGreaterElementRight(nums);
+        System.out.println("After Inserting NextGreater: ");
         for(int i=0; i<res.length; i++){
             System.out.print(res[i]+" ");
         }System.out.println();
-
+    }
         /*Qus Ask on this topic: 
          * Next Greater Right (Loop i=n-1 to 0 and inner loop check: nums[idx.peek()] <= nums[i])
          * Next Greater Left (Loop i=0 to n-1 and inner loop check: nums[idx.peek()] <= nums[i])
          * Next Smaller Right (Loop i=n-1 to 0 and inner loop check: nums[idx.peek()] >= nums[i])
          * Next Smaller Left (Loop i=0 to n-1 and inner loop check: nums[idx.peek()] >= nums[i])
          */
-    }
+    
 }
