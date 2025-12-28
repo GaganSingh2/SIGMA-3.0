@@ -1,44 +1,44 @@
 import java.util.LinkedList;
 import java.util.Stack;
-
-
-class Node {
-    int data;
-    Node ptr;
-    Node(int d)
-    {
-        ptr = null;
-        data = d;
-    }
-}
 public class PalindromeLinkedListUsiingStack {
 
-    private static boolean isPalindrome(Node head){
-        Node slow = head;
-        Stack<Integer> te = new Stack<>();
-        while(slow != null){
-            te.push(slow.data);
-            slow = slow.ptr;
+    static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            data = this.data;
+            next = null;
         }
-        while(head != null){
-            int top = te.pop();
-            if(top != head.data){
+    }
+
+    public static boolean isPalindrome(Node head){
+        Node slow = head;
+        Stack<Integer> stk = new Stack<>();
+        while (slow != null) {
+            stk.push(slow.data);
+            slow = slow.next;
+        }
+
+        while (head != null) {
+            if(head.data != stk.peek()){
                 return false;
             }
-            head = head.ptr;
+            stk.pop();
+            head = head.next;
         }
         return true;
     }
+
     public static void main(String[] args) {
         Node one = new Node(1);
         Node two = new Node(2);
         Node three = new Node(3);
         Node four = new Node(2);
         Node five = new Node(1);
-        one.ptr = two;
-        two.ptr = three;
-        three.ptr = four;
-        four.ptr = five;
+        one.next = two;
+        two.next = three;
+        three.next = four;
+        four.next = five;
         boolean res = isPalindrome(one);
         if(res) System.out.println("It is a Palindrome!");
         else System.out.println("It is not a Palindrome!");
