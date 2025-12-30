@@ -1,41 +1,39 @@
 import java.util.Scanner;
 import java.util.Stack;
 public class TrappingRainWater {
-    private static int maxWater(int height[]){
-        int maxWat = 0;
-        Stack<Integer> te = new Stack<>();
-        int len = height.length;
-        for(int i=0; i<len; i++){
-            while (!te.isEmpty() && height[te.peek()]<height[i]) {
-                int pop_height = height[te.peek()];
-                te.pop();
-                if(te.isEmpty()){
-                    break;
-                }
-                int distance = i-te.peek()-1;
-                int min_height = Math.min(height[te.peek()],height[i])-pop_height;
+    public static int trappedRainWaterUsingArray(int height[]){
+        int si = 0, ei = height.length-1;
+        int lmax = 0, rmax = 0, trapWater = 0;
 
-                maxWat += distance * min_height;
+        while (si<ei) {
+            lmax = Math.max(lmax, height[si]);
+            rmax = Math.max(rmax, height[ei]);
+            if(lmax<rmax){
+                trapWater += lmax - height[si];
+                si++;
             }
-            te.push(i);
+            else{
+                trapWater += rmax - height[ei];
+                ei--;
+            }
         }
-        return maxWat;
+        return trapWater;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size: ");
-        int size = sc.nextInt();
-        int height[] = new int[size];
-        System.out.println("Enter the Heights: ");
-        for(int i=0; i<size; i++){
+        System.out.println("Enter the size of height: ");
+        int len = sc.nextInt();
+
+        int height[] = new int[len];
+        System.out.println("Enter the Height: ");
+        for(int i=0; i<len; i++){
             height[i] = sc.nextInt();
         }
-        System.out.println("Heights: ");
-        for(int i=0; i<size; i++){
-            System.out.print(height[i]+" ");
-        }System.out.println();
-
-        int res = maxWater(height);
-        System.out.println(res);
+        System.out.println("Height: ");
+        for(int ele: height){
+            System.out.print(ele+" ");
+        }
+        int trapWater = trappedRainWaterUsingArray(height);
+        System.out.println("Trapped Water: "+trapWater);
     }
 }
