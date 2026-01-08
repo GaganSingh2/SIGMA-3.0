@@ -1,5 +1,7 @@
 import java.util.*;
 public class StackUsing2_Queue {
+    //1st Way---------------
+    //In this Class we perform Push()in O(n) and Pop() in O(1)
     static class StackPushLinear{
         Queue<Integer> q1 = new LinkedList<>();
         Queue<Integer> q2 = new LinkedList<>();
@@ -43,6 +45,8 @@ public class StackUsing2_Queue {
         }
     }
 
+    //2nd Way---------------
+    //In this Class we perform Push()in O(1) and Pop() in O(n)
     static class StackPopLinear{
         Queue<Integer> q1 = new LinkedList<>();
         Queue<Integer> q2 = new LinkedList<>();
