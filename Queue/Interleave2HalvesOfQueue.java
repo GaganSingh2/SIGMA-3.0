@@ -4,24 +4,24 @@ import java.util.*;
 
 class Interleave2HalvesOfQueue {
 
-    public static void interleave2Halves(Queue<Integer> fir){
-        int hSize = fir.size()/2;
-        Queue<Integer> sec = new LinkedList<>();
+    public static void interleave2Halves(Queue<Integer> q){
+        int hSize = q.size()/2;
+        Queue<Integer> firstHalf = new LinkedList<>();
 
         //Divide the Original queue in 2 half 
         for(int i=0; i<hSize; i++){
-            sec.add(fir.remove());
+            firstHalf.add(q.remove());
         }
 
         //add one value from sec queue and one value from fir queue
-        while (!sec.isEmpty()) {
-            fir.add(sec.remove());
-            fir.add(fir.remove());
+        while (!firstHalf.isEmpty()) {
+            q.add(firstHalf.remove());
+            q.add(q.remove());
         }
 
-        while (!fir.isEmpty()) {
-            System.out.print(fir.peek()+" ");
-            fir.remove();
+        while (!q.isEmpty()) {
+            System.out.print(q.peek()+" ");
+            q.remove();
         }
     }
 
