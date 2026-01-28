@@ -258,7 +258,7 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
            
             //Reset the size
             n = 0;
-             System.out.println("All Pairs Deleted! and Size of HashMap is "+n);
+            System.out.println("All Pairs Deleted! and Size of HashMap is "+n);
         }
     }
 
