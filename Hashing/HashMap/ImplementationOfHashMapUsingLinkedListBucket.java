@@ -1,6 +1,7 @@
 package Hashing.HashMap;
 
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 // This class demonstrates how HashMap is implemented internally
@@ -98,17 +99,18 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             for (int i = 0; i < oldBucket.length; i++) {
                  // Get LinkedList at old bucket index
                 LinkedList<Node> ll = oldBucket[i];
-                //Travrse the LL
+                //Travrse the LL (Nodes -> add in Rehashed bucket)
                 for (int j = 0; j < ll.size(); j++) {
                      // Remove node from old bucket
-                    Node node = ll.remove();
+                    Node node = ll.get(j);
                     // Reinsert into new bucket using put()
                     put(node.key, node.value);
                 }
             }
         }
 
-        // Put or updates a key-value pair in HashMap O(n)
+        // Put or updates a key-value pair in HashMap 
+        //TC: O(lambda) = O(1) (worst case is O(n) this one arise when rhasing is happen but it happen after more time)
         public void put(K key, V value) {
             // Calculate bucket index using hash function
             int bIdx = hashFunction(key);
@@ -137,7 +139,7 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             }
         }
 
-        //Contains Key (Key already exist or not)
+        //Contains Key (Key already exist or not) O(1)
         public boolean containsKey(K key){
             int bIdx = hashFunction(key);
             int dataIdx = searchInLL(key, bIdx);
@@ -150,7 +152,23 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             }
         }
 
-        //Get the Value
+        //Contains Value (Given Value exist or not) O(n)
+        public boolean containsValue(V value){
+            for(int i=0; i<bucket.length; i++){
+
+                LinkedList<Node> ll = bucket[i];
+
+                for(int j=0; j<ll.size(); j++){
+                    Node node = ll.get(j);
+                    if(node.value.equals(value)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        //Get the Value O(1)
         public V get(K key){
             int bIdx = hashFunction(key);
             int dataIdx = searchInLL(key, bIdx);
@@ -164,7 +182,7 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         }
 
 
-        //Remove the Key-value
+        //Remove the Key-value O(1)
         public V remove(K key){
             int bIdx = hashFunction(key);
             int dataIdx = searchInLL(key, bIdx);
@@ -172,12 +190,63 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             if(dataIdx != -1){
                 Node node = bucket[bIdx].remove(dataIdx);
                 System.out.println(key+" deleted along with value "+node.value);
+                n--;
                 return node.value;
             }
             else{
                 System.out.println(key+" is not present in HashMap so its not Deleted!");
                 return null;
             }
+        }
+
+        //Return KeySet O(n)
+        public ArrayList<K> keySet(){
+            if (isEmpty()) {
+                System.out.println("Keys are not Present!");
+                return new ArrayList<>();
+            }
+            ArrayList<K> keys = new ArrayList<>();
+
+            for(int i=0; i<bucket.length; i++){
+                LinkedList<Node> ll  = bucket[i];
+                for(Node node: ll){
+                    keys.add(node.key);
+                }
+            }
+
+            //Print the Keys
+            System.out.println("Display THe All Keys: ");
+            for(K n: keys){
+                System.out.println("Key: "+n);
+            }
+            return keys;
+        }
+
+        //Return ValueSet O(n)
+        public ArrayList<V> valueSet(){
+            if (isEmpty()) {
+                System.out.println("Values are not Present!");
+                return new ArrayList<>();
+            }
+            ArrayList<V> values = new ArrayList<>();
+
+            for(int i=0; i<bucket.length; i++){
+                LinkedList<Node> ll  = bucket[i];
+                for(Node node: ll){
+                    values.add(node.value);
+                }
+            }
+
+            //Print the Keys
+            System.out.println("Display THe All Values: ");
+            for(V v: values){
+                System.out.println("Value: "+v);
+            }
+            return values;
+        }
+        //Empty
+        public boolean isEmpty(){
+            return n==0;
         }
     }
 
@@ -193,5 +262,12 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         System.out.println("Value of Austrailia: "+map.get("Austrailia"));
         map.remove("Nepal");
         map.remove("Austrailia");
+        map.keySet();
+        // map.remove("India");
+        // map.remove("China");
+        // map.keySet();
+        map.valueSet();
+        System.out.println("100 value is Exist: "+map.containsValue(100));
+         System.out.println("150 value is Exist: "+map.containsValue(150));
     }
 }
