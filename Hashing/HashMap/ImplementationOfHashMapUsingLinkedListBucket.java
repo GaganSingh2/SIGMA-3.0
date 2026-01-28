@@ -244,9 +244,21 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             }
             return values;
         }
+
         //Empty
         public boolean isEmpty(){
             return n==0;
+        }
+
+        //Clear (Delete all the pairs)
+        public void clear(){
+            for(int i=0; i<bucket.length; i++){
+                bucket[i].clear();
+            }
+           
+            //Reset the size
+            n = 0;
+             System.out.println("All Pairs Deleted! and Size of HashMap is "+n);
         }
     }
 
@@ -268,6 +280,8 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         // map.keySet();
         map.valueSet();
         System.out.println("100 value is Exist: "+map.containsValue(100));
-         System.out.println("150 value is Exist: "+map.containsValue(150));
+        System.out.println("150 value is Exist: "+map.containsValue(150));
+        map.clear();
+        System.out.println("India is Exist: "+map.containsKey("India"));
     }
 }
