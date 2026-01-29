@@ -245,6 +245,21 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
             return values;
         }
 
+        //entrySet() (Print key-value)
+        public void entrySet(){
+            System.out.println("Display THe Key-Value: ");
+            if (isEmpty()) {
+                System.out.println("HashMap is Empty!!");
+                return;
+            }
+            for(int i=0; i<bucket.length; i++){
+                LinkedList<Node> ll = bucket[i];
+                for(Node n: ll){
+                    System.out.println(n.key+" -> "+n.value);
+                }
+            }
+        }
+
         //Empty
         public boolean isEmpty(){
             return n==0;
@@ -281,7 +296,10 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         map.values();
         System.out.println("100 value is Exist: "+map.containsValue(100));
         System.out.println("150 value is Exist: "+map.containsValue(150));
-        map.clear();
-        System.out.println("India is Exist: "+map.containsKey("India"));
+        // map.clear();
+        // System.out.println("India is Exist: "+map.containsKey("India"));
+        map.put("NewZiland", 55);
+        map.put("Bhutan", 10);
+        map.entrySet();
     }
 }
