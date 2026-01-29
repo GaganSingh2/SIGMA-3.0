@@ -223,7 +223,7 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         }
 
         //Return ValueSet O(n)
-        public ArrayList<V> valueSet(){
+        public ArrayList<V> values(){
             if (isEmpty()) {
                 System.out.println("Values are not Present!");
                 return new ArrayList<>();
@@ -278,7 +278,7 @@ public class ImplementationOfHashMapUsingLinkedListBucket {
         // map.remove("India");
         // map.remove("China");
         // map.keySet();
-        map.valueSet();
+        map.values();
         System.out.println("100 value is Exist: "+map.containsValue(100));
         System.out.println("150 value is Exist: "+map.containsValue(150));
         map.clear();
