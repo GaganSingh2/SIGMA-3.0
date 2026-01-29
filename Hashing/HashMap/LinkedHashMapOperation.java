@@ -39,5 +39,10 @@ public class LinkedHashMapOperation {
             System.out.println(val);
         }
 
+        //entrySet() Operation (Print key-value and Maintain Order)
+        System.out.println("entrySet() Operation(Key-value)----------------");
+        for(Map.Entry<Integer,String> e: lhm.entrySet()){
+            System.out.println(e.getKey()+" -> "+e.getValue());
+        }
     }
 }
