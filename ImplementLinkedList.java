@@ -43,6 +43,8 @@ public class ImplementLinkedList {
         tail.next = newNode;
         tail = newNode;
     }
+
+
     //Remove First
     public int removeFirst(){
         if(head == null){
@@ -66,7 +68,13 @@ public class ImplementLinkedList {
             System.out.println("LinkedList Is Empty!");
             return -1;
         }
-        int last = tail.data;
+        Node tmp = head;
+        while (tmp.next.next != null) {
+            tmp = tmp.next;
+        }
+        int last = tmp.next.data;
+        tmp.next = null;
+        tail = tmp;
         size--;
         System.out.println("Node Data "+last+" Deleted From Last!");
         if (head == tail) {
@@ -74,6 +82,44 @@ public class ImplementLinkedList {
             return last;
         }
         return 0;
+    }
+
+    //Remove At Specific Position
+    public int removeAtPosition(int pos){
+        if(head == null){
+            System.out.println("LinkedList Is Empty!");
+            return -1;
+        }
+        else if(size==1 && pos>1){
+            System.out.println("Specific Node is Not Available!!");
+            return -1;
+        }
+        int te = 0;
+        Node tmp = head;
+        while (te != pos-1 && tmp.next != null) {
+            te++;
+            tmp = tmp.next;
+        }
+        int last = tmp.next.data;
+        tmp.next = tmp.next.next;
+        size--;
+        System.out.println("Node Data "+last+" Deleted From "+pos);
+        return last;
+    }
+    //1 2 3 4 5
+
+    //Reverse the LL
+    public void reverse(){
+        Node next;
+        Node prev = null;
+        Node curr = head;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
     }
     //Peek
     public int peek(){
@@ -111,6 +157,17 @@ public class ImplementLinkedList {
         imp.addFirst(18);
         // imp.display();
         imp.addLast(20);
+        imp.display();
+        imp.removeLast();
+        imp.display();
+        imp.removeLast();
+        imp.display();
+        imp.addFirst(12);
+        imp.addFirst(28);
+        imp.display();
+        imp.removeAtPosition(2);
+        imp.display();
+        imp.reverse();
         imp.display();
     }
 }
