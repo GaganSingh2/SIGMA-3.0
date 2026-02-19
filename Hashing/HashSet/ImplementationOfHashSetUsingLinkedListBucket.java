@@ -119,6 +119,10 @@ public class ImplementationOfHashSetUsingLinkedListBucket {
                 System.out.println(key + " is Removed!");
                 size--;
             }
+            //key not found
+            else{
+                System.out.println(key + " is not found!");
+            }
             return removed;
         }
 
@@ -135,14 +139,78 @@ public class ImplementationOfHashSetUsingLinkedListBucket {
                 return false;
             }
 
-            System.out.println(key + " is Available in HashSet!");
-            return bucket[bIdx].contains(key);
+            boolean found = bucket[bIdx].contains(key);
+            //key is found
+            if(found) {
+                System.out.println(key + " is Available in HashSet!");
+            }
+            //key not found
+            else{
+                System.out.println(key+" is not found!");
+            }
+            return found;
         }
 
         //Return number of elements in HashSet
         public int size(){
+            System.out.println("Size of HashSet: "+size);
             return size;
         }
 
+        //Display All Elements
+        public void display(){
+            if (size==0) {
+                System.out.println("HashSet is Empty!!");
+            }
+            else{
+                System.out.println("HashSet Elements: ");
+                for(int i=0; i<bucket.length; i++){
+                    LinkedList<K> buck = bucket[i];
+                    if (buck != null) {
+                        for(K key: buck){
+                            System.out.println("Key: "+key);
+                        }
+                    }
+                }
+                System.out.println();
+            }
+        }
+
+        public void clear(){
+            if (size==0) {
+                System.out.println("HashSet is Already Empty!!");
+            }
+            else{
+                System.out.println("HashSet is Cleared!!");
+                size = 0;
+                for(int i=0; i<bucket.length; i++){
+                    if (bucket[i] != null) {
+                        bucket[i].clear();
+                    }
+                }
+                
+            }
+        }
+    }
+    public static void main(String[] args) {
+
+        MyHashSet<Integer> set = new MyHashSet<>();
+        set.size();
+        set.add(10); 
+        set.add(20);
+        set.add(30);
+        set.add(40);
+        set.add(50);
+        set.contains(50);
+        set.display();
+
+        set.remove(50);
+        set.display();
+        set.contains(40);
+        set.contains(50);
+        set.size();
+        set.clear();
+        set.size();
+        set.display();
     }
 }
