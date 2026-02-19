@@ -13,6 +13,7 @@ public class LinkedHashSetOperation {
         set.add("Rohit");
         set.add("Hardik");
         set.add("Rahul");
+        set.add(null);
         System.out.println(set);
 
         //Remove Key Operation
