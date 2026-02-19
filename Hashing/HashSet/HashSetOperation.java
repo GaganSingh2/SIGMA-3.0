@@ -14,6 +14,7 @@ public class HashSetOperation {
         set.add(40);
         set.add(50);
         set.add(null);
+        set.add(50); //Not allow duplicate (it not showing any error but here again 50 is not inserted bcz 50 is already exist)
         System.out.println(set);
 
         //Remove The Kye
