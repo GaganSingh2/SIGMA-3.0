@@ -1,9 +1,15 @@
 import java.util.Scanner;
 
 public class break_continue_statement {
+    //  int data;
+     {
+        int data = 39;
+     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+       
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println(new break_continue_statement().data);
         // ---------BREAK STATEMENT
 
         // System.out.println("Enter your num: ");

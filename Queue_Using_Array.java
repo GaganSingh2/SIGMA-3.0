@@ -52,6 +52,7 @@ public class Queue_Using_Array {
         Queue q = new Queue(5);
 
         q.add(2);
+        q.remove();
         q.add(4);
         q.add(1);
         q.add(9);
