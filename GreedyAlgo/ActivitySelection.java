@@ -3,7 +3,8 @@ package GreedyAlgo;
 import java.util.Scanner;
 
 public class ActivitySelection {
-    public static int countMaximumActivitiesPerformBySinglePerson(int startTime[], int endTime[]){
+    //Activities are already sorted according to end time---------- 
+    public static int countMaximumActivitiesPerformBySinglePersonEndTimeSorted(int startTime[], int endTime[]){
         
         int activitiesCount = 0;
 
@@ -12,7 +13,7 @@ public class ActivitySelection {
         int prevActivityEndTime = endTime[0]; //endtime of first activity
         System.out.print("Activities Completed: A"+0);
         for(int i=1; i<startTime.length; i++){
-            //if startTime of new Activity don't overlap of endTime of prevComplete Activity means we can complete this activity
+            //if startTime of new Activity is lessThan of endTime of prevComplete Activity means here time is non-overlap to each other so we can complete this activity
             if(startTime[i]>=prevActivityEndTime){
                 //so increase the activityCount by 1
                 activitiesCount++;
@@ -26,7 +27,7 @@ public class ActivitySelection {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q)you are given n activities with their start and end times. Select maximum numbers of activities that can be performed by a single person, assumning that a person can only work on a single actitvity at a time.
-        //Activities are already sorted according to end time---------- 
+        
         System.out.println("Enter the length: ");
         int len = sc.nextInt();
         int startTime[] = new int[len];
@@ -50,7 +51,7 @@ public class ActivitySelection {
             System.out.print(v+" ");
         }System.out.println();
 
-        int count = countMaximumActivitiesPerformBySinglePerson(startTime, endTime);
+        int count = countMaximumActivitiesPerformBySinglePersonEndTimeSorted(startTime, endTime);
         System.out.println("Total Acititvties: "+count);
     }
 }
