@@ -1,74 +1,56 @@
 package GreedyAlgo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class ActivitySelection {
-    public static void cntActivity(int st[],int et[]){
-        int maxAct = 0;
-        ArrayList<Integer> idx = new ArrayList<>();
+    public static int countMaximumActivitiesPerformBySinglePerson(int startTime[], int endTime[]){
+        
+        int activitiesCount = 0;
 
-        //If EndTime is Already Sorted------
-        // maxAct = 1;
-        // idx.add(0);
-        // int lastEnd = et[0];
-
-        // for(int i=1; i<et.length; i++){
-        //     if(st[i]>=lastEnd){
-        //         maxAct++;
-        //         idx.add(i);
-        //         lastEnd = et[i];
-        //     }
-        // }
-        // System.out.println("Total Activity Selected: "+maxAct);
-        // for(int i=0; i<idx.size(); i++){
-        //     System.out.print("A"+idx.get(i)+" ");
-        // }
-
-        // If EndTime is Not Sorted
-        int task[][] = new int[st.length][3];
-        for(int i=0; i<et.length; i++){
-            task[i][0] = i;
-            task[i][1] = st[i];
-            task[i][2] = et[i];
-        }
-        Arrays.sort(task,Comparator.comparingDouble(o -> o[2]));
-        for(int i=0; i<et.length; i++){
-            // task[i][0] = i;
-            // task[i][1] = st[i];
-            System.out.println(task[i][2]+" ");
-        }
-        maxAct = 1;
-        idx.add(task[0][0]);
-        int lastEnd = task[0][2];
-        for(int i=1; i<et.length; i++){
-            if(task[i][1]>=lastEnd){
-                maxAct++;
-                idx.add(task[i][0]);
-                lastEnd = task[i][2];
+        //1st Activity complete
+        activitiesCount = 1; //we take each time first activity bcz first activity ends too early so after that we have too much time to complete other activity
+        int prevActivityEndTime = endTime[0]; //endtime of first activity
+        System.out.print("Activities Completed: A"+0);
+        for(int i=1; i<startTime.length; i++){
+            //if startTime of new Activity don't overlap of endTime of prevComplete Activity means we can complete this activity
+            if(startTime[i]>=prevActivityEndTime){
+                //so increase the activityCount by 1
+                activitiesCount++;
+                prevActivityEndTime = endTime[i]; //store the endTime of completedActivity
+                System.out.print(", A"+i);
             }
-        }
-        System.out.println("Total Activity Selected: "+maxAct);
-        for(int i=0; i<idx.size(); i++){
-            System.out.print("A"+idx.get(i)+" ");
-        }
+        }System.out.println();
+        return activitiesCount;
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the length of Activity: ");
+        //Q)you are given n activities with their start and end times. Select maximum numbers of activities that can be performed by a single person, assumning that a person can only work on a single actitvity at a time.
+        //Activities are already sorted according to end time---------- 
+        System.out.println("Enter the length: ");
         int len = sc.nextInt();
-        int st[] = new int[len];
+        int startTime[] = new int[len];
+        int endTime[] = new int[len];
+
         System.out.println("Enter the Start Time: ");
         for(int i=0; i<len; i++){
-            st[i] = sc.nextInt();
+            startTime[i]  = sc.nextInt();
         }
-        int et[] = new int[len];
-        System.out.println("Enter the End Time: ");
+        System.out.println("Enter the End Time(Sorted): ");
         for(int i=0; i<len; i++){
-            et[i] = sc.nextInt();
+            endTime[i]  = sc.nextInt();
         }
-        cntActivity(st,et);
+
+        System.out.println("Start Time: ");
+        for(int v: startTime){
+            System.out.print(v+" ");
+        }System.out.println();
+        System.out.println("End Time: ");
+        for(int v: endTime){
+            System.out.print(v+" ");
+        }System.out.println();
+
+        int count = countMaximumActivitiesPerformBySinglePerson(startTime, endTime);
+        System.out.println("Total Acititvties: "+count);
     }
 }
