@@ -1,5 +1,7 @@
 package GreedyAlgo;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class ActivitySelection {
@@ -24,6 +26,40 @@ public class ActivitySelection {
         return activitiesCount;
     }
 
+    //Activities are not sorted according to end time---------- 
+    public static int countMaximumActivitiesPerformBySinglePersonEndTimeNotSorted(int startTime[], int endTime[]){
+        //Sorting
+        //we store here index in 2-d array bcz after sorting the endTime our whole 2-D array is fliped so when we try to print which task is complete then we use stored index value 
+        int activities[][] = new int[startTime.length][3];
+        for(int i=0; i<startTime.length; i++){
+            activities[i][0] = i;
+            activities[i][1] = startTime[i];
+            activities[i][2] = endTime[i];  
+        }    
+        
+        //Sort the EndTime by using Lambda Function
+        Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
+        
+        // for(int i=0; i<startTime.length; i++){
+        //     System.out.println(activities[i][0]+" "+activities[i][1]+" "+activities[i][2]);
+        // }
+        
+        int activitiesCount = 0;
+
+        //first Activity complete by default 
+        activitiesCount = 1;
+        int prevActivityEndTime = activities[0][2];
+        System.out.print("Activity Completed: A"+activities[0][0]);
+        for(int i=0; i<startTime.length; i++){
+            if(activities[i][1]>=prevActivityEndTime){
+                activitiesCount++;
+                prevActivityEndTime = activities[i][2];
+                System.out.print(", A"+activities[i][0]);
+            }
+        }System.out.println();
+
+        return activitiesCount;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Q)you are given n activities with their start and end times. Select maximum numbers of activities that can be performed by a single person, assumning that a person can only work on a single actitvity at a time.
@@ -51,7 +87,13 @@ public class ActivitySelection {
             System.out.print(v+" ");
         }System.out.println();
 
-        int count = countMaximumActivitiesPerformBySinglePersonEndTimeSorted(startTime, endTime);
+        //End Time Sorted
+        int count = countMaximumActivitiesPerformBySinglePersonEndTimeSorted (startTime, endTime);
         System.out.println("Total Acititvties: "+count);
+
+
+        //End Time not Sorted
+        int cnt = countMaximumActivitiesPerformBySinglePersonEndTimeNotSorted(startTime, endTime);
+        System.out.println("Total Activities: "+cnt);
     }
 }
