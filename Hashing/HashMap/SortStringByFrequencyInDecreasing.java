@@ -8,6 +8,7 @@ import java.util.List;
 
 public class SortStringByFrequencyInDecreasing {
 
+    // Q)Sort Character in Decreasing order based on the frequency, if the frequency is same then perfrom lexicographical comparision. 
     public static String sortStringOnFrequencyUsingHashMapAndPriorityQueue(String str){
         //Using HashMap and Priority Queue--------------------
         //k = number of unique characters, n = length of string
@@ -18,7 +19,15 @@ public class SortStringByFrequencyInDecreasing {
         }
 
         //put characters into PriorityQueue based on the frequency
-        PriorityQueue<Character> maxFreq = new PriorityQueue<>((a,b)->freq.get(b)-freq.get(a)); //SC: O(k)
+        PriorityQueue<Character> maxFreq = new PriorityQueue<>((a,b)->{
+            int freqCompare = freq.get(a)-freq.get(b); //Higher frequency first
+            if(freqCompare != 0){
+                return freqCompare;
+            }
+            //When frequency same then lexicographical comparision so smaller character first (Note: if he want larger character first then just one change return(b-a)
+            return a-b; 
+        }); 
+        //SC: O(k)
         //Each insertion into PriorityQueue: O(log k) and insert k elements 
         //so TC: O(k log k)
         maxFreq.addAll(freq.keySet());
