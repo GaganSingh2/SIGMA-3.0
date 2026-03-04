@@ -25,7 +25,7 @@ public class MajorityElement {
             if (map.get(k)>times) {
                 System.out.println("Num: "+k+" -> "+map.get(k)+" Times");
             }
-        }
+        }          
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
