@@ -19,7 +19,7 @@ public class ActivitySelection {
             if(startTime[i]>=prevActivityEndTime){
                 //so increase the activityCount by 1
                 activitiesCount++;
-                prevActivityEndTime = endTime[i]; //store the endTime of completedActivity
+                prevActivityEndTime  = endTime[i]; //store the endTime of completedActivity
                 System.out.print(", A"+i);
             }
         }System.out.println();
@@ -39,10 +39,6 @@ public class ActivitySelection {
         
         //Sort the EndTime by using Lambda Function
         Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
-        
-        // for(int i=0; i<startTime.length; i++){
-        //     System.out.println(activities[i][0]+" "+activities[i][1]+" "+activities[i][2]);
-        // }
         
         int activitiesCount = 0;
 
