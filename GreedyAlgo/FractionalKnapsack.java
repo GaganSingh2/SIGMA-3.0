@@ -6,34 +6,37 @@ import java.util.Scanner;
 
 public class FractionalKnapsack {
     public static int maximumTotalValue(int weight[], int value[], int capacity){
-        double ratio[][] = new double[weight.length][2];
-        for(int i=0; i<weight.length; i++){
+        double ratio[][] = new double[value.length][2];
+        for(int i=0; i<value.length; i++){
             ratio[i][0] = i;
-            if(weight[i]==0){ //here we handle infinity case bcz if we divide value>0/weight==0 so he gives infinity
-                //so here storing value as inifinity we store the 1.7976931348623157E308(Double.MAX_VALUE)
+            
+            //here we handle infinity case bcz if we divide value>0/weight==0 so he gives infinity
+            if(weight[i]==0){//so here storing value as inifinity we store the 1.7976931348623157E308(Double.MAX_VALUE)
                 ratio[i][1] = Double.MAX_VALUE;
             }
             else{
-                ratio[i][1] = (double)value[i] / weight[i];
+                ratio[i][1] = (double)value[i]/weight[i];
             }
         }
+
         //SOrt in Increasing/Ascending Order(4,5,6....)
-        Arrays.sort(ratio, Comparator.comparingDouble(o -> o[1]));
+        Arrays.sort(ratio,Comparator.comparingDouble(o->o[1]));
 
         int totalValue = 0;
         for(int i=weight.length-1; i>=0; i--){
-            System.out.println(ratio[i][1]);
-            //if the capacity is greater than or eqaul to the currWeight so we add the total currValue in totalValue and then decrease the capacity by currWeight
             int idx = (int)ratio[i][0];
-            if(capacity>=weight[idx]){
+             //if the capacity is greater than or eqaul to the currWeight so we add the total currValue in totalValue and then decrease the capacity by currWeight
+            if(weight[idx]<=capacity){
                 totalValue += value[idx];
                 capacity -= weight[idx];
             }
-            else{//otherwise, we multiply the currRatio and capacity then add into the totalValue and then we don't have any capacity so break the loop and return the result
-                totalValue += ratio[i][1]*capacity;
+            else{
+                //otherwise, we multiply the currRatio and capacity then add into the totalValue and then we don't have any capacity so break the loop and return the result
+                totalValue += (ratio[i][1]*capacity);
                 break;
             }
         }
+
         return totalValue;
     }
     public static void main(String[] args) {
@@ -66,3 +69,4 @@ public class FractionalKnapsack {
         System.out.println("Maximum Total Value: "+maximumTotalValue(weight, value, capacity));
     }
 }
+
