@@ -101,7 +101,7 @@ public class TopViewOfBinaryTree {
 
 /*
 *Top View Of Binary Tree
-*The Top View of Tree is the set of nodes visible when the tree is viewed from the top.
+*The Top View of Tree is the set of nodes visible when the tree is viewed from the top.Store only the first node at each HD.
 
     *                   1(0)
     *                  / \
