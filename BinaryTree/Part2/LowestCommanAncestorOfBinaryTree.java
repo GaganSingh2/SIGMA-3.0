@@ -55,7 +55,7 @@ public class LowestCommanAncestorOfBinaryTree {
         }
         
         //Perform Lowest Comman Ancestor using ArrayList("Path-Based Approach")
-        public static Node lowestCommanAncestor(Node rootNode, int n1, int n2){
+        public static Node lowestCommanAncestorByUsingPathBasedApproach(Node rootNode, int n1, int n2){
             ArrayList<Node> path1 = new ArrayList<>();
             ArrayList<Node> path2 = new ArrayList<>();
 
@@ -75,6 +75,30 @@ public class LowestCommanAncestorOfBinaryTree {
             }
             return path1.get(i-1);//last comman data
         }
+
+
+        //2nd Approach ("Using Recursion")-------------------------------------
+        public static Node lowestCommanAncestorByUsingRecursion(Node rootNode, int n1, int n2){
+            if (rootNode == null) {
+                return null;
+            }
+            if (rootNode.data == n1 || rootNode.data == n2) {
+                return rootNode;
+            }
+
+            Node leftLCA = lowestCommanAncestorByUsingRecursion(rootNode.left, n1, n2); //Check in left Sub Tree
+            Node rightLCA = lowestCommanAncestorByUsingRecursion(rootNode.right, n1, n2); //Check in right Sub Tree
+
+            
+            if(rightLCA == null){ //leftLCA != null && rightLCA == null
+                return leftLCA;//so return leftLCA
+            }
+            if(leftLCA == null){ //leftLCA == null && rightLCA != null
+                return rightLCA; //so return rightLCA
+            }
+
+            return rootNode;// leftLCA != null && rightLCA != null (means rootNode is LCA)
+        }
     }
     public static void main(String[] args) {
         int nodes[] = {3,5,6,-1,-1,2,7,-1,-1,4,-1,-1,1,0,-1,-1,8,-1,-1};
@@ -82,9 +106,10 @@ public class LowestCommanAncestorOfBinaryTree {
         Node rootNode = BinaryTree.buildBinaryTree(nodes);
         System.out.println("Root Node: "+rootNode.data);
 
-        int n1 = 15;
+        int n1 = 5;
         int n2 = 4;
-        Node res = BinaryTree.lowestCommanAncestor(rootNode, n1, n2);
+        Node res = BinaryTree.lowestCommanAncestorByUsingPathBasedApproach(rootNode, n1, n2);
+        // Node res = BinaryTree.lowestCommanAncestorByUsingRecursion(rootNode, n1, n2);
         if (res != null) {
             System.out.println("Lowest Comman Ancestor: "+res.data);
         }
