@@ -31,7 +31,7 @@ public class LowestCommanAncestorOfBinaryTree {
             return newNode;
         }
 
-        //1st Approach ----------------------------------------
+        //1st Approach("Path-Based Approach") ----------------------------------------
         //Helper Method to Store the node from rootNode to n in ArrayList
         public static boolean getPath(Node rootNode, int n, ArrayList<Node> path){
 
@@ -54,13 +54,13 @@ public class LowestCommanAncestorOfBinaryTree {
             return false;
         }
         
-        //Perform Lowest Comman Ancestor using ArrayList
+        //Perform Lowest Comman Ancestor using ArrayList("Path-Based Approach")
         public static Node lowestCommanAncestor(Node rootNode, int n1, int n2){
             ArrayList<Node> path1 = new ArrayList<>();
             ArrayList<Node> path2 = new ArrayList<>();
 
-            boolean foundLeft = getPath(rootNode, n1, path1);
-            boolean foundRight = getPath(rootNode, n2, path2);
+            boolean foundLeft = getPath(rootNode, n1, path1);//store from rootNode to n1
+            boolean foundRight = getPath(rootNode, n2, path2);//store from rootNode to n2
 
             if (!foundLeft || !foundRight) {
                 return null; //means givens n1 or n2 is not present in whole Binary Tree
@@ -111,4 +111,9 @@ public class LowestCommanAncestorOfBinaryTree {
                 if n1=7 & n2=4 so LCA = 2
                 if n1=5 & n2=4 so LCA = 5
                 if n1=12 & n2=8 so LCA = null(bcz n1 value is not present in Tree)
+* 1st Approach: "Path-Based Approach"---------
+    in this we store both path
+    means from rootNode to n1 in one ArrayList
+    and from rootNode to n2 in one ArrayList
+    and then compare the both arraylist and return the last comman data.
  */
