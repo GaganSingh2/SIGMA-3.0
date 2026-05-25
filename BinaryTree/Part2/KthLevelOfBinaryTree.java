@@ -92,7 +92,7 @@ public class KthLevelOfBinaryTree {
     }
     public static void main(String[] args) {
         int nodes[] = {20,8,5,-1,-1,3,10,-1,-1,14,-1,-1,22,-1,25,-1,-1};
-        int k = -7;
+        int k = 3;
         Node rootNode = BinaryTree.buildBinaryTree(nodes);
         System.out.println("Root Node: "+rootNode.data);
 
