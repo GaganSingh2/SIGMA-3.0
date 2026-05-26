@@ -28,7 +28,7 @@ public class KthAncestorOfNodeInBinaryTree {
 
         //Find the Kth Ancestor of given node by using Recursion
         public static int kthAncestorOfNode(Node rootNode, int node, int k){
-            if (rootNode == null) {
+            if (rootNode == null || k<1) {
                 return -1;
             }
             if (rootNode.data == node) { //given node is find so return 0
@@ -55,13 +55,15 @@ public class KthAncestorOfNodeInBinaryTree {
         }
     }
     public static void main(String[] args) {
-        int node = 6, k = 2;
+        int node = 16, k = 0;
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, 6, -1, -1, 7, -1, -1 };
         Node rootNode = BinaryTree.buildBinaryTree(nodes);
         System.out.println("Root Node: "+rootNode.data);
 
-        BinaryTree.kthAncestorOfNode(rootNode, node, k);
-        // System.out.println(k+"th Ancestor of node "+node+": "+kthNode);
+        int res = BinaryTree.kthAncestorOfNode(rootNode, node, k);
+        if (res == -1) {
+            System.out.println("Node not Found");
+        }
     }
 }
 
