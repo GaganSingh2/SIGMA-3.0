@@ -76,6 +76,7 @@ public class MinimumDistanceBetween2NodesOfBinaryTree {
             }
         }
 
+        //find the Minimum Distance between 2 nodes
         public static int minimumDistance(Node rootNode, int n1, int n2) {
             //find the Lowest Comman Ancestor of n1 and n2
             Node lowestCA = lowestCommanAncestorByUsingRecursion(rootNode, n1, n2);
