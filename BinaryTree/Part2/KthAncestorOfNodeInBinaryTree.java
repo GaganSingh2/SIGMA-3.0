@@ -64,19 +64,19 @@ public class KthAncestorOfNodeInBinaryTree {
                 return false;
             }
 
-            path.add(rootNode);
-            if (rootNode.data == node) {
+            path.add(rootNode); //add the rootNode in path
+            if (rootNode.data == node) { //if rootNode is your given node then return true, means given node is found in Tree
                 return true;
             }
 
-            boolean foundLeft = getPath(rootNode.left, node, path);
-            boolean foundRight = getPath(rootNode.right, node, path);
+            boolean foundLeft = getPath(rootNode.left, node, path);//otherwise check in the leftSubTree
+            boolean foundRight = getPath(rootNode.right, node, path);//otherwise check in the rightSubTree
 
-            if (foundLeft || foundRight) {
+            if (foundLeft || foundRight) {//if any one is return true means given node is found in Tree
                 return true;
             }
-            path.remove(path.size()-1);
-            return false;
+            path.remove(path.size()-1); //otherwise remove the added rootNode from ArrayList
+            return false; //means not found
         }
         
         //Find kth Ancestor by using Path based
