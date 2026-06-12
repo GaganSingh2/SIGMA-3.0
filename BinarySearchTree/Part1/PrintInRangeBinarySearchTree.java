@@ -1,5 +1,7 @@
 package BinarySearchTree.Part1;
 
+import java.util.ArrayList;
+
 public class PrintInRangeBinarySearchTree {
     static class Node{
         int data;
@@ -66,6 +68,32 @@ public class PrintInRangeBinarySearchTree {
                 printInRange(root.left, k1, k2);
             }
         }
+
+         //Store the all nodes which present in k1 and k2
+        public static ArrayList<Integer> printInRangeBST(Node root, int k1, int k2){
+            ArrayList<Integer> ans = new ArrayList<>();
+
+            helper(root, k1, k2, ans);
+            return ans;
+        }
+
+        public static void helper(Node root, int k1, int k2, ArrayList<Integer> ans){
+            if (root == null) {
+                return;
+            }
+
+            if (root.data >= k1 && root.data <= k2) {
+                helper(root.left, k1, k2, ans);
+                ans.add(root.data);
+                helper(root.right, k1, k2, ans);
+            }
+            else if (root.data < k1) {
+                helper(root.right, k1, k2, ans);
+            }
+            else{
+                helper(root.left, k1, k2, ans);
+            }
+        }
     }
     public static void main(String[] args) {
         int nodes[] ={8,1,4,5,6,10,11,0,14};
@@ -78,6 +106,11 @@ public class PrintInRangeBinarySearchTree {
 
         int k1 = 5;
         int k2 = 11;
-        BinarySearchTree.printInRange(root, k1, k2);
+        // BinarySearchTree.printInRange(root, k1, k2);
+        ArrayList<Integer> ans = BinarySearchTree.printInRangeBST(root, k1, k2);
+        for(int val: ans){
+            System.out.print(val+" ");
+        }
+
     }
 }
