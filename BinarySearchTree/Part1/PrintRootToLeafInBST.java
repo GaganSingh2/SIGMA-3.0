@@ -1,5 +1,8 @@
 package BinarySearchTree.Part1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrintRootToLeafInBST {
     static class Node{
         int data;
@@ -39,6 +42,69 @@ public class PrintRootToLeafInBST {
             System.out.print(root.data+" ");
             inOrderTraversal(root.right);
         }
+
+        //Helper method
+        public static void printPath(ArrayList<Integer> path){
+            for(int val: path){
+                System.out.print(val+"->");
+            }
+            System.out.println("null");
+        }
+
+        //Print the Root to Leaf using ArrayList using 1st Approach
+        public static void printRootToLeaf(Node root, ArrayList<Integer> path){
+            if (root == null) {
+                return;
+            }
+
+            //add the current node in the path
+            path.add(root.data);
+
+            //if the current node is leaf means print the one path
+            if (root.left == null && root.right == null) {
+                printPath(path);
+            }
+            else{
+                //otherwise, go to leftSubTree
+                printRootToLeaf(root.left, path);
+                //go to rightSubTreee
+                printRootToLeaf(root.right, path);
+            }
+
+            //remove the current node (BackTracking)
+            path.remove(path.size()-1);
+        }
+
+
+        //Print the Root to Leaf using 2-D ArrayList using 2nd Approach
+        public static List<List<Integer>> printRootToLeafUsing2_DArrayList(Node root){
+            List<List<Integer>> path = new ArrayList<>();
+            if (root == null) {
+                return path;
+            }
+
+            helperMethod(root, new ArrayList<>(), path);
+
+            return path;
+        }
+
+        public static void helperMethod(Node root, List<Integer> ans, List<List<Integer>> path){
+            if (root == null) {
+                return;
+            }
+
+            ans.add(root.data);
+
+            if (root.left == null && root.right == null) {
+                path.add(new ArrayList<>(ans));
+            }
+            else{
+                helperMethod(root.left, ans, path);
+                helperMethod(root.right, ans, path);
+            }
+
+            ans.remove(ans.size()-1);
+        }
     }
     public static void main(String[] args) {
         int nodes[] = {8,5,3,6,10,9,11};
@@ -48,6 +114,17 @@ public class PrintRootToLeafInBST {
         }
         BinarySearchTree.inOrderTraversal(root);
         System.out.println();
+
+        // BinarySearchTree.printRootToLeaf(root, new ArrayList<Integer>());
+
+        List<List<Integer>> path = BinarySearchTree.printRootToLeafUsing2_DArrayList(root);
+        for(int i=0; i<path.size(); i++){
+            for(int j=0; j<path.get(i).size(); j++){
+                System.out.print(path.get(i).get(j)+"->");
+            }
+            System.out.print("null");
+            System.out.println();
+        }
     }
 }
 /**
