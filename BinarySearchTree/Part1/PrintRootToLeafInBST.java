@@ -51,7 +51,7 @@ public class PrintRootToLeafInBST {
             System.out.println("null");
         }
 
-        //Print the Root to Leaf using ArrayList using 1st Approach
+        //Print the Root to Leaf using ArrayList using 1st Approach-------------
         public static void printRootToLeaf(Node root, ArrayList<Integer> path){
             if (root == null) {
                 return;
@@ -76,7 +76,7 @@ public class PrintRootToLeafInBST {
         }
 
 
-        //Print the Root to Leaf using 2-D ArrayList using 2nd Approach
+        //Print the Root to Leaf using 2-D ArrayList using 2nd Approach-----------------
         public static List<List<Integer>> printRootToLeafUsing2_DArrayList(Node root){
             List<List<Integer>> path = new ArrayList<>();
             if (root == null) {
@@ -93,16 +93,21 @@ public class PrintRootToLeafInBST {
                 return;
             }
 
+            //add the current node in ArrayList
             ans.add(root.data);
 
+            //if the current node is leaf means print the one path
             if (root.left == null && root.right == null) {
                 path.add(new ArrayList<>(ans));
             }
             else{
+                //Otherwise, go to LeftSubTree
                 helperMethod(root.left, ans, path);
+                //go to rightSubTree
                 helperMethod(root.right, ans, path);
             }
 
+            //remove the current node (BackTracking)
             ans.remove(ans.size()-1);
         }
     }
