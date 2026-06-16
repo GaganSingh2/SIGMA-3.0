@@ -62,7 +62,7 @@ public class MirrorOfBinarySearchTree {
             }
         }
 
-        //Convert the BST in Mirror
+        //Approach 1: Convert the BST in Mirror using PostOrder Traversal
         public static void convertInMirrorUsingPostOrderTraversal(Node root){
             if (root == null) {
                 return;
@@ -79,6 +79,39 @@ public class MirrorOfBinarySearchTree {
             root.left = root.right;
             root.right = temp;
         }
+
+        //Approach 2: Convert the BST in Mirror using Level Order Traversal
+        public static void convertInMirrorUsingLevelOrderTraversal(Node root){
+            if (root == null) {
+                return;
+            }
+
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+            while (!q.isEmpty()) {
+                Node currNode = q.remove();
+                if (currNode == null) {
+                    if (q.isEmpty()) {
+                        return;
+                    }
+                    else{
+                        q.add(null);
+                    }
+                }
+                else{
+                    Node temp = currNode.left;
+                    currNode.left = currNode.right;
+                    currNode.right = temp;
+                    if (currNode.left != null) {
+                        q.add(currNode.left);
+                    }
+                    if (currNode.right != null) {
+                        q.add(currNode.right);
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -90,7 +123,9 @@ public class MirrorOfBinarySearchTree {
         BinarySearchTree.levelOrderTraversal(root);
         System.out.println();
 
-        BinarySearchTree.convertInMirrorUsingPostOrderTraversal(root);
+        // BinarySearchTree.convertInMirrorUsingPostOrderTraversal(root);
+        // BinarySearchTree.levelOrderTraversal(root);
+        BinarySearchTree.convertInMirrorUsingLevelOrderTraversal(root);
         BinarySearchTree.levelOrderTraversal(root);
     }
 }
