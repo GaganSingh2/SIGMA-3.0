@@ -90,3 +90,21 @@ public class ConvertSortedArrayToBalancedBinarySearchTree {
         BinarySearchTree.preOrderTraversal(root);
     }
 }
+/**
+ * Convert the Sorted Array to Binary Search Treee
+ *  arr[] = {3,5,6,8,10,11,12};
+ * 
+ *                      8
+ *                     / \
+ *                    5   11     <= Expetected Output
+ *                   / \  / \ 
+ *                  3  6 10  12
+ * 
+ * Approach
+ *     1)Find the mid element of the array and make the root node
+ *     2)Divide the array in two parts based on the mid 
+ *          a)LeftSubArray becomes LeftSubTree
+ *          b)rightSubArray becomes RightSubTree
+ *     3)ANd then connect to Root Node
+ *     4) Repeat same steps until the (si>ei)
+ */
