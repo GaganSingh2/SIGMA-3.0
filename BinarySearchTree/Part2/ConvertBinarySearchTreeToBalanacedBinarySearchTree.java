@@ -62,30 +62,20 @@ public class ConvertBinarySearchTreeToBalanacedBinarySearchTree {
             storeNodesUsingInOrderTraversal(root.right, path);
 
         }
-        //helper method to create the Balanced BST 
-        private static Node createBalancedBST(ArrayList<Integer> path, int si, int ei){
+        //helper method to Build the Balanced BST 
+        private static Node helperToConvertArrayToBalancedBST(ArrayList<Integer> path, int si, int ei){
             if (si > ei) {
                 return null;
             }
 
             int mid = si + (ei - si)/2;
             Node root = new Node(path.get(mid));
-            root.left = createBalancedBST(path, si, mid-1);
-            root.right = createBalancedBST(path, mid+1, ei);
+            root.left = helperToConvertArrayToBalancedBST(path, si, mid-1);
+            root.right = helperToConvertArrayToBalancedBST(path, mid+1, ei);
 
             return root;
         }
-        //helper method to used the sorted ArrayList and convert the list to BST
-        private static Node helperToConvertArrayToBalancedBST(ArrayList<Integer> path){
-            if (path.size() == 1) {
-                Node root = new Node(path.get(0));
-                return root;
-            }
-            int si = 0, ei = path.size()-1;
-            
-            return createBalancedBST(path, si, ei);
-            
-        }
+        
         //main method to solve this problem
         public static Node convertBST_To_BalancedBST(Node root){
             if (root == null) {
@@ -97,7 +87,8 @@ public class ConvertBinarySearchTreeToBalanacedBinarySearchTree {
             storeNodesUsingInOrderTraversal(root, path);
 
             //2nd Step=> convert the Sorted Array to Balanced BST
-            return helperToConvertArrayToBalancedBST(path);
+            int si = 0, ei = path.size()-1;
+            return helperToConvertArrayToBalancedBST(path, si, ei);
 
         }
     }
@@ -121,3 +112,18 @@ public class ConvertBinarySearchTreeToBalanacedBinarySearchTree {
     }
 }
 
+/**
+ * Convert the Binary Search Tree to Balanced Binary Search Tree
+ * Balanced BST: A Balanced BST in which the height diff between the left and right subTree of every node is at most 1
+ * (means maximum 1).
+ *                  {| Height(LeftSubTree) - Height(RightSubTree) | <= 1}
+ * 
+ *                          8                                                8         For Node 8: HeightOfLeftSubTree = 2, HeightOfRightSubTree = 2 => Diff(2-2)= (0<=1)
+ *                         / \                                              / \            
+ *                        6   10                                           5   11     For Node 5: HeightOfLeftSubTree = 1, HeightOfRightSubTree = 1 => Diff(1-1)= (0<=1)
+ *                       /     \              ==>                         / \  / \    For Node 11: HeightOfLeftSubTree = 1, HeightOfRightSubTree = 1 => Diff(1-1)= (0<=1)
+ *                      5       11                                       3  6 10 12
+ *                     /         \
+ *                    3           12                                    Balanced BST
+ *      Unbalanced BST
+ */
