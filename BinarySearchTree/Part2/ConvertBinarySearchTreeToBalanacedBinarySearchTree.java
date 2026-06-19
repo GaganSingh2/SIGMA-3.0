@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import InfosysPractice.practice6;
 
 public class ConvertBinarySearchTreeToBalanacedBinarySearchTree {
     static class Node{
