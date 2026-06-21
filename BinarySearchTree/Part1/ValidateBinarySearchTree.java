@@ -76,10 +76,10 @@ public class ValidateBinarySearchTree {
                 return false;
             }
 
-            //then check for leftSubTree
-            boolean leftSubTree = isValidBSTUsingMinMax(root.left, min, max);
-            //and Then check for rightSubTree
-            boolean rightSubTree = isValidBSTUsingMinMax(root.right, min, max);
+            //in Left SubTree all nodes < root.val so min = null and max = root
+            boolean leftSubTree = isValidBSTUsingMinMax(root.left, min, root);
+            //in Right SubTree all nodes > root.val so min = root and max = null
+            boolean rightSubTree = isValidBSTUsingMinMax(root.right, root, max);
 
             //if both are valid then return true otherwise false
             return leftSubTree && rightSubTree;
