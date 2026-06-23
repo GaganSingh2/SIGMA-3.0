@@ -166,6 +166,13 @@ public class MergeTwoBinarySearchTreeIntoNewBinarySearchTreeUsingInorderTraversa
         BinarySearchTree.levelOrderTraversal(newRootNode);
     }
 }
+//if the return type is ArrayList<>
+//TC: O(n + m)
+//SC: O(h1 + h2)
+//where h1 = height of BST1
+//and h2 = height of BST2
+
+//if the return type is new BST
 //TC: O(n + m)
 //SC: O(n + m)
 //where n = nodes in BST1
