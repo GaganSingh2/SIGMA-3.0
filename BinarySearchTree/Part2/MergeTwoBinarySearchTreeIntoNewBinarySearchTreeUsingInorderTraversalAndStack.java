@@ -166,3 +166,7 @@ public class MergeTwoBinarySearchTreeIntoNewBinarySearchTreeUsingInorderTraversa
         BinarySearchTree.levelOrderTraversal(newRootNode);
     }
 }
+//TC: O(n + m)
+//SC: O(n + m)
+//where n = nodes in BST1
+//and m = nodes in BST2
