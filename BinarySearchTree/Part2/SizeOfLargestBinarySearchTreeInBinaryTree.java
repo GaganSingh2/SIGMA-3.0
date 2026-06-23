@@ -80,16 +80,26 @@ public class SizeOfLargestBinarySearchTreeInBinaryTree {
 
             int currMax = Math.max(root.data, Math.max(leftInof.max, rightInfo.max));
 
-            //if any one is correct means this is the invalid BST
-            if (root.data <= leftInof.max || root.data >= rightInfo.min) {
-                return new InfoOfNode(false, currSize, currMin, currMax);
-            }
+            // //if any one is correct means this is the invalid BST
+            // if (root.data <= leftInof.max || root.data >= rightInfo.min) {
+            //     return new InfoOfNode(false, currSize, currMin, currMax);
+            // }
 
-            //if both are true means current node have valid BST
-            if (leftInof.isBst && rightInfo.isBst) {
-                maxSize = Math.max(currSize, maxSize);//update the final size when both are true
+            // //if both are true means current node have valid BST
+            // if (leftInof.isBst && rightInfo.isBst) {
+            //     maxSize = Math.max(currSize, maxSize);//update the final size when both are true
+            //     return new InfoOfNode(true, currSize, currMin, currMax);
+            // }
+
+            //both are same approach i just use bst rule so if all means it is a valid BST 
+            if(leftInof.isBst && rightInfo.isBst && root.data > leftInof.max && root.data < rightInfo.min){
+                //update the maxSize
+                maxSize = Math.max(maxSize, currSize);
+
                 return new InfoOfNode(true, currSize, currMin, currMax);
             }
+
+            //Otherwise not a BST
             return new InfoOfNode(false, currSize, currMin, currMax);
         }
     }
