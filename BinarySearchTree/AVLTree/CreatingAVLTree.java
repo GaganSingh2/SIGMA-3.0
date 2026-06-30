@@ -116,7 +116,7 @@ public class CreatingAVLTree {
             return rootY;
         }
 
-
+        //Build or Create the AVL Tree(Balance Binary Search Tree)
         public static Node buildAVLTree(Node root, int key){
             if (root == null) {
                 root = new Node(key);
@@ -166,7 +166,7 @@ public class CreatingAVLTree {
         }
     }
     public static void main(String[] args) {
-        int nodes[] = {40,20,10,25,30,22,50};
+        int nodes[] = {40,20,20,10,25,30,22,50};
         Node root = null;
         for(int key: nodes){
             root = AVLTree.buildAVLTree(root, key);
