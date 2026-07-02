@@ -1,5 +1,7 @@
 package BinarySearchTree.PracticeQus;
 
+import java.util.ArrayList;
+
 public class KthSmallestElementInBST {
     static class Node{
         int data;
@@ -35,6 +37,8 @@ public class KthSmallestElementInBST {
             inOrderTraversal(root.right);
         }
 
+
+        //Approach-1 using Inorder Traversal---------------
         public static int count = 0;
         public static int ans = -1;
         public static void helpInOrderTraversal(Node root, int k){
@@ -49,7 +53,7 @@ public class KthSmallestElementInBST {
             }
             helpInOrderTraversal(root.right, k);
         }
-        public static int kthSmallestElementInBST(Node root, int k){
+        public static int kthSmallestElementInBST1(Node root, int k){
             if (root == null || k < 1) {
                 return -1;
             }
@@ -58,6 +62,28 @@ public class KthSmallestElementInBST {
             helpInOrderTraversal(root, k);
 
             return ans;
+        }
+
+        //Approach-2 using Inorder Traversal and ArrayList---------------------
+        public static void helpInOrderTraversalAndArrayList(Node root, ArrayList<Integer> nodes){
+            if (root == null) {
+                return;
+            }
+            helpInOrderTraversalAndArrayList(root.left, nodes);
+            nodes.add(root.data);
+            helpInOrderTraversalAndArrayList(root.right, nodes);
+        }
+        public static int kthSmallestElementInBST2(Node root, int k){
+            if (root == null || k<1) {
+                return -1;
+            }
+            ArrayList<Integer> nodes = new ArrayList<>();
+            helpInOrderTraversalAndArrayList(root, nodes);
+            if (nodes.size() < k) {
+                return -1;
+            }
+           
+            return nodes.get(k-1); //k-1 bcz indexing start from 0
         }
     }
     public static void main(String[] args) {
@@ -69,8 +95,11 @@ public class KthSmallestElementInBST {
         BinarySearchTree.inOrderTraversal(root);
         System.out.println();
         int kth = 3;
-        int res = BinarySearchTree.kthSmallestElementInBST(root, kth);
+        int res = BinarySearchTree.kthSmallestElementInBST1(root, kth);
         System.out.println(kth+" Smallest Element: "+res);
+        System.out.println();
+        int res1 = BinarySearchTree.kthSmallestElementInBST2(root, kth);
+        System.out.println(kth+" Smallest Element: "+res1);
     }
 }
 
