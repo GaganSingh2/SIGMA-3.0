@@ -18,7 +18,7 @@ public class BubbleSort {
                 }
             }
 
-            //means array is already sorted bcz any swaping not happend in last iteration
+            //means array is already sorted bcz any swaping not happend in last iteration, so not check again and break early 
             if (!swap) {
                 break;
             }
@@ -42,7 +42,7 @@ public class BubbleSort {
                 }
             }
             if (!swap) {
-                break;//means array is already sorted bcz any swaping not happend in last iteration 
+                break;//means array is already sorted bcz any swaping not happend in last iteration, so not check again and break early 
             }
         }
 
