@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class LowestCommanAncestorOfBinaryTree {
     static class Node{
+        
         int data;
         Node left;
         Node right;

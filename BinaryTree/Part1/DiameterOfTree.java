@@ -103,7 +103,7 @@ public class DiameterOfTree {
             if (root == null) {
                 return 0;
             }
-
+            
             int lefHeight = heightOfTreeInEdges(root.left);
             int rightHeight = heightOfTreeInEdges(root.right);
 
