@@ -24,6 +24,19 @@ public class RotateArray {
         */
     }
 
+    public static void printArrayUsingIfElse(int arr[], int k){
+        for(int i=0; i<arr.length; i++){
+            if (k == arr.length-1) {
+                System.out.print(arr[k]+" ");
+                k = 0;
+            }
+            else{
+                System.out.print(arr[k]+" ");
+                k++;
+            }
+            
+        }System.out.println();
+    }
     private static void rotate(int si, int ei, int arr[]){
         while(si < ei){
             int temp = arr[si];
@@ -72,8 +85,10 @@ public class RotateArray {
        //Approach-1: using Modulo-------------
     //    rotateArrayUsingModulo(arr, k);
 
-       //Approach-2: using kth Rotation Apporach------------
-       rotateArrayUsingKthRotationApproach(arr, k);
+       printArrayUsingIfElse(arr, k);
+
+       //Approach-3: using kth Rotation Apporach------------
+    //    rotateArrayUsingKthRotationApproach(arr, k);
 
     }
 }
