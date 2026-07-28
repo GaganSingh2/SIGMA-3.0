@@ -3,6 +3,7 @@ package InterviewPrepration.VerifoneIndiaPvtLtd;
 import java.util.Scanner;
 
 public class RotateArray {
+    //Approach-1
     public static void rotateArrayUsingModulo(int arr[], int k){
         //formula: index = (k+i) % arr.length
         int n = arr.length;
@@ -24,6 +25,7 @@ public class RotateArray {
         */
     }
 
+    //Approach-2
     public static void printArrayUsingIfElse(int arr[], int k){
         for(int i=0; i<arr.length; i++){
             if (k == arr.length-1) {
@@ -37,6 +39,8 @@ public class RotateArray {
             
         }System.out.println();
     }
+
+    //Approach-3
     private static void rotate(int si, int ei, int arr[]){
         while(si < ei){
             int temp = arr[si];
